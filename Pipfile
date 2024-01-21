@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+torch = "*"
+torchvision = "*"
+transformers = "*"
+peft = "*"
+bitsandbytes = "*"
+numpy = "*"
+black = "*"
+jinja2 = "*"
+tqdm = "*"
+rich = "*"
+psutil = "*"
+datasets = "*"
+ruff = "*"
+wandb = "*"
+fschat = "*"
+
+[dev-packages]
+ipykernel = "*"
+
+[requires]
+python_version = "3.9"
