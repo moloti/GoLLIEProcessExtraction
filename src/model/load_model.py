@@ -136,6 +136,7 @@ def merge_lora_model(
 
 def load_model(
     inference: bool,
+    cache_dir: str,
     model_weights_name_or_path: str,
     quantization: Optional[int] = None,
     use_lora: bool = False,
@@ -288,6 +289,7 @@ def load_model(
     if use_lora:
         config = AutoConfig.from_pretrained(
             model_weights_name_or_path,
+            cache_dir=cache_dir,
             trust_remote_code=trust_remote_code,
             pretraining_tp=1,  # Fix mat1 and mat2 shapes cannot be multiplied  error with LLaMA-2
             # See https://github.com/huggingface/transformers/pull/24906
@@ -295,6 +297,7 @@ def load_model(
     else:
         config = AutoConfig.from_pretrained(
             model_weights_name_or_path,
+            cache_dir=cache_dir,
             trust_remote_code=trust_remote_code,
         )
 
@@ -302,6 +305,7 @@ def load_model(
 
     tokenizer: PreTrainedTokenizerBase = AutoTokenizer.from_pretrained(
         model_weights_name_or_path,
+        cache_dir=cache_dir,
         add_eos_token=True,
         trust_remote_code=trust_remote_code,
     )
@@ -389,6 +393,7 @@ def load_model(
     #  Load the model weights
     model: PreTrainedModel = load_fn.from_pretrained(
         pretrained_model_name_or_path=model_weights_name_or_path,
+        cache_dir=cache_dir,
         device_map=device_map,
         max_memory=max_memory,
         quantization_config=bnb_config,
