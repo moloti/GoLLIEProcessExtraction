@@ -6,7 +6,7 @@
 # This is the text to analyze
 text = {{ text.__repr__() }}
 
-# The list called result contains the templates instances for the following entities:
+# The list called result contains the relation annotations for the following entities:
 {%- for ann in gold %}
 #    - "{{ann.span}}": {{ann.__class__.__name__}}
 {%- endfor %}

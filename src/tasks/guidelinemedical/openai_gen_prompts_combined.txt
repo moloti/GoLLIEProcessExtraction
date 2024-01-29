@@ -1,0 +1,319 @@
+You are a world-class medical care flow process expert.
+Step 1 - Your task is to generate an excerpt from a cardiology clinical practice guideline, with a paragraph length of 3-6 sentences including a section heading and formatted as markdown.
+Step 2 - Extract all process entities out of the paragraph and the heading, sentence by sentence and adhere to the following 'entity definitions' to extract the correct entities.
+Step 3 - Extract all relations between entities in the paragraph sentence by sentence and adhere to the following 'relation definition' to extract the correct relations.
+Step 4 - Combine the extracted entities and the extracted relations and combine them into the desired json output format described below.
+Important: First output the complete paragraph as markdown and second the desired JSON output described below.
+
+"""
+Entity definitions
+"""
+
+class Observation(Entity):
+    """An Observation refers to any piece of information or data that is noted or recorded about a patient's health status, this includes
+    symptoms, diagnoses, test results risk factors like smoking or contextual information like the age or conditions of the patient."""
+    
+    span: str
+    """
+    Such as: not possible to administer, distribution of 18-F-FDG, severe hypoxemia, reduced eGFR, Diabetes, hypercapnia, postoperative pain, prostate cancer, elderly
+    """
+
+class Activity(Entity):
+    """An Activity refers to any action performed by a patient or a healthcare professional, this includes
+    tasks, procedures, surgeries, treatments, medication, or other types of interventions. Activities can also be events like start of the scan."""
+    
+    span: str # Such as: eat, fasting, start, monitored, assessed, reviewed, performed, administered, prescribed, recommended, catheterization, filled, referred, continued, anesthesia
+
+class ParentActivity(Entity):
+    """"A Parent Activity refers to broader category or subprocess in medical guidelines, typically found in section headings or bold.
+        This entity encompasses a group of related subactivities, actions, or tasks and can be broken down into it's individual subactions.
+        That's also what it differentiates from the normal Activity Entity, which tragets specififc individual actions.
+        For example, under 'Surgical Procedures' (a Parent Activity), you may find Activities like 'anesthesia administration' or 'incision making'.
+        Recognize these overarching process labels as Parent Activities, and clearly separate them from the more specific, individual tasks classified as Activity Entities."""
+    
+    span: str # Such as: Surgical Procedures, Anesthesia, Medication, Imaging, Laboratory Tests
+
+class Input(Entity):
+    """An Input Entity refers to any word or phrase that denotes a specific type of clinical measurement, score, or value. 
+    These include, but are not limited to, physiological measurements, lab test scores, and specific clinical indices. 
+    The difference to the guard is that it not represents specific numerical values or thresholds related but the category of the measurement or value for example
+    Blood Pressure, Heart Rate, PEEP, Pmean or PaO2/FiO2."""
+
+    span: str # Such as: pH, Blood Pressure, Heart Rate, PEEP, Pmean or PaO2/FiO2, retention, distribution, eGFR, se-creatinine, sizes
+
+class Output(Entity):
+    """An Output Entity refers to any word or phrase that denotes a specific type of clinical measurement, score, or value. 
+    These include, but are not limited to, physiological measurements, lab test scores, and specific clinical indices. 
+    The difference to the guard is that it not represents specific numerical values or thresholds related but the category of the measurement or value for example
+    Blood Pressure, Heart Rate, PEEP, Pmean or PaO2/FiO2. 
+    """
+
+    span: str # Such as: pH, Blood Pressure, Heart Rate, PEEP, Pmean or PaO2/FiO2, retention, distribution, eGFR, se-creatinine, sizes
+
+class Actor(Entity):
+    """An Actor refers to any person or entity that is involved in an activity, this includes
+    patients, doctors, nurses, or other healthcare professionals. Actors can perform activites or be the target of activities."""
+    
+    span: str # Such as: patients, patient, doctor, pt., anesthesiologist, 
+ 
+class ActivityData(Entity):
+    """An ActivityData entity refers to the data or object directly used by an activity, this includes devices, medications, objects. 
+    This could be for example an injection or a scan or insuline."""
+    
+    span: str # Such as: flow and residual urine, insuline, bladder, an appointment, tablet paracetamol, antidiabetic medication
+
+ 
+class Specification(Entity):
+    """A Specification entity refers to any information that further describes an activity, this includes
+    the time, the location, the dosage, the quantity, the frequency, the duration, additional information or the type of the activity.
+    Specifications are often linked with prepositions like for example at, to, in, into, on, for, with, within, while, as, according to, across, after, by, during, for, over, when, where."""
+    
+    span: str # Such as: between the first and second tracheal, long-term, acute phase, outpatient clinic, saline, elsewhere in the body, following afternoon
+
+class Guard(Entity):
+    """A Guard refers to a specific type of information that sets conditions, limits, or thresholds in the clinical context. 
+    These entities often represent critical values or timeframes that impact clinical decisions, such as dosage limits, duration of treatment, or thresholds for test results.
+    This can include measurements (like volume or concentration), timeframes (like durations or frequencies), or any other quantifiable condition that affects clinical decisions."""
+    
+    span: str # after 1 week, >1000 ml, <1000 ml, at least 2 hours, for 6 hours, < 45
+
+class PurposeOutcome(Entity):
+    """A PurposeOutcome entity captures the underlying reason, goal, objective, or anticipated result of a clinical action, procedure, or recommendation. 
+    It addresses the "why" or the intended effect of a medical intervention or guideline. Examples would be: to reduce the risk of stroke or so that the patient can sleep better.
+    The PurposeOutcome entity is often connected with prepositions like for, to, in order to, so that, to ensure, because maybe or because of."""
+
+    span: str # adequate bladder volume, 
+
+class And(Entity):
+    """An And entity connects two or more activities that are linked by the conjunction "and." This entity indicates that all linked activities are required or occur in conjunction.
+       Primarily used in scenarios where multiple steps or conditions are simultaneously necessary. For instance, in a treatment plan, if multiple treatment activities need to be executed together.
+    """
+
+    span: str # Such as: and, &, +, as well as
+
+class Or(Entity):
+    """An Or entity links two or more activities or options, using the conjunction "or." 
+    It signifies that any one of the linked activities or observations may be chosen or is applicable, but not necessarily all.
+    Useful in cases where multiple options are available, and the choice of one excludes the others. Often seen in treatment plans where alternative activities are viable."""
+
+    span: str # Such as: or, /, 
+
+class Xor(Entity):
+    """An Xor (exclusive or) entity connects two or more mutually exclusive activities, actions, tasks or observations, using the concept of "xor." 
+    It implies that only one of the linked activities can be chosen or applies, and selecting one excludes the others.
+    Applied in situations where two or more options are available but are mutually exclusive. It's critical in scenarios where the selection of one option inherently rules out the others.
+    """
+
+    span: str 
+
+class ResponseEntity(Entity):
+    """A Response entity captures the relationship between two activties or an observation and a activity. If the first activity is executed the second activity must be executed at some point in time..
+    The Response entity can therefore be for example action A and requires action B, observation A: administer drug B. 
+    """
+
+    span: str # can be repeated, and requires, whether, during this period, in case of, must
+
+class ConditionEntity(Entity):
+    """A Condition entity captures the relationship between two activties or an observation and a activity which need to be executed in a specific order. So action B can only be executed after action A.
+    But Action B does not have to be executed. Activity B could for instance be “Prescribe medicin”. For that to happen a medical examination has to take place, which could be activity A.
+    The RelationCondition entity can therefore be for example "in cases where" so "use infusion fluid only in cases where the patient is dehydrated" or "before" so "before prescribing medication, perform a medical examination".
+    """
+
+    span: str # Such as: in cases where, in cases of, and finally, when, followed by, after, during this period, :, before, until
+
+class ExclusionEntity(Entity):
+    """A Exclusion entity captures the relationship between two activities or an observation and an activity where one is excluding the other. 
+    Examples for the Exclusion entity would be for example not routinely recommmended, or should not be, if observation activity is not possible."""
+
+    span: str # Such as: must not, not suitable, should not
+
+class InclusionEntity(Entity):
+    """A Inclusion entity captures the relationship between two activities or an observation and an activity where one is including the other. For example blood tests are not required unless
+    observation A is true. The Inclusion entity can therefore be for example "unless" so "blood tests are not required unless observation A is true" 
+    or "if" so "if observation A is true, then blood tests are required"."""
+
+    span: str
+
+"""
+Relation definitions
+"""
+
+class ActivityActorPerformerRelation(Relation):
+    """The ActivityActorPerformer Relation captures the relationship between activity and actor entities.
+    The ActivityActorPerformer relation can be for example 'performed by' so 'the surgery was performed by the surgeon'
+    or 'administered by' so 'the medication was administered by the nurse'.
+    The Activity can either be performed by medical staff (doctors, nurses, etc. ) or by the patient himself."""
+
+    entity: str # Entities Activity, Observation, Input, Output
+    actor: str # Actor Entity (person performing the action)
+
+class ActivityActorReceiverRelation(Relation):
+    """The Activity relation captures the relationship between activity and actor entities.
+    The ActivityActorReceiver relation describes the relation between an activity and an actor which is the receiver of the activity.
+    Example of ActivityActorReceiverRelation: activity is 'administered' and 'patient' is actor in the sentence 'A small dosage was administered to the patient'"""
+
+    activity: str # Entities Activity, Observation, Input, Output
+    actor: str # Actor Entity (person receiving the action)
+
+class ActivityActivityDataRelation(Relation):
+    """The ActivityActivityData relation captures the relationship between the entities Activity and the object which is used by the Activity the ActivityData entity."""
+
+    entity: str # Activity, Observation, Input, Output Entities
+    activityData: str # ActivityData Entity
+
+class ActivityParentRelation(Relation):
+    """The ActivityParent Relation captures the relationship between two activities where one activity is the parent of the other activity.
+    Or the other Activity is a subactivity of the first activity. For example '# Setting Up for a Sterile Surgical Procedure #' is the parent of '### Preparation of the Surgical Environment ###'.
+    So the Parent Activity is 'Setting Up' and the Subactivity is 'Preparation'."""
+
+    entity: str # Activity, Observation, Input, Output Entities
+    activityParent: str # Activity, Observation, Input, Output Entities
+
+class ActivitySpecificationRelationTriplet(Relation):
+    """The ActivitySpecification Relation captures the realtionship between the entities Activity and Specification which further describes the Activity.
+    The ActivitySpecification relation can be for example 'the surgery was performed at the hospital' so we have a relation between the Activity 'performed' and the specification 'at the hospital'.
+    The type of the ActivitySpecificationRelation depends on what the Specification entity describes."""
+
+    entity: str # Activity, Observation, Input, Output Entities
+    specification: str # Specification Entity
+    type: str # Either: "Reason", "State", "Identitfication", "Frequency", "Duration", "Location", "Time", "Description", "Including" or "Additional"
+
+class ActivityGuardRelationTriplet(Relation):
+    """The ActivityGuard Relation Triplet captures the relationship between an Activity, Observation, Input or Output and a Guard entity.
+    So for example a Activity can be guarded by a Guard entity. The Guard entity can be for example '> 6h' so 'if the stroke happened already > 6 hours ago perform SOFA-Test'.
+    The Guard entity would be '> 6h' and the Activity would be 'perform' and the type would be 'Larger'."""
+
+    entity: str # Activity, Observation, Input, Output Entities
+    guard: str # Guard Entity
+    type: str # Either: "Deadline", "Exact", "Larger", "Smaller" or "Valid"
+
+class ConditionalGuardRelationTriplet(Relation):
+    """The ConditionalGuard Relation Triplet captures the relationship between a Response, Condition, Exclusion or Inclusion Entity and a Guard entity.
+    So for example a Condition can be guarded by a Guard entity. The Guard entity can be for example '> 1/2h' so 'paracetamol can be given preoperatively > 1/2h before anesthesia'.
+    The Guard entity would be '> 1/2h' and the Condition Entity would be 'before' and the type would be 'Larger'."""
+
+    entity: str # Activity, Observation, Input, Output Entities
+    guard: str # Guard Entity
+    type: str # Either: "Deadline", "Exact", "Larger", "Smaller" or "Valid"
+
+class ConnectRelationTriplet(Relation):
+    """{medical_activity_connect}"""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    connectionSpan: str # Either "AND", "OR", "XOR" Entity
+
+class ConditionRelationTriplet(Relation):
+    """A Condition Relation captures the relationship between two activties or an observation and a activity which need to be executed in a specific order. So action B can only be executed after action A.
+    Activity B could for instance be “Prescribe medicin”. For that to happen a medical examination has to take place, which could be activity A.
+    The Condition Relation could be for example 'use infusion fluid only in cases where the patient is dehydrated' so we would have a relation between the activity 'use' and the observation 'dehydration'.
+    Or for example 'before prescribing medication, perform a medical examination' we would have the activity 'prescribe' and the activity 'examination' connected with a ConditionRelation."""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    conditionEntity: str # Condition Entity, such as: "and finally", "when", "followed by", "after", "during this period", ":", "before", "until"
+
+class ResponseRelationTriplet(Relation):
+    """A Response Relation captures the relationship between two activties or an observation and an activity. This relation applies if after executing the first activity the second activity must be executed.
+    The Response Relation could be for example 'if the patient is dehydrated, use infusion fluid' so we would have a relation between the observation 'dehydration' and the activity 'use'."""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    responseEntity: str # Response Entity such as "can be repeated", "and requires", "whether", "during this period", "in case of", "must"
+
+class ConditionResponseRelationTriplet(Relation):
+    """A ConditionResponse Relation captures the relationship between two activties or an observation and an activity and applies if as Response Relation is combined with a Condition Relation.
+    This relation applies if after executing the first activity the second activity must be executed and it is only allowed to happen after activity A.
+    In the following example sentence 'Following the collection of blood cultures, administer broad-spectrum intravenous antibiotics within one hour of recognition of sepsis.'
+    we would have a ConditionResponse Relation between the activity 'collection' and the activity 'administer'."""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    conditionEntity: str # ConditionResponse Entity
+
+class ExclusionRelationTriplet(Relation):
+    """A RelationExclusion entity caputres the relationship between two activities or an observation and an activity where one is excluding the other.
+    Examples for the RelationExclusion entity would be for example not routinely recommmended, or should not be, if observation activity is not possible."""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    exclusionEntity: str # Exclusion Entity
+
+class InclusionRelationTriplet(Relation):
+    """A RelationInclusion entity captures the relationship between two activities or an observation and an activity where one is including the other. For example blood tests are not required unless
+    observation A is true. The RelationInclusion entity can therefore be for example 'unless' so 'blood tests are not required unless observation A is true'
+    This entity only applies if an actions was previously excluded (for example by a exclusion entity) or not part of the process but is now included."""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    inclusionEntity: str # Inclusion Entity
+
+"""
+Desired output JSON format (spans must be matched 1 to 1 with the original sentence  ):
+"""
+{
+"topic": "cardiology"
+"paragraph": [
+    {
+    "sentence": "example sentence in markdown format"
+    "entities": [
+        "Observation": ["span"],
+        "Activity": ["span1", "span2"]
+        "ActivityData": ["span"]
+    ],
+    "relations": [
+        {"ExclusionRelationTriplet": {"from": "span", "to": "span", inclusionEntity: "span"}},
+        {"ConditionRelationTriplet": {"from": "span", "to": "span", inclusionEntity: "span"}},
+        {"ActivityActorPerformerRelation": {"entity": "span", "actor": "span", inclusionEntity: "span"}}
+    ]
+},
+{
+      "sentence": "In cases of suspected myocardial infarction, administer aspirin immediately unless contraindicated.",
+      "entities": {
+        "ConditionEntity": ["In cases of"]
+        "Observation": ["suspected myocardial infarction"],
+        "Activity": ["administer"],
+        "ActivityData": ["aspirin"],
+        "ExclusionEntity": ["unless contraindicated"],
+      },
+      "relations": [
+        {"ActivitySpecificationRelationTriplet": {"entity": "administer", "specification": "suspected myocardial infarction", "type": "Reason"}},
+        {"ActivityActivityDataRelation": {"entity": "administer", "activityData": "aspirin"}},
+        {"ExclusionRelationTriplet": {"from": "administer", "to": "aspirin", "exclusionEntity": "unless contraindicated"}}
+        {"ConditionRelationTriplet": {"from": "suspected myocardial infarction", "to": "administer", "conditionEntity": "In cases of"}}
+      ]
+},
+{
+   "sentence": "Patients with a history of allergic reactions should **not** be given penicillin."
+    "entities": [
+       "Activity": ["Administer"],
+        "ActivityData": ["500 mg of Amoxicillin"],
+        "Observation": ["bacterial infection"],
+        "Actor": ["patients"]
+    ],
+    "relations": [
+            {"ActivityActorPerformerRelation": {"entity": "Administer", "actor": "patients"}},
+            {"ActivityActivityDataRelation": {"entity": "Administer", "activityData": "500 mg of Amoxicillin"}},
+            {"ActivityActorReceiverRelation": {"entity": "Administer", "actor": "patients"}},
+            {"ActivitySpecificationRelationTriplet": {"entity": "Administer", "specification": "bacterial infection", "type": "Reason"}}
+    ]
+},
+{
+    "sentence": "In patients with atrial fibrillation, consider oral anticoagulation therapy, especially if CHA2DS2-VASc score is ≥2.",
+    "entities": {
+        "Input": ["CHA2DS2-VASc score"],
+        "Observation": ["atrial fibrillation"],
+        "Activity": ["consider"],
+        "ParentActivity": ["oral anticoagulation therapy"],
+        "ResponseEntity": ["especially if"],
+        "Guard": ["≥2"]
+    },
+    "relations": [
+        {"ActivityParentRelation": {"entity": "consider", "activityParent": "oral anticoagulation therapy"}},
+        {"ActivitySpecificationRelationTriplet": {"entity": "consider", "specification": "atrial fibrillation", "type": "Reason"}},
+        {"ActivityGuardRelationTriplet": {"entity": "CHA2DS2-VASc score", "guard": "≥2", "type": "Larger"}},
+        {"ResponseRelationTriplet": {"from": "CHA2DS2-VASc score", "to": "consider", "responseEntity": "especially if"}}
+    ]
+    },
+]
+}

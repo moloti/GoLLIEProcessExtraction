@@ -1,0 +1,237 @@
+You are a world-class medical care flow process expert.
+Instruction: 
+Your task is to extract the correct relations sentence by sentence and based on the entities specified in the JSON input and adhere to the following 'relation definitions' to extract the correct relations.
+Return the sentences and the relations as JSON.
+
+"""
+Relation definitions
+"""
+
+class ActivityActorPerformerRelation(Relation):
+    """The ActivityActorPerformer Relation captures the relationship between activity and actor entities.
+    The ActivityActorPerformer relation can be for example 'performed by' so 'the surgery was performed by the surgeon'
+    or 'administered by' so 'the medication was administered by the nurse'.
+    The Activity can either be performed by medical staff (doctors, nurses, etc. ) or by the patient himself."""
+
+    activity: str # Entities Activity, Observation, Input, Output
+    actor: str # Actor Entity (person performing the action)
+
+class ActivityActorReceiverRelation(Relation):
+    """The Activity relation captures the relationship between activity and actor entities.
+    The ActivityActorReceiver relation describes the relation between an activity and an actor which is the receiver of the activity.
+    Example of ActivityActorReceiverRelation: activity is 'administered' and 'patient' is actor in the sentence 'A small dosage was administered to the patient'"""
+
+    activity: str # Entities Activity, Observation, Input, Output
+    actor: str # Actor Entity (person receiving the action)
+
+class ActivityActivityDataRelation(Relation):
+    """The ActivityActivityData relation captures the relationship between the entities Activity and the object which is used by the Activity the ActivityData entity."""
+
+    activity: str # Activity, Observation, Input, Output Entities
+    activityData: str # ActivityData Entity
+
+class ActivityParentRelation(Relation):
+    """The ActivityParent Relation captures the relationship between two activities where one activity is the parent of the other activity.
+    Or the other Activity is a subactivity of the first activity. For example '# Setting Up for a Sterile Surgical Procedure #' is the parent of '### Preparation of the Surgical Environment ###'.
+    So the Parent Activity is 'Setting Up' and the Subactivity is 'Preparation'."""
+
+    activity: str # Activity, Observation, Input, Output Entities
+    activityParent: str # Activity, Observation, Input, Output Entities
+
+class ActivitySpecificationRelationTriplet(Relation):
+    """The ActivitySpecification Relation captures the realtionship between the entities Activity and Specification which further describes the Activity.
+    The ActivitySpecification relation can be for example 'the surgery was performed at the hospital' so we have a relation between the Activity 'performed' and the specification 'at the hospital'.
+    The type of the ActivitySpecificationRelation depends on what the Specification entity describes."""
+
+    activity: str # Activity, Observation, Input, Output Entities
+    specification: str # Specification Entity
+    type: str # Either: "Reason", "State", "Identitfication", "Frequency", "Duration", "Location", "Time", "Description", "Including" or "Additional"
+
+class ActivityGuardRelationTriplet(Relation):
+    """The ActivityGuard Relation Triplet captures the relationship between an Activity, Observation, Input or Output and a Guard entity.
+    So for example a Activity can be guarded by a Guard entity. The Guard entity can be for example '> 6h' so 'if the stroke happened already > 6 hours ago perform SOFA-Test'.
+    The Guard entity would be '> 6h' and the Activity would be 'perform' and the type would be 'Larger'."""
+
+    activity: str # Activity, Observation, Input, Output Entities
+    guard: str # Guard Entity
+    type: str # Either: "Deadline", "Exact", "Larger", "Smaller" or "Valid"
+
+class ConditionalGuardRelationTriplet(Relation):
+    """The ConditionalGuard Relation Triplet captures the relationship between a Response, Condition, Exclusion or Inclusion Entity and a Guard entity.
+    So for example a Condition can be guarded by a Guard entity. The Guard entity can be for example '> 1/2h' so 'paracetamol can be given preoperatively > 1/2h before anesthesia'.
+    The Guard entity would be '> 1/2h' and the Condition Entity would be 'before' and the type would be 'Larger'."""
+
+    activity: str # Activity, Observation, Input, Output Entities
+    guard: str # Guard Entity
+    type: str # Either: "Deadline", "Exact", "Larger", "Smaller" or "Valid"
+
+class ConnectRelationTriplet(Relation):
+    """{medical_activity_connect}"""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    connectionSpan: str # Either "AND", "OR", "XOR" Entity
+
+class ConditionRelationTriplet(Relation):
+    """A Condition Relation captures the relationship between two activties or an observation and a activity which need to be executed in a specific order. So action B can only be executed after action A.
+    Activity B could for instance be “Prescribe medicin”. For that to happen a medical examination has to take place, which could be activity A.
+    The Condition Relation could be for example 'use infusion fluid only in cases where the patient is dehydrated' so we would have a relation between the activity 'use' and the observation 'dehydration'.
+    Or for example 'before prescribing medication, perform a medical examination' we would have the activity 'prescribe' and the activity 'examination' connected with a ConditionRelation."""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    conditionEntity: str # Condition Entity, such as: "and finally", "when", "followed by", "after", "during this period", ":", "before", "until"
+
+class ResponseRelationTriplet(Relation):
+    """A Response Relation captures the relationship between two activties or an observation and an activity. This relation applies if after executing the first activity the second activity must be executed.
+    The Response Relation could be for example 'if the patient is dehydrated, use infusion fluid' so we would have a relation between the observation 'dehydration' and the activity 'use'."""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    responseEntity: str # Response Entity such as "can be repeated", "and requires", "whether", "during this period", "in case of", "must"
+
+class ConditionResponseRelationTriplet(Relation):
+    """A ConditionResponse Relation captures the relationship between two activties or an observation and an activity and applies if as Response Relation is combined with a Condition Relation.
+    This relation applies if after executing the first activity the second activity must be executed and it is only allowed to happen after activity A.
+    In the following example sentence 'Following the collection of blood cultures, administer broad-spectrum intravenous antibiotics within one hour of recognition of sepsis.'
+    we would have a ConditionResponse Relation between the activity 'collection' and the activity 'administer'."""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    conditionEntity: str # ConditionResponse Entity
+
+class ExclusionRelationTriplet(Relation):
+    """A RelationExclusion entity caputres the relationship between two activities or an observation and an activity where one is excluding the other.
+    Examples for the RelationExclusion entity would be for example not routinely recommmended, or should not be, if observation activity is not possible."""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    exclusionEntity: str # Exclusion Entity
+
+class InclusionRelationTriplet(Relation):
+    """A RelationInclusion entity captures the relationship between two activities or an observation and an activity where one is including the other. For example blood tests are not required unless
+    observation A is true. The RelationInclusion entity can therefore be for example 'unless' so 'blood tests are not required unless observation A is true'
+    This entity only applies if an actions was previously excluded (for example by a exclusion entity) or not part of the process but is now included."""
+
+    from: str # Activity, Observation, Input, Output Entities
+    to: str # Activity, Observation, Input, Output Entities
+    inclusionEntity: str # Inclusion Entity
+
+---------
+
+JSON Input with the extracted Entities:
+"""
+[
+    {
+        "text": "Administer 500 mg of Amoxicillin to patients presenting with bacterial infection.",
+        "entity_name": {
+            "Activity": ["Administer"],
+            "ActivityData": ["500 mg of Amoxicillin"],
+            "Observation": ["bacterial infection"],
+            "Actor": ["patients"]
+        }
+    },
+    {
+        "text": "For patients over 65 years old, consider a reduced dosage of ibuprofen.",
+        "entity_name": {
+            "Observation": ["over 65 years old"],
+            "Specification": ["reduced dosage"],
+            "ActivityData": ["ibuprofen"],
+            "Actor": ["patients"]
+        }
+    },
+    {
+        "text": "Monitor heart rate every 15 minutes during the postoperative period.",
+        "entity_name": {
+            "Activity": ["Monitor"],
+            "Output": ["heart rate"],
+            "Specification": ["every 15 minutes", "during the postoperative period"]
+        }
+    },
+    {
+        "text": "Patients with a history of allergic reactions should not be given penicillin.",
+        "entity_name": {
+            "Observation": ["history of allergic reactions"],
+            "RelationExclusion": ["should not be given"],
+            "ActivityData": ["penicillin"],
+            "Actor": ["Patients"]
+        }
+    },
+    {
+        "text": "If blood glucose levels are above 10 mmol/L, administer insulin.",
+        "entity_name": {
+            "Guard": ["above 10 mmol/L"],
+            "Activity": ["administer"],
+            "ActivityData": ["insulin"],
+            "Output": ["blood glucose levels"]
+        }
+    },
+    {
+        "text": "Patients undergoing chemotherapy should be evaluated for nausea every two hours.",
+        "entity_name": {
+            "Actor": ["Patients"],
+            "Activity": ["undergoing chemotherapy", "be evaluated"],
+            "Observation": ["nausea"],
+            "Specification": ["every two hours"]
+        }
+    },
+    {
+        "text": "Apply cold compress to the affected area in cases of minor burns.",
+        "entity_name": {
+            "Activity": ["Apply"],
+            "ActivityData": ["cold compress"],
+            "Specification": ["to the affected area"],
+            "Observation": ["minor burns"]
+        }
+    },
+    {
+        "text": "Prescribe 30 mg of prednisone daily for patients with acute asthma exacerbation.",
+        "entity_name": {
+            "Activity": ["Prescribe"],
+            "ActivityData": ["30 mg of prednisone"],
+            "Specification": ["daily"],
+            "Observation": ["acute asthma exacerbation"],
+            "Actor": ["patients"]
+        }
+    },
+    {
+        "text": "Advise patients to avoid alcohol while taking metronidazole.",
+        "entity_name": {
+            "Activity": ["Advise"],
+            "Actor": ["patients"],
+            "ActivityData": ["metronidazole"],
+            "Specification": ["to avoid alcohol"]
+        }
+    },
+    {
+        "text": "Conduct a full blood count test annually for patients with a history of anemia.",
+        "entity_name": {
+            "Activity": ["Conduct"],
+            "ActivityData": ["a full blood count test"],
+            "Specification": ["annually"],
+            "Observation": ["history of anemia"],
+            "Actor": ["patients"]
+        }
+    }
+]
+"""
+
+
+Desired output JSON format with Relations:
+
+paragraph: [{
+    sentence: "example sentence in markdown format"
+    relations: [
+        "ExclusionRelationTriplet": [{"from": "span", "to": "span", inclusionEntity: "span"}],
+        "ConditionRelationTriplet": [{"from": "span", "to": "span", inclusionEntity: "span"}],
+        "ActivityActorPerformerRelation": [{"activity": "span", "actor": "span", inclusionEntity: "span"}]
+    ]
+},
+{
+    sentence: "example sentence in markdown format"
+    relations: [
+        "ExclusionRelationTriplet": [{"from": "span", "to": "span", inclusionEntity: "span"}],
+        "ActivityActorPerformerRelation": [{"activity": "span", "actor": "span", inclusionEntity: "span"}]
+    ]
+},
+]
