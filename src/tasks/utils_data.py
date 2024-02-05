@@ -30,7 +30,7 @@ class DatasetLoader:
             return self.elements[idx]
 
 
-class label_noise_probSampler:
+class Sampler:
     """
     A generic data `Sampler` class.
 

@@ -3,7 +3,7 @@ from typing import Dict, List, Type
 from src.tasks.guidelinemedical.prompts import (
     COMPLEX_RELATION_DEFINITIONS,
     ENTITY_DEFINITIONS,
-    FINAL_TRIPLET_RELATION_DEFINITIONS,
+    # FINAL_TRIPLET_RELATION_DEFINITIONS,
     RELATION_DEFINITIONS,
 )
 
