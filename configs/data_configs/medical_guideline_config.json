@@ -1,5 +1,5 @@
 {
-    "dataset_name": "MedicalGuidelines",
+    "dataset_name": "MedicalGuideline",
     "tasks": [
         "NER",
         "RE",

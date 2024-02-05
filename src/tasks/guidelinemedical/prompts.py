@@ -341,10 +341,10 @@ TEMPLATE_DEFINITIONS: List[Type] = [
     InclusionRelationTriplet,
 ]
 
-FINAL_TRIPLET_RELATION_DEFINITIONS = List[Type] = [
-    ActivityPurposeOutcomeRelation,
-    ActivityParentRelation,
-    ActivityActivityDataRelation,
-    ActivityActorPerformerRelation,
-    ActivityActorReceiverRelation,
-] + TEMPLATE_DEFINITIONS
+# FINAL_TRIPLET_RELATION_DEFINITIONS = List[Type] = [
+#     ActivityPurposeOutcomeRelation,
+#     ActivityParentRelation,
+#     ActivityActivityDataRelation,
+#     ActivityActorPerformerRelation,
+#     ActivityActorReceiverRelation,
+# ] + TEMPLATE_DEFINITIONS

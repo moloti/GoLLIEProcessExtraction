@@ -10,6 +10,7 @@ from . import (
     diann,
     e3c,
     fabner,
+    guidelinemedical,
     harveyner,
     mitmovie,
     mitrestaurant,
@@ -30,6 +31,9 @@ TASK_ID_TO_TASKS = {
     "ACE05_RC": "src.tasks.ace",
     "ACE05_EE": "src.tasks.ace",
     "ACE05_EAE": "src.tasks.ace",
+    "MedicalGuideline_NER": "src.tasks.guidelinemedical",
+    "MedicalGuideline_RE": "src.tasks.guidelinemedical",
+    "MedicalGuideline_RE-COMPLEX": "src.tasks.guidelinemedical",
     "RAMS_EAE": "src.tasks.rams",
     "CoNLL03_NER": "src.tasks.conll03",
     "CASIE_EE": "src.tasks.casie",
@@ -73,6 +77,7 @@ __all__ = [
     "ncbidisease",
     "bc5cdr",
     "diann",
+    "guidelinemedical",
     "wnut",
     "multinerd",
     "wikievents",
@@ -143,6 +148,10 @@ def task_id_to_guidelines(task_id: str) -> Dict[str, Dict[str, List[str]]]:
     """
     if task_id.lower() == "ace05":
         from src.tasks.ace.guidelines_gold import GUIDELINES
+
+        return GUIDELINES
+    elif task_id.lower() == "medicalguideline":
+        from src.tasks.guidelinemedical.guidelines_gold import GUIDELINES
 
         return GUIDELINES
     elif task_id.lower() == "rams":
