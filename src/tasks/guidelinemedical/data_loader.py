@@ -447,7 +447,7 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
                     }
                 
                 print('Hello 1 before text')
-                text = ''
+                text_tokens = []
                 currentEntity = None
                 entities = []
                 for index, code in enumerate(line['ner_tags']):
@@ -456,25 +456,28 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
                             if currentEntity is not None:
                                 entities.append(
                                     self.NER_TAG_TO_CLASS[currentEntity](
-                                        span=text.strip(),
+                                        span=' '.join(text_tokens).strip(),
                                     )
                                 )
                                 currentEntity = None
                                 text = ''
                             currentEntity = code
-                            text = line['tokens'][index] + ' '
-                        else:
-                            text += line['tokens'][index] + ' '
-
+                        text_tokens.append(line['tokens'][index])
                     else:
                         if currentEntity is not None:
                             entities.append(
                                 self.NER_TAG_TO_CLASS[currentEntity](
-                                    span=text.strip(),
+                                    span=' '.join(text_tokens).strip(),
                                 )
                             )
                             currentEntity = None
-                            text = ''
+                            text_tokens = []
+                if currentEntity is not None:
+                    entities.append(
+                        self.NER_TAG_TO_CLASS[currentEntity](
+                            span=' '.join(text_tokens).strip(),
+                        )
+                    )
                 # {"document_id":0,"document_unique_id":"000350bf-9e9d-4a9d-892b-4780cee3b7e1_13","sentence_id":5,"tokens":["Pediatric","doses","are","prescribed","by","an","anesthesiologist","."],"position_ids":[72,73,74,75,76,77,78,79],"ner_tags":[43,44,0,3,0,0,41,0],"re_tags":[[75,75,78,78,1],[75,75,72,73,2]],"origin_sentence_ids":[32]}
                 template_relations, complex_relations, relations = [], [], []
                 for_to_relations = {}
@@ -518,7 +521,6 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
                         self.fill_relations(relations, index, relation, line)
                         self.fill_template_relations(template_relations, index, relation, line)
 
-                print('Hello 3') 
                 # Add special 
                 for keyRel, value in for_to_relations.items():
                     _from = ''
