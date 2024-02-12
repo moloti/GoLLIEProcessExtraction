@@ -263,9 +263,6 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
 
     def get_span_indices(self, line: Dict[str, Any], start_span: int, end_span: int) -> Tuple[int, int]:
         """Get start and end indices for a span."""
-        print('Get span indices')
-        print(line['position_ids'])
-        print(end_span)
         start_index = line['position_ids'].index(start_span)
         end_index = line['position_ids'].index(end_span)
         return start_index, end_index
@@ -289,6 +286,9 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
 
         start_ner_tag = line['ner_tags'][start_index_1]
         end_ner_tag = line['ner_tags'][end_index_1]
+        print('Start Ner Tag', start_ner_tag)
+        print('Start index', start_index_1)
+        print('End index', end_index_1)
         arg_1 = line['tokens'][start_index_1:end_index_1+1]
         arg_2 = line['tokens'][start_index_2:end_index_2+1]
 
@@ -400,11 +400,7 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
         arg_1 = line['tokens'][start_index_1:end_index_1+1]
         arg_2 = line['tokens'][start_index_2:end_index_2+1]
 
-        print('Relation Type', relation_type)
-
         definition = self.RE_TAG_DEFINITIONS_INVERSE_WITHOUT_TEMPLATE[relation_type]
-
-        print('Definition', definition)
 
         if isinstance(definition, tuple): 
             relations.append(
@@ -491,16 +487,22 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
                     start_span_2 = relation[2]
                     end_span_2 = relation[3]
                     relation_type = relation[4]
+                    print('Relation Type:')
+                    print(index)
+                    print(relation)
+                    print(relation_type)
 
                     if relation_type == 26:
                         # Text of the activity, the connectionSpan, and the index of the connectionSpan to find the From entity
                         activityFrom, connectionSpan, connectionIndex, target_ner_tag =  self.get_from_relation(line, start_span_1, end_span_1, start_span_2, end_span_2)
+
                         if connectionIndex in for_to_relations:
                             for_to_relations[connectionIndex].update({"_from": activityFrom})
                         else:
                             for_to_relations[connectionIndex] = {"_from": activityFrom, "connectionSpan": connectionSpan, "target_ner_tag": target_ner_tag}
                     elif relation_type == 27:
                         connectionSpan, activityTo, connectionIndex, target_ner_tag = self.get_to_relation(line, start_span_1, end_span_1, start_span_2, end_span_2)
+
                         if connectionIndex in for_to_relations:
                             for_to_relations[connectionIndex].update({"_to": activityTo})
                         else:
@@ -519,34 +521,41 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
                 print('Hello 3') 
                 # Add special 
                 for keyRel, value in for_to_relations.items():
+                    _from = ''
+                    _to = ''
+                    if '_from' in value:
+                        _from = value
+                    if '_to' in value:
+                        _to = value
+
                     if value["target_ner_tag"] == 29:
-                        template_relations.append(ResponseRelationTriplet(_from=value['_from'], _to=value['_to'], connectionSpan=value['connectionSpan']))
-                        # relations.append(ResponseRelation(arg1=value['_from'], arg2=value['_to']))
+                        template_relations.append(ResponseRelationTriplet(_from=_from, _to=_to, connectionSpan=value['connectionSpan']))
+                        # relations.append(ResponseRelation(arg1=_from, arg2=_to))
                     elif value["target_ner_tag"] == 31:
-                        template_relations.append(InclusionRelationTriplet(_from=value['_from'], _to=value['_to'], connectionSpan=value['connectionSpan']))
-                        # relations.append(InclusionRelation(arg1=value['_from'], arg2=value['_to']))
+                        template_relations.append(InclusionRelationTriplet(_from=_from, _to=_to, connectionSpan=value['connectionSpan']))
+                        # relations.append(InclusionRelation(arg1=_from, arg2=_to))
                     elif value["target_ner_tag"] == 33:
-                        template_relations.append(ConditionRelationTriplet(_from=value['_from'], _to=value['_to'], connectionSpan=value['connectionSpan']))
-                        # relations.append(ConditionRelation(arg1=value['_from'], arg2=value['_to']))
+                        print('Inside Condition realtion:')
+                        print(value)
+                        template_relations.append(ConditionRelationTriplet(_from=_from, _to=_to, connectionSpan=value['connectionSpan']))
+                        # relations.append(ConditionRelation(arg1=_from, arg2=_to))
                     elif value["target_ner_tag"] == 35:
-                        template_relations.append(InclusionRelationTriplet(_from=value['_from'], _to=value['_to'], connectionSpan=value['connectionSpan']))
-                        # relations.append(InclusionRelation(arg1=value['_from'], arg2=value['_to']))
+                        template_relations.append(InclusionRelationTriplet(_from=_from, _to=_to, connectionSpan=value['connectionSpan']))
+                        # relations.append(InclusionRelation(arg1=_from, arg2=_to))
                     elif value["target_ner_tag"] == 37:
-                        template_relations.append(ConditionResponseRelationTriplet(_from=value['_from'], _to=value['_to'], connectionSpan=value['connectionSpan']))
-                        # relations.append(ConditionResponseRelation(arg1=value['_from'], arg2=value['_to']))
+                        template_relations.append(ConditionResponseRelationTriplet(_from=_from, _to=_to, connectionSpan=value['connectionSpan']))
+                        # relations.append(ConditionResponseRelation(arg1=_from, arg2=_to))
                     elif value["target_ner_tag"] == 39:
-                        template_relations.append(ExclusionRelationTriplet(_from=value['_from'], _to=value['_to'], connectionSpan=value['connectionSpan']))
-                        # relations.append(ExclusionRelation(arg1=value['_from'], arg2=value['_to']))
+                        template_relations.append(ExclusionRelationTriplet(_from=_from, _to=_to, connectionSpan=value['connectionSpan']))
+                        # relations.append(ExclusionRelation(arg1=_from, arg2=_to))
                     elif value["target_ner_tag"] >= 23 or value["target_ner_tag"] <= 28:
-                        template_relations.append(ConnectRelationTriplet(_from=value['_from'], _to=value['_to'], connectionSpan=value['connectionSpan']))
-                        # relations.append(ConnectRelation(arg1=value['_from'], arg2=value['_to']))
+                        template_relations.append(ConnectRelationTriplet(_from=_from, _to=_to, connectionSpan=value['connectionSpan']))
+                        # relations.append(ConnectRelation(arg1=_from, arg2=_to))
 
                 print('Hello 4')
-                print(self.elements)
-                print(key)
+
                 text_tokens = ' '.join(line["tokens"])
                 text_tokens = text_tokens.replace(" .", ".").replace(" ,", ",").replace(" !", "!").replace(" ?", "?")
-                print(text_tokens)
                 self.elements[key]["text"] += " " + text_tokens.strip()
                 self.elements[key]["entities"] += entities
                 self.elements[key]["relations"] += relations
