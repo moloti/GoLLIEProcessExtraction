@@ -460,7 +460,7 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
                                     )
                                 )
                                 currentEntity = None
-                                text = ''
+                                text_tokens = []
                             currentEntity = code
                         text_tokens.append(line['tokens'][index])
                     else:
