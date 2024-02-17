@@ -39,6 +39,17 @@ GUIDELINES = {
             )
         ]
     },
+    "medical_parent_activity": {
+        "en": [
+            (
+                "A Parent Activity refers to broader category or subprocess in medical guidelines, typically found in section headings or bold."
+                "This entity encompasses a group of related subactivities, actions, or tasks and can be broken down into it's individual subactions."
+                "That's also what it differentiates from the normal Activity Entity, which tragets specififc individual actions." 
+                "For example, under 'Surgical Procedures' (a Parent Activity), you may find Activities like 'anesthesia administration' or 'incision making'."
+                "Recognize these overarching process labels as Parent Activities, and clearly separate them from the more specific, individual tasks classified as Activity Entities."
+            )
+        ]
+    },
     "medical_input": {
         "en": [
             (

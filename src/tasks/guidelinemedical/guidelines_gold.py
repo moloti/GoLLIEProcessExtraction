@@ -286,6 +286,11 @@ EXAMPLES = {
             "used", "eat", "fasting", "start", "monitored", "assessed", "reviewed", "performed", "administered", "prescribed", "catheterization", "filled", "referred", "continued", "anesthesia"
         ]
     },
+    "medical_parent_activity_examples": {
+        "en": [
+            "Indication", "Contraindication", "CT:", "Diagnosis:", "Sepsis:"
+        ]
+    },
     "medical_input_examples": {
         "en": [
             "blood pressure", "heart rate", "respiratory rate", "temperature", "oxygen saturation", "Glasgow Coma Scale", "PaO2/FiO2", "PEEP", "Pmean", "pH", "lactate", "creatinine", "bilirubin", "platelets", "INR", "prothrombin", "white blood cell count", "hemoglobin", "hematocrit"

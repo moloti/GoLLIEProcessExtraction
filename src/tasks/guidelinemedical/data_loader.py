@@ -653,7 +653,7 @@ class MedicalGuidelineSampler(Sampler):
             sample_only_gold_guidelines=sample_only_gold_guidelines,
             dataset_name=dataset_name,
             scorer=scorer,
-            include_examples_prob=1.0,
+            # include_examples_prob=1.0,
             task_definitions=task_definitions,
             task_target=task_target,
             definitions=GUIDELINES,

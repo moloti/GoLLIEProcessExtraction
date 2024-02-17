@@ -21,7 +21,7 @@ class Activity(Entity):
 class ParentActivity(Entity):
     """{medical_parent_activity}"""
 
-    span: str
+    span: str # {medical_parent_activity_examples}
 
 @dataclass
 class Input(Entity):
@@ -85,25 +85,25 @@ class Xor(Entity):
 
 @dataclass
 class ResponseEntity(Entity):
-    """{medical_response}"""
+    """{medical_response_entity}"""
 
     span: str # {medical_response_examples}
 
 @dataclass
 class ConditionEntity(Entity):
-    """{medical_condition}"""
+    """{medical_condition_entity}"""
 
     span: str # {medical_condition_examples}
 
 @dataclass
 class ExclusionEntity(Entity):
-    """{medical_exclusion}"""
+    """{medical_exclusion_entity}"""
 
     span: str # {medical_exclusion_examples}
 
 @dataclass
 class InclusionEntity(Entity):
-    """{medical_inclusion}"""
+    """{medical_inclusion_entity}"""
 
     span: str # {medical_inclusion_examples}
 
