@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 torch = "*"
 torchvision = "*"
-transformers = "*"
+transformers = "==4.33.2"
 peft = "*"
 bitsandbytes = "*"
 numpy = "*"

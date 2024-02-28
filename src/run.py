@@ -40,6 +40,7 @@ def train_collie(
 
     model, tokenizer = load_model(
         inference=False,
+        cache_dir=model_args.cache_dir,
         model_weights_name_or_path=model_args.model_name_or_path,
         quantization=model_args.quantization,
         use_lora=model_args.use_lora,
@@ -231,6 +232,7 @@ def inference_collie(
 
     model, tokenizer = load_model(
         inference=True,
+        cache_dir=model_args.cache_dir,
         model_weights_name_or_path=model_path,
         quantization=model_args.quantization_inference,
         use_lora=model_args.lora_weights_name_or_path is not None,

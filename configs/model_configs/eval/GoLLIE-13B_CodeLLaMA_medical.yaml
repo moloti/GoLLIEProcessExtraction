@@ -1,15 +1,12 @@
 #Training args
-model_name_or_path: HiTZ/GoLLIE-34B
-cache_dir: /work3/s213709
+model_name_or_path: HiTZ/GoLLIE-13B
 torch_dtype: bfloat16
 use_lora: false
 quantization: 4
 quantization_inference: 4
 gradient_checkpointing: true
-force_auto_device_map: true
-# max_memory_MB: 80000
+force_auto_device_map: false
 use_flash_attention: true
-
 # dataset arguments
 dataset_dir:
   /GoLLIEProcessExtraction/data/processed_w_examples
@@ -46,8 +43,8 @@ predict_with_generate: true
 evaluate_all_checkpoints: false
 
 # batch size
-per_device_train_batch_size: 8
-per_device_eval_batch_size: 4
+per_device_train_batch_size: 16
+per_device_eval_batch_size: 8
 gradient_accumulation_steps: 2 # 2 FOR 2 GPUs, 4 FOR 1 GPU (32 efective batch size)
 generation_num_beams: 1
 
@@ -72,7 +69,7 @@ logging_strategy: steps
 logging_first_step: true
 logging_steps: 25
 report_to: wandb
-run_name: "GoLLIE+-34b_CodeLLaMA"
+run_name: "GoLLIE+-13b_CodeLLaMA"
 disable_tqdm: false
 
 # hub settings

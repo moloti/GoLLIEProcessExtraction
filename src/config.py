@@ -13,6 +13,11 @@ class ModelArguments:
         metadata={"help": "The local path or huggingface hub name of the model and tokenizer to use."},
     )
 
+    cache_dir: Optional[str] = field(
+        default=None,
+        metadata={"help": "The path to the cached version of the model."}
+    )
+
     torch_dtype: Optional[str] = field(
         default=None,
         metadata={

@@ -23,4 +23,4 @@ echo CUDA_VISIBLE_DEVICES "${CUDA_VISIBLE_DEVICES}"
 
 CONFIGS_FOLDER="configs/model_configs/eval"
 
-python -m src.run ${CONFIGS_FOLDER}/GoLLIE-34B_CodeLLaMA_medical.yaml
+python -m src.run ${CONFIGS_FOLDER}/GoLLIE-13B_CodeLLaMA_medical.yaml
