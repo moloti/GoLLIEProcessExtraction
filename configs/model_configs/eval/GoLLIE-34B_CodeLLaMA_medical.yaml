@@ -12,7 +12,7 @@ use_flash_attention: true
 
 # dataset arguments
 dataset_dir:
-  /GoLLIEProcessExtraction/data/processed_w_examples
+  /zhome/06/4/166098/GoLLIEProcessExtraction/data/processed_w_examples
 validation_tasks:
   - medicalguideline.ner
   - medicalguideline.re
