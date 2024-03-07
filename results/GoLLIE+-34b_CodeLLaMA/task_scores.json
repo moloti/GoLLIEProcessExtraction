@@ -1,0 +1,248 @@
+{
+    "medicalguideline.ner": {
+        "entities": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "class_scores": {
+                "Observation": {
+                    "tp": 0,
+                    "total_pos": 106,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "Specification": {
+                    "tp": 0,
+                    "total_pos": 191,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ActivityData": {
+                    "tp": 0,
+                    "total_pos": 141,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "Activity": {
+                    "tp": 0,
+                    "total_pos": 169,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "Guard": {
+                    "tp": 0,
+                    "total_pos": 18,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ResponseEntity": {
+                    "tp": 0,
+                    "total_pos": 16,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ConditionEntity": {
+                    "tp": 0,
+                    "total_pos": 31,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "Actor": {
+                    "tp": 0,
+                    "total_pos": 35,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ParentActivity": {
+                    "tp": 0,
+                    "total_pos": 24,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "And": {
+                    "tp": 0,
+                    "total_pos": 18,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ExclusionEntity": {
+                    "tp": 0,
+                    "total_pos": 11,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "Input": {
+                    "tp": 0,
+                    "total_pos": 21,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "InclusionEntity": {
+                    "tp": 0,
+                    "total_pos": 2,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "PurposeOutcome": {
+                    "tp": 0,
+                    "total_pos": 18,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "Or": {
+                    "tp": 0,
+                    "total_pos": 6,
+                    "total_pre": 0,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                }
+            }
+        },
+        "predictions_stats": {
+            "impossible_to_parse": {
+                "total": 244,
+                "percentage%": 100.0
+            },
+            "hallucinated_predictions": {
+                "total": 0,
+                "percentage%": 0.0
+            },
+            "total": {
+                "predictions": 0,
+                "gold": 807
+            }
+        }
+    },
+    "medicalguideline.re": {
+        "relations": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "class_scores": {
+                "ActivitySpecificationRelation": {
+                    "tp": 0,
+                    "total_pos": 154,
+                    "total_pre": 21,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ActivityActivityDataRelation": {
+                    "tp": 0,
+                    "total_pos": 121,
+                    "total_pre": 27,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ActivityGuardRelation": {
+                    "tp": 0,
+                    "total_pos": 11,
+                    "total_pre": 5,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ResponseRelation": {
+                    "tp": 0,
+                    "total_pos": 0,
+                    "total_pre": 12,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ActivityActorRelation": {
+                    "tp": 0,
+                    "total_pos": 37,
+                    "total_pre": 11,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ActivityParentRelation": {
+                    "tp": 0,
+                    "total_pos": 35,
+                    "total_pre": 2,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ConditionRelation": {
+                    "tp": 0,
+                    "total_pos": 0,
+                    "total_pre": 8,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ActivityPurposeOutcomeRelation": {
+                    "tp": 0,
+                    "total_pos": 13,
+                    "total_pre": 6,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ConditionResponseRelation": {
+                    "tp": 0,
+                    "total_pos": 0,
+                    "total_pre": 6,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "ExclusionRelation": {
+                    "tp": 0,
+                    "total_pos": 0,
+                    "total_pre": 4,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                }
+            }
+        },
+        "predictions_stats": {
+            "impossible_to_parse": {
+                "total": 4,
+                "percentage%": 1.6393
+            },
+            "hallucinated_predictions": {
+                "total": 0,
+                "percentage%": 0.0
+            },
+            "total": {
+                "predictions": 102,
+                "gold": 371
+            }
+        }
+    }
+}

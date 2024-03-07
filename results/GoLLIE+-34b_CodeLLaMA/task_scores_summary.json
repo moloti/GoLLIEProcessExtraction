@@ -1,0 +1,44 @@
+{
+    "medicalguideline.ner": {
+        "entities": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0
+        },
+        "predictions_stats": {
+            "impossible_to_parse": {
+                "total": 244,
+                "percentage%": 100.0
+            },
+            "hallucinated_predictions": {
+                "total": 0,
+                "percentage%": 0.0
+            },
+            "total": {
+                "predictions": 0,
+                "gold": 807
+            }
+        }
+    },
+    "medicalguideline.re": {
+        "relations": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0
+        },
+        "predictions_stats": {
+            "impossible_to_parse": {
+                "total": 4,
+                "percentage%": 1.6393
+            },
+            "hallucinated_predictions": {
+                "total": 0,
+                "percentage%": 0.0
+            },
+            "total": {
+                "predictions": 102,
+                "gold": 371
+            }
+        }
+    }
+}
