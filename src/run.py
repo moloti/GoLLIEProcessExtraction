@@ -351,6 +351,17 @@ if __name__ == "__main__":
         logging.info("No config file passed, using command line arguments.")
         model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
+    try:
+        # Attempt to create the directory
+        os.makedirs(training_args.output_dir, exist_ok=True)
+        print(f"Directory {training_args.output_dir} created successfully or already exists.")
+    except PermissionError as e:
+        # Handle the permission error specifically
+        print(f"Permission denied: Unable to create the directory {training_args.output_dir}. Error: {e}")
+    except Exception as e:
+        # Handle any other possible exceptions
+        print(f"An error occurred while creating the directory {training_args.output_dir}. Error: {e}")
+
     if training_args.do_train and data_args.train_tasks is not None:
         train_collie(
             model_args,
