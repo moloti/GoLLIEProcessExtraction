@@ -28,7 +28,7 @@ ignore_pad_token_for_loss: true
 prompt_loss_weight: 0.0
 
 # checkpoint settings
-output_dir: /GoLLIEProcessExtraction/results/GoLLIE+-34b_CodeLLaMA
+output_dir: /zhome/06/4/166098/GoLLIEProcessExtraction/results/GoLLIE+-34b_CodeLLaMA
 overwrite_output_dir: true
 load_best_model_at_end: false
 save_strategy: "epoch"
