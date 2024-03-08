@@ -1,0 +1,213 @@
+{
+    "os": "Linux-5.4.268-1.el7.elrepo.x86_64-x86_64-with-glibc2.17",
+    "python": "3.10.13",
+    "heartbeatAt": "2024-03-07T20:23:48.929825",
+    "startedAt": "2024-03-07T20:23:48.110926",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "configs/model_configs/eval/GoLLIE-34B_CodeLLaMA_medical.yaml"
+    ],
+    "state": "running",
+    "program": "-m src.run",
+    "codePathLocal": null,
+    "git": {
+        "remote": "https://github.com/moloti/GoLLIEProcessExtraction.git",
+        "commit": "ce5ed35bc16f5d1bde6e73f9881019795196ace3"
+    },
+    "email": "danielgrathwol@gmail.com",
+    "root": "/zhome/06/4/166098/GoLLIEProcessExtraction",
+    "host": "n-62-18-10",
+    "username": "s213709",
+    "executable": "/zhome/06/4/166098/GoLLIEProcessExtraction/genv10/bin/python",
+    "cpu_count": 32,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 856.9458750000001,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 800.262,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 839.877,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.02,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 801.174,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2396.623,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.388,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 966.778,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.375,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.494,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 801.205,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 801.567,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 801.535,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.758,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.783,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.376,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.787,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.771,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 801.615,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.442,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.753,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.448,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.372,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.769,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.772,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.051,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.392,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.561,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.182,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.533,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.768,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 800.449,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 71.9168586730957,
+            "used": 5.146274566650391
+        }
+    },
+    "gpu": "NVIDIA A100 80GB PCIe",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA A100 80GB PCIe",
+            "memory_total": 85899345920
+        },
+        {
+            "name": "NVIDIA A100 80GB PCIe",
+            "memory_total": 85899345920
+        }
+    ],
+    "memory": {
+        "total": 1007.3646545410156
+    }
+}
