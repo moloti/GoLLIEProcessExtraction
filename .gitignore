@@ -1,8 +1,6 @@
 .slurm/*
 .vscode/*
 .ignore/
-data/*
-wandb/*
 assets/plots/*
 
 # Byte-compiled / optimized / DLL files
