@@ -129,8 +129,8 @@
         },
         "predictions_stats": {
             "impossible_to_parse": {
-                "total": 244,
-                "percentage%": 100.0
+                "total": 143,
+                "percentage%": 58.6066
             },
             "hallucinated_predictions": {
                 "total": 0,
