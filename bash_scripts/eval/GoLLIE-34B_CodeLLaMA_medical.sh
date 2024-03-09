@@ -4,7 +4,7 @@
 #BSUB -J jobgolliedaniel
 #BSUB -n 8
 #BSUB -W 03:00
-#BSUB -R "rusage[mem=10GB]"
+#BSUB -R "rusage[mem=10GB] select[gpu80gb]"
 #BSUB -u s213709@dtu.dk
 ## -- send notification at start --
 #BSUB -B
