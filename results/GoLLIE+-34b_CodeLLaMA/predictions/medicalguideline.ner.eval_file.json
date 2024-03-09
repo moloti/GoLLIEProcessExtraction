@@ -7,31 +7,31 @@
 {
     "Postoperative pain, possibly in combination with ibuprofen or ketorolac ( Toradol ).": {
         "golds": "[Observation(span='Postoperative pain'), Specification(span='ibuprofen or ketorolac ( Toradol )')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Postoperative pain'), ActivityData(span='ibuprofen'), ActivityData(span='ketorolac'), ActivityData(span='Toradol')]"
     }
 }
 {
     "Tablet paracetamol ( Pamol ) can be given preoperatively > ½ hour before anesthesia with a small mouthful of water in elective surgery.": {
         "golds": "[ActivityData(span='Tablet paracetamol ( Pamol )'), Activity(span='can be given'), Specification(span='preoperatively'), Guard(span='> ½ hour'), ResponseEntity(span='before'), Activity(span='anesthesia'), Specification(span='a small mouthful of water in elective surgery')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Tablet'), ActivityData(span='paracetamol'), ActivityData(span='Pamol'), Guard(span='> ½ hour')]"
     }
 }
 {
     "Infusion fluid should only be used in cases where it is not possible to administer per os or rectally.": {
         "golds": "[ActivityData(span='Infusion fluid'), Activity(span='used'), ConditionEntity(span='in cases where'), Observation(span='not possible to administer'), Specification(span='per os or rectally')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Infusion fluid'), InclusionEntity(span='only'), Activity(span='administer')]"
     }
 }
 {
     "IV fluids are delegated prescriptions for adults only.": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='fluids')]"
     }
 }
 {
     "Pediatric doses are prescribed by an anesthesiologist.": {
         "golds": "[ActivityData(span='Pediatric doses'), Activity(span='prescribed'), Actor(span='anesthesiologist')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='anesthesiologist')]"
     }
 }
 {
@@ -43,7 +43,7 @@
 {
     "# # # # Indication # # # # * Suspicion of infection around implanted mechanical parts ( valves, pacemakers, electrodes, aortic stents ) * Investigation for bacterial emboli elsewhere in the body in case of bacteremia * Multiple forms of infection / inflammation + NB : Special preparation when investigating endocarditis * Certain neurodegenerative disorders 18 F-FDG PET is not suitable for diagnosing prostate cancer and pathology in the kidney / urinary tract pathology.": {
         "golds": "[ParentActivity(span='Indication'), Observation(span='Suspicion of infection'), Specification(span='implanted mechanical parts ( valves , pacemakers , electrodes , aortic stents )'), Activity(span='Investigation'), Specification(span='bacterial emboli'), Specification(span='elsewhere in the body'), ResponseEntity(span='in case of'), Observation(span='bacteremia'), Observation(span='Multiple forms of infection / inflammation'), And(span='+'), Activity(span='Special preparation'), ConditionEntity(span='when'), Observation(span='investigating endocarditis'), Observation(span='neurodegenerative disorders'), Activity(span='18 F-FDG PET'), ExclusionEntity(span='not suitable'), Observation(span='prostate cancer'), Observation(span='pathology in the kidney / urinary tract pathology')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Suspicion of infection'), Observation(span='bacteremia'), Observation(span='infection'), Observation(span='inflammation'), Observation(span='endocarditis'), Observation(span='neurodegenerative disorders'), ActivityData(span='18 F-FDG'), Activity(span='PET'), Observation(span='prostate cancer')]"
     }
 }
 {
@@ -67,43 +67,43 @@
 {
     "* Dehydration": {
         "golds": "[Observation(span='Dehydration')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Dehydration')]"
     }
 }
 {
     "* Dialysis": {
         "golds": "[Observation(span='Dialysis')]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='Dialysis')]"
     }
 }
 {
     "* Albuminuria": {
         "golds": "[Observation(span='Albuminuria')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Albuminuria')]"
     }
 }
 {
     "* Many contrast agent examinations within a short period of time": {
         "golds": "[Specification(span='Many'), ActivityData(span='contrast agent'), Observation(span='examinations'), Specification(span='short period of time')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='agent'), Guard(span='a short period of time')]"
     }
 }
 {
     "* Amyloidosis": {
         "golds": "[Observation(span='Amyloidosis')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Amyloidosis')]"
     }
 }
 {
     "* Generally cardiac indisposed patients": {
         "golds": "[Specification(span='Generally'), Observation(span='cardiac indisposed patients')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='patients')]"
     }
 }
 {
     "* Pheochromocytoma": {
         "golds": "[Observation(span='Pheochromocytoma')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Pheochromocytoma')]"
     }
 }
 {
@@ -115,37 +115,37 @@
 {
     "# # # # Patient education : # # # # General :": {
         "golds": "[Actor(span='Patient'), ParentActivity(span='education')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='Patient')]"
     }
 }
 {
     "* Patients without diabetes should only drink tap water, medication should be taken as usual": {
         "golds": "[Actor(span='Patients'), Observation(span='without diabetes'), Activity(span='drink'), ActivityData(span='tap water'), ActivityData(span='medication'), Activity(span='taken'), Specification(span='as usual')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='diabetes')]"
     }
 }
 {
     "* In most cases, blood test results for P-Creatinine ( and eGFR ) must be available no later than the day before": {
         "golds": "[Specification(span='In most cases'), Input(span='blood test results'), Specification(span='P-Creatinine ( and eGFR )'), Specification(span='must be available no later than'), Guard(span='the day before')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='P-Creatinine'), Observation(span='eGFR'), Guard(span='no later than the day before')]"
     }
 }
 {
     "# # # # Diabetes : # # # #": {
         "golds": "[ParentActivity(span='Diabetes')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Diabetes')]"
     }
 }
 {
     "Insulin-dependent diabetes : * Patient should eat as usual and take regular insulin * The patient should * * not fast * At least 2 hours must pass from insulin administration until the scan can be performed! During this period, the patient should only drink tap water": {
         "golds": "[ParentActivity(span='Insulin-dependent diabetes'), ResponseEntity(span=':'), Actor(span='Patient'), Activity(span='eat'), Specification(span='as usual'), Activity(span='take'), Specification(span='regular'), ActivityData(span='insulin'), ExclusionEntity(span='should * * not'), Activity(span='fast'), Guard(span='At least 2 hours'), ActivityData(span='insulin'), Activity(span='administration'), ConditionEntity(span='until'), ActivityData(span='scan'), Activity(span='performed'), ResponseEntity(span='During this period'), Actor(span='patient'), Activity(span='drink'), ActivityData(span='tap water')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Insulin-dependent diabetes'), Activity(span='eat'), ActivityData(span='insulin'), ActivityData(span='insulin'), Guard(span='At least 2 hours'), Activity(span='scan'), Guard(span='this period'), ActivityData(span='water')]"
     }
 }
 {
     "Non-insulin-dependent diabetes :": {
         "golds": "[ParentActivity(span='Non-insulin-dependent diabetes')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Non-insulin-dependent diabetes')]"
     }
 }
 {
@@ -157,19 +157,19 @@
 {
     "PET : An injection of 18 F-fluorodeoxyglucose ( 18 F-FDG ) is given while the patient is at rest.": {
         "golds": "[ParentActivity(span='PET'), ActivityData(span='injection of 18 F-fluorodeoxyglucose ( 18 F-FDG )'), Activity(span='is given'), Specification(span='while the patient is at rest')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='18 F-fluorodeoxyglucose'), ActivityData(span='18 F-FDG')]"
     }
 }
 {
     "CT : Before the PET scan, a CT scan is performed, as this contains necessary information for optimal post-processing of the PET scan ( attenuation correction ).": {
         "golds": "[ParentActivity(span='CT'), ConditionEntity(span='Before'), Activity(span='PET scan'), ActivityData(span='CT scan'), Activity(span='performed'), PurposeOutcome(span='contains necessary information for optimal post-processing of the PET scan ( attenuation correction )')]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='CT'), Activity(span='PET scan'), Activity(span='CT scan'), Activity(span='PET scan')]"
     }
 }
 {
     "The CT scan can be performed as either low-dose CT or as diagnostic CT - ideally with IV contrast if indicated.": {
         "golds": "[ActivityData(span='CT scan'), Activity(span='performed'), ActivityData(span='low-dose CT'), Or(span='or'), ActivityData(span='diagnostic CT'), Specification(span='IV contrast if indicated')]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='CT scan'), Activity(span='CT'), Activity(span='CT'), ActivityData(span='contrast')]"
     }
 }
 {
@@ -181,19 +181,19 @@
 {
     "A PVK is inserted into a vein in the elbow bend.": {
         "golds": "[ActivityData(span='PVK'), Activity(span='inserted'), Specification(span='a vein in the elbow bend')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='PVK')]"
     }
 }
 {
     "The patient is injected with 1 ml corresponding to 1000 IU of unpreserved heparin.": {
         "golds": "[Actor(span='patient'), Activity(span='injected'), Specification(span='1 ml corresponding to 1000 IU'), ActivityData(span='unpreserved heparin')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='1 ml corresponding to 1000 IU of unpreserved heparin')]"
     }
 }
 {
     "The patient then waits sitting / lying down for 1 hour, so that the 18 F-FDG is optimally distributed in the body.": {
         "golds": "[Actor(span='patient'), Activity(span='waits'), Specification(span='sitting / lying down'), Specification(span='1 hour'), PurposeOutcome(span='18 F-FDG is optimally distributed in the body')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='1 hour'), ActivityData(span='18 F-FDG')]"
     }
 }
 {
@@ -211,7 +211,7 @@
 {
     "First, a CT scan is performed ( with or without contrast ), which lasts about 5 minutes, followed by the first PET scan, which lasts about 25 minutes, and finally a PET scan over the heart which lasts approximately 8 minutes.": {
         "golds": "[ActivityData(span='CT scan'), Activity(span='performed'), Specification(span='with or without contrast'), Specification(span='about 5 minutes'), ConditionEntity(span='followed by'), Activity(span='PET scan'), Specification(span='about 25 minutes'), ConditionEntity(span='and finally'), Activity(span='PET scan'), Specification(span='over the heart'), Specification(span='approximately 8 minutes')]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='CT scan'), Activity(span='PET scan'), Activity(span='PET scan')]"
     }
 }
 {
@@ -223,13 +223,13 @@
 {
     "Patients with nephropathy :": {
         "golds": "[Actor(span='Patients'), ParentActivity(span='nephropathy')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='nephropathy')]"
     }
 }
 {
     "* If eGFR < 45 : The study is performed without IV contrast, in special cases and only after prior contact with the radiology department and specific prescription, the study can be performed with IV contrast. Duration : Approx. 2 hours in total, scan time approx. 35 minutes.": {
         "golds": "[Input(span='eGFR'), Guard(span='< 45'), ActivityData(span='study'), Activity(span='performed'), Specification(span='IV contrast'), ConditionEntity(span='in special cases and only after'), Specification(span='prior'), Activity(span='contact'), Specification(span='radiology department'), And(span='and'), Specification(span='specific'), Observation(span='prescription'), ActivityData(span='study'), Activity(span='performed'), Specification(span='IV contrast'), Specification(span='Approx . 2 hours in total'), Specification(span='scan time approx . 35 minutes')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='eGFR < 45'), Activity(span='study'), Activity(span='study'), Guard(span='2 hours'), Guard(span='35 minutes')]"
     }
 }
 {
@@ -241,7 +241,7 @@
 {
     "The scan is reviewed and it is assessed whether the distribution of 18 F-FDG is physiologic, abnormal or probably pathologic.": {
         "golds": "[ActivityData(span='scan'), Activity(span='reviewed'), ActivityData(span='it'), Activity(span='assessed'), ResponseEntity(span='whether'), Observation(span='distribution of 18 F-FDG'), Input(span='physiologic'), Or(span=','), Input(span='abnormal'), Or(span='or'), Input(span='probably pathologic')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='18 F-FDG')]"
     }
 }
 {
@@ -259,25 +259,25 @@
 {
     "* For PET with low-dose CT, an answer can usually be expected the following afternoon": {
         "golds": "[Observation(span='PET with low-dose CT'), ActivityData(span='answer'), Activity(span='expected'), Specification(span='following afternoon')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='PET'), ActivityData(span='CT'), Guard(span='the following afternoon')]"
     }
 }
 {
     "* For PET with diagnostic CT, a response can usually be expected two working days after the examination": {
         "golds": "[Observation(span='PET with diagnostic CT'), ActivityData(span='response'), Activity(span='expected'), Specification(span='two working days after the examination')]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='PET'), Activity(span='CT'), Guard(span='two working days after the examination')]"
     }
 }
 {
     "Symptoms are most often pain locally over the pseudoaneurysm.": {
         "golds": "[Observation(span='pain'), Specification(span='locally over the pseudoaneurysm')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='pain')]"
     }
 }
 {
     "In worse cases threatened skin over the pseudoaneurysm or unstable hemodynamics with progressive size or active bleeding in additional tissue ( e.g.": {
         "golds": "[Observation(span='threatened skin'), Specification(span='over the pseudoaneurysm'), Or(span='or'), Observation(span='unstable hemodynamics'), Specification(span='progressive size'), Or(span='or'), Observation(span='active bleeding'), Specification(span='additional tissue ( e.g .')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='pseudoaneurysm'), Observation(span='bleeding')]"
     }
 }
 {
@@ -307,7 +307,7 @@
 {
     "When CRRT and ECCO2R are prescribed, the initiated CRRT must be replaced with new CRRT and PrismaLung + setup.": {
         "golds": "[ActivityData(span='CRRT'), ActivityData(span='ECCO2R'), ActivityData(span='initiated CRRT'), Activity(span='replaced'), ActivityData(span='new CRRT'), ActivityData(span='PrismaLung + setup')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='CRRT'), ActivityData(span='ECCO2R'), ActivityData(span='CRRT'), ActivityData(span='CRRT'), ActivityData(span='PrismaLung')]"
     }
 }
 {
@@ -319,7 +319,7 @@
 {
     "CRRT + ECCO2R is selected as therapy, then select PrismaLung +.": {
         "golds": "[ActivityData(span='CRRT + ECCO2R'), Activity(span='selected'), Specification(span='therapy'), ResponseEntity(span='then'), Activity(span='select'), ActivityData(span='PrismaLung +')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='CRRT'), ActivityData(span='ECCO2R'), ActivityData(span='PrismaLung')]"
     }
 }
 {
@@ -331,25 +331,25 @@
 {
     "Instead of the standard ST 150 filter for CRRT, use an Oxiris filter primed according to the Intensive Care Unit's instructions for setting up CRRT using Heparin as an anticoagulant.": {
         "golds": "[ExclusionEntity(span='Instead'), ActivityData(span='standard ST 150 filter'), Specification(span='for CRRT'), Activity(span='use'), ActivityData(span='Oxiris filter primed'), Specification(span=\"Intensive Care Unit's instructions for setting up CRRT\"), Activity(span='using'), ActivityData(span='Heparin'), Specification(span='as an anticoagulant')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='filter'), ActivityData(span='filter'), ActivityData(span='Heparin'), ActivityData(span='anticoagulant')]"
     }
 }
 {
     "Nurse's responsibilities": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='Nurse')]"
     }
 }
 {
     "* Preparing the CRRT device for treatment": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='CRRT')]"
     }
 }
 {
     "* Connecting the patient to the CRRT device": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='patient'), ActivityData(span='CRRT')]"
     }
 }
 {
@@ -361,13 +361,13 @@
 {
     "* Ordering CRRT blood samples according to instructions": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='Ordering')]"
     }
 }
 {
     "* Documentation, observation and care of the patient during CRRT": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='CRRT')]"
     }
 }
 {
@@ -391,13 +391,13 @@
 {
     "* Establishes indication for CRRT and PrismaLung +, which is noted in the patient record": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ParentActivity(span='CRRT'), ActivityData(span='PrismaLung +')]"
     }
 }
 {
     "* Insertion of dialysis catheter": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='Insertion of dialysis catheter')]"
     }
 }
 {
@@ -409,7 +409,7 @@
 {
     "* Prescribing blood flow, fluid therapy and heparin": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='Prescribing'), ActivityData(span='blood flow'), ActivityData(span='fluid'), ActivityData(span='heparin')]"
     }
 }
 {
@@ -439,7 +439,7 @@
 {
     "* tbl Pivmecillinam 400 mg x 3 dgl. or": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Pivmecillinam')]"
     }
 }
 {
@@ -451,7 +451,7 @@
 {
     "Trimethroprim 200 mg x 2 dgl.": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Trimethroprim 200 mg x 2 dgl')]"
     }
 }
 {
@@ -475,13 +475,13 @@
 {
     "If the standard prescription is Ampicillin 2g x 1 iv + Gentamicin 5mg / kg x 1 iv perop and resistance to Ampicillin has been seen in the past, give instead Piperacillin-tazobactam 4g x 1 iv + Gentamicin 5mg / kg x 1 iv perop.": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Ampicillin'), ActivityData(span='Gentamicin'), ActivityData(span='Ampicillin'), ActivityData(span='Piperacillin-tazobactam'), ActivityData(span='Gentamicin')]"
     }
 }
 {
     "If a patient is allergic to penicillin, cefuroxime 1500 mg x 1 iv + Gentamicin 5mg / kg x 1 iv perop": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='allergic to penicillin, cefuroxime 1500 mg x 1 iv + Gentamicin 5mg / kg x 1 iv perop')]"
     }
 }
 {
@@ -493,19 +493,19 @@
 {
     "* If resistance to Piperacillin-tazobactam has also been seen previously, contact the back guard": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Piperacillin-tazobactam')]"
     }
 }
 {
     "* If resistance to Cefuroxime has been observed in penicillin-allergic patients, contact the back office.": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='resistance to Cefuroxime')]"
     }
 }
 {
     "If patients are admitted for preoperative antibiotic treatment, antibiotics are prescribed antibiotics from 14 : 00 the day before the procedure ( unless otherwise stated in the the medical record ).": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='antibiotic'), ActivityData(span='antibiotics'), ActivityData(span='antibiotics'), Guard(span='14 : 00 the day before the procedure')]"
     }
 }
 {
@@ -517,31 +517,31 @@
 {
     "* * Ampicillin 2 g x 4 iv": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Ampicillin'), Guard(span='2 g'), Activity(span='iv')]"
     }
 }
 {
     "* * Cefuroxime 1500 mg x 4 iv": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Cefuroxime 1500 mg x 4')]"
     }
 }
 {
     "* * Piperacillin-tazobactam 4 g x 4 iv": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Piperacillin-tazobactam'), Guard(span='4 g')]"
     }
 }
 {
     "For transurethral procedures, supplemental Gentamycin is always given intraoperatively unless unless otherwise contraindicated.": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='procedures'), ActivityData(span='Gentamycin')]"
     }
 }
 {
     "The condition should be suspected in seizures with increased heart rate, respiration rate, BP and temperature, as well as sweating and dystonic movements / postures in a patient with severe acquired brain injury.": {
         "golds": "[ActivityData(span='The condition'), Activity(span='should be suspected'), Observation(span='seizures with increased'), Specification(span='heart rate'), Specification(span='respiration rate'), Specification(span='BP'), Specification(span='temperature'), And(span='as well as'), Observation(span='sweating'), And(span='and'), Observation(span='dystonic movements / postures'), Actor(span='patient'), Observation(span='severe acquired brain injury')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='seizures'), Input(span='heart rate'), Input(span='respiration rate'), Input(span='BP'), Input(span='temperature'), Observation(span='sweating'), Observation(span='dystonic movements / postures'), Observation(span='acquired brain injury')]"
     }
 }
 {
@@ -553,19 +553,19 @@
 {
     "kidney stones, gallstones ),": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='kidney stones'), Observation(span='gallstones')]"
     }
 }
 {
     "hydrocephalus, epilepsy, withdrawal, etc.": {
         "golds": "[Observation(span='hydrocephalus'), Observation(span='epilepsy'), Observation(span='withdrawal')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='hydrocephalus'), Observation(span='epilepsy')]"
     }
 }
 {
     "* Propanolol 20 - 80 mg every 6 hours per os : Good effect in tachycardia and hypertension as well as diaphoresis": {
         "golds": "[ActivityData(span='Propanolol'), Specification(span='20 - 80 mg'), Specification(span='every 6 hours'), Specification(span='per os'), PurposeOutcome(span='Good effect in tachycardia'), PurposeOutcome(span='hypertension as well as diaphoresis')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Propanolol'), Guard(span='20 - 80 mg'), Guard(span='every 6 hours'), Observation(span='tachycardia'), Observation(span='hypertension'), Observation(span='diaphoresis')]"
     }
 }
 {
@@ -577,49 +577,49 @@
 {
     "* Opioid : Essential for pain.": {
         "golds": "[ActivityData(span='Opioid'), PurposeOutcome(span='Essential for pain')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='pain')]"
     }
 }
 {
     "Fentanyl patches are preferable and, if possible, should be placed where sweating is less pronounced.": {
         "golds": "[ActivityData(span='Fentanyl patches'), Activity(span='preferable'), And(span='and'), Specification(span='if possible'), Activity(span='should be placed'), Specification(span='where sweating is less pronounced')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Fentanyl patches')]"
     }
 }
 {
     "* Gabapentin 100 - 300 mg every 8 hours.": {
         "golds": "[ActivityData(span='Gabapentin'), Specification(span='100 - 300 mg'), Specification(span='every 8 hours')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Gabapentin'), Guard(span='every 8 hours')]"
     }
 }
 {
     "Can be quickly titrated up to a maximum of 4800 mg daily : No specific effect, but can improve most symptoms.": {
         "golds": "[Specification(span='quickly'), Activity(span='titrated'), Specification(span='up to a maximum of 4800 mg daily'), PurposeOutcome(span='can improve most symptoms')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='up to a maximum of 4800 mg daily')]"
     }
 }
 {
     "* Baclofen 5 mg every 8 hours per os : Can be tried in dominant dystonic presentation.": {
         "golds": "[ActivityData(span='Baclofen'), Specification(span='5 mg'), Specification(span='every 8 hours'), Specification(span='per os'), Activity(span='Can be tried'), ConditionEntity(span='in'), Observation(span='dominant dystonic presentation')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Baclofen'), Guard(span='5 mg'), Guard(span='every 8 hours')]"
     }
 }
 {
     "Intrathecal baclofen : In case of failure to control PSH on prophylactic tablet therapy, intrathecal baclofen may be considered and discussed at a conference.": {
         "golds": "[ActivityData(span='Intrathecal baclofen'), ConditionEntity(span='In case of'), Observation(span='failure to control PSH'), ActivityData(span='prophylactic tablet therapy'), ActivityData(span='intrathecal baclofen'), Activity(span='may be considered'), Activity(span='discussed'), Specification(span='at a conference')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='baclofen'), ActivityData(span='baclofen')]"
     }
 }
 {
     "Decision can only be made by a specialist physician.": {
         "golds": "[ActivityData(span='Decision'), Activity(span='made'), Actor(span='specialist physician')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='physician')]"
     }
 }
 {
     "It requires a neurosurgical procedure to apply the pump": {
         "golds": "[Activity(span='requires'), ActivityData(span='neurosurgical procedure'), PurposeOutcome(span='to apply the pump')]",
-        "predictions": "[]"
+        "predictions": "[ParentActivity(span='neurosurgical procedure')]"
     }
 }
 {
@@ -631,7 +631,7 @@
 {
     "* Clonazepam 0.5 - 2 mg every 8 hours per os.": {
         "golds": "[ActivityData(span='Clonazepam'), Specification(span='0.5 - 2 mg'), Specification(span='every 8 hours'), Specification(span='per os')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Clonazepam'), Guard(span='every 8 hours')]"
     }
 }
 {
@@ -649,13 +649,13 @@
 {
     "* Bromocriptine 1.25 mg x 2, increasing to max 40 mg / day.": {
         "golds": "[ActivityData(span='Bromocriptine'), Specification(span='1.25 mg x 2'), Activity(span='increasing'), Specification(span='to max 40 mg / day')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Bromocriptine'), Guard(span='max 40 mg / day')]"
     }
 }
 {
     "Can be tried if the above medications are not effective.": {
         "golds": "[Activity(span='Can be tried'), ConditionEntity(span='if'), Specification(span='above'), Observation(span='medications are not effective')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='medications')]"
     }
 }
 {
@@ -667,7 +667,7 @@
 {
     "* Clonidine 0.1 to 0.3 mg every 6 to 8 hours per os.": {
         "golds": "[ActivityData(span='Clonidine'), Specification(span='0.1 to 0.3 mg'), Specification(span='every 6 to 8 hours'), Specification(span='per os')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Clonidine'), Guard(span='0.1 to 0.3 mg'), Guard(span='every 6 to 8 hours')]"
     }
 }
 {
@@ -691,25 +691,25 @@
 {
     "Start with a dose of IV morphine ( starting dose 5 mg ) to interrupt a seizure of lasting more than a few minutes.": {
         "golds": "[Activity(span='Start'), ActivityData(span='a dose of IV morphine'), Specification(span='starting dose 5 mg'), PurposeOutcome(span='to interrupt a seizure of lasting more than a few minutes')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='morphine'), Guard(span='5 mg'), Observation(span='seizure'), Guard(span='more than a few minutes')]"
     }
 }
 {
     "Gabapentin can then be added with advantage ( starting dose 100 to 300 mg x 3 daily ) together with a non-selective Beta-blocker ( e.g.": {
         "golds": "[ActivityData(span='Gabapentin'), Activity(span='added'), Specification(span='with advantage'), Specification(span='starting dose 100 to 300 mg'), Specification(span='x 3 daily'), And(span='together with'), ActivityData(span='non-selective Beta-blocker')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Gabapentin'), ActivityData(span='Beta-blocker')]"
     }
 }
 {
     "Propranolol starting dose of 10 mg x 3 daily ).": {
         "golds": "[Specification(span='Propranolol'), Specification(span='starting dose of 10 mg'), Specification(span='x 3 daily')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Propranolol'), Guard(span='10 mg x 3 daily')]"
     }
 }
 {
     "Frequent medication medication adjustment is needed for the first few days before the situation settles down.": {
         "golds": "[Specification(span='Frequent'), ActivityData(span='medication'), Activity(span='adjustment'), Specification(span='for the first few days'), ConditionEntity(span='before'), Observation(span='situation settles down')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='the first few days')]"
     }
 }
 {
@@ -721,13 +721,13 @@
 {
     "# # # The effect of the treatment should be monitored by daily review of seizure registration in Health Platform on a daily basis.": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='seizure')]"
     }
 }
 {
     "The duration of PSH can vary from a few weeks to months, which is why any tapering of treatment must be assessed on an ongoing basis according to clinical assessment.": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='a few weeks to months')]"
     }
 }
 {
@@ -745,19 +745,19 @@
 {
     "B uses low molecular weight heparin ( Innohep ) for heparinization during hemodialysis treatment.": {
         "golds": "[Activity(span='uses'), ActivityData(span='low molecular weight heparin ( Innohep )'), PurposeOutcome(span='for heparinization'), Specification(span='during hemodialysis treatment')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='heparin'), ActivityData(span='heparin'), Activity(span='hemodialysis')]"
     }
 }
 {
     "As a general rule, the single-use syringes are used for all patients receiving more than 2500 IU, as they are cheaper and preservative-free.": {
         "golds": "[ActivityData(span='single-use syringes'), Activity(span='used'), ResponseEntity(span='for'), Actor(span='all patients'), Observation(span='receiving'), Guard(span='more than 2500 IU')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='syringes'), ActivityData(span='2500 IU')]"
     }
 }
 {
     "For patients receiving less than 2500 IU or more than 4500 IU innohep, draw up with 1 ml syringe from vial containing 10,000 IU / ml": {
         "golds": "[ResponseEntity(span='For'), Actor(span='patients'), Observation(span='receiving'), Guard(span='less than 2500 IU'), Guard(span='more than 4500 IU'), ActivityData(span='innohep'), Activity(span='draw up'), ActivityData(span='1 ml syringe'), Specification(span='from vial containing 10,000 IU / ml')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='patients'), ActivityData(span='innohep'), ActivityData(span='1 ml syringe'), ActivityData(span='10,000 IU')]"
     }
 }
 {
@@ -775,61 +775,61 @@
 {
     "* The vial must not be stored above 25 ºC and": {
         "golds": "[ActivityData(span='The vial'), ActivityData(span='must not be stored'), Guard(span='above 25 ºC'), And(span='and')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='25 ºC')]"
     }
 }
 {
     "* Must be used within 14 days.": {
         "golds": "[Specification(span='Must be'), Activity(span='used'), Guard(span='within 14 days')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='within 14 days')]"
     }
 }
 {
     "The medication is administered in the vein-side nozzle.": {
         "golds": "[ActivityData(span='The medication'), Activity(span='administered'), Specification(span='in the vein-side nozzle')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='medication')]"
     }
 }
 {
     "* * New patient heparinization : * *": {
         "golds": "[ParentActivity(span='New patient heparinization')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='patient'), Activity(span='heparinization')]"
     }
 }
 {
     "Many patients can run an HD without the need for heparinization.": {
         "golds": "[Actor(span='Many patients'), Activity(span='can run'), ActivityData(span='HD'), ExclusionEntity(span='without the need'), Activity(span='heparinization')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='patients')]"
     }
 }
 {
     "The doctor has assessed this when prescribing the dialysis.": {
         "golds": "[Actor(span='The doctor'), Activity(span='assessed'), ActivityData(span='this'), Specification(span='when prescribing the dialysis')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='doctor')]"
     }
 }
 {
     "Unless there are contraindications, 2500 IU Innohep is given as a bolus at start of hemodialysis.": {
         "golds": "[ExclusionEntity(span='Unless'), Observation(span='contraindications'), ActivityData(span='2500 IU Innohep'), Activity(span='is given'), Specification(span='as a bolus'), Specification(span='at start of hemodialysis')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='2500 IU Innohep'), Activity(span='hemodialysis')]"
     }
 }
 {
     "For dialysis treatment for more than 4 hours, an additional an additional 500 - 1000 IU Innohep is given from the start.": {
         "golds": "[ResponseEntity(span='For'), Observation(span='dialysis treatment'), Specification(span='for more than 4 hours'), Specification(span='additional'), ActivityData(span='500 - 1000 IU Innohep'), Observation(span='is given'), Specification(span='from the start')]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='dialysis'), Guard(span='more than 4 hours'), ActivityData(span='Innohep')]"
     }
 }
 {
     "* * Adjustment of the Innohep dose : * *": {
         "golds": "[ParentActivity(span='Adjustment of the Innohep dose')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='Innohep')]"
     }
 }
 {
     "* In case of clogging of the filter and / or abundant thrombi in the venous chamber, increase the starting bolus of Innohep by 500 - 1000 IU at the next HD": {
         "golds": "[ConditionEntity(span='In case of'), Observation(span='clogging of the filter'), Or(span='and / or'), Observation(span='abundant thrombi'), Specification(span='in the venous chamber'), Activity(span='increase'), ActivityData(span='starting bolus'), Specification(span='of Innohep by 500 - 1000 IU'), Specification(span='at the next HD')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='clogging of the filter'), Observation(span='thrombi in the venous chamber'), ActivityData(span='Innohep'), Activity(span='HD')]"
     }
 }
 {
@@ -853,13 +853,13 @@
 {
     "* If fistula compression time is repeatedly more than 30 minutes, the dose is reduced by 500 IU per hemodialysis until streaks / clots are observed in the filter, artery and / or vein chamber.": {
         "golds": "[ConditionEntity(span='If'), Observation(span='fistula compression time'), Specification(span='is repeatedly'), Guard(span='more than 30 minutes'), ActivityData(span='the dose'), Activity(span='reduced'), Specification(span='by 500 IU per hemodialysis'), ExclusionEntity(span='until'), ActivityData(span='streaks / clots'), Activity(span='are observed'), Specification(span='in the filter , artery and / or vein chamber')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='more than 30 minutes'), ActivityData(span='dose'), ActivityData(span='IU')]"
     }
 }
 {
     "The dose is then increased with 500 IU Innohep": {
         "golds": "[ActivityData(span='dose'), Activity(span='increased'), Specification(span='with 500 IU Innohep')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='500 IU Innohep')]"
     }
 }
 {
@@ -871,19 +871,19 @@
 {
     "+ Note : If the compression time is long despite a striated filter and thrombi in the venous chamber, it may be a sign of stenosis in the fistula": {
         "golds": "[ConditionEntity(span='If'), Observation(span='compression time is long'), And(span='despite'), Observation(span='striated filter'), And(span='and'), Observation(span='thrombi'), Specification(span='in the venous chamber'), Observation(span='sign of stenosis in the fistula')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='thrombi'), Observation(span='stenosis')]"
     }
 }
 {
     "* The hemodialysis nurse can change the dose according to the above instructions, but Innohep must be prescribed by a doctor the first time it is given.": {
         "golds": "[Actor(span='hemodialysis nurse'), Activity(span='can change'), ActivityData(span='the dose'), Specification(span='according to the above instructions'), ExclusionEntity(span='but'), ActivityData(span='Innohep'), ResponseEntity(span='must be'), Activity(span='prescribed'), Actor(span='doctor'), Specification(span='the first time'), Activity(span='is given')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='nurse'), Actor(span='doctor')]"
     }
 }
 {
     "* If there is a white filter and no thrombi in the venous chamber, the dose is reduced by 500 IU at the next HD, and so on.": {
         "golds": "[ConditionEntity(span='If'), Activity(span='white filter'), And(span='and'), Observation(span='no thrombi'), Specification(span='in the venous chamber'), ActivityData(span='the dose'), Activity(span='is reduced'), Specification(span='by 500 IU'), Specification(span='at the next HD')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='thrombi'), Guard(span='500 IU')]"
     }
 }
 {
@@ -895,49 +895,49 @@
 {
     "* Long-term ventilator treatment": {
         "golds": "[Specification(span='Long-term'), Observation(span='ventilator treatment')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='Long-term')]"
     }
 }
 {
     "* Congenital malformations": {
         "golds": "[Observation(span='Congenital malformations')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Congenital malformations')]"
     }
 }
 {
     "* Sequelae after long-term ventilator treatment": {
         "golds": "[Specification(span='long-term ventilator treatment')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Sequelae'), Activity(span='ventilator treatment')]"
     }
 }
 {
     "* Stenoses / malasias in the larynx / trachea": {
         "golds": "[Observation(span='Stenoses / malasias'), Specification(span='larynx / trachea')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Stenoses / malasias in the larynx / trachea')]"
     }
 }
 {
     "* Congenital recurrent paresis": {
         "golds": "[Observation(span='Congenital recurrent paresis')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Congenital recurrent paresis')]"
     }
 }
 {
     "* Viruses, edema, tumors, surgical procedures": {
         "golds": "[Observation(span='Viruses'), Observation(span='edema'), Observation(span='tumors'), Observation(span='surgical procedures')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='edema'), Observation(span='tumors'), ParentActivity(span='surgical procedures')]"
     }
 }
 {
     "* Swallowing problems / false swallowing": {
         "golds": "[Observation(span='Swallowing problems'), Observation(span='false swallowing')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Swallowing problems'), Observation(span='false swallowing')]"
     }
 }
 {
     "* Neck and facial trauma": {
         "golds": "[Observation(span='Neck and facial trauma')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Neck and facial trauma')]"
     }
 }
 {
@@ -949,7 +949,7 @@
 {
     "* Neuromuscular disorders with reduced muscle strength, including in the respiratory muscles": {
         "golds": "[Observation(span='Neuromuscular disorders'), Specification(span='reduced muscle strength'), Specification(span='respiratory muscles')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='Neuromuscular disorders'), Observation(span='reduced muscle strength')]"
     }
 }
 {
@@ -967,7 +967,7 @@
 {
     "If the tracheostomy is expected to be needed for a longer period of time ( months, years or permanently ) and as soon as the child's condition is stable, contact RCØ ( Rspiration Center East at Glostrup Hospital ), with a view to going home with a tracheostomy.": {
         "golds": "[ActivityData(span='tracheostomy'), Activity(span='is expected to be needed'), Actor(span=\"child's\"), Observation(span='condition is stable'), Input(span='contact'), Specification(span='RCØ ( Rspiration Center East at Glostrup Hospital )')]",
-        "predictions": "[]"
+        "predictions": "[ConditionEntity(span='as soon as')]"
     }
 }
 {
@@ -979,7 +979,7 @@
 {
     "However, they must spend the night in 5061 for monitoring purposes.": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='they'), Guard(span='the night')]"
     }
 }
 {
@@ -1009,19 +1009,19 @@
 {
     "* * Transfer of newly operated patient * *": {
         "golds": "[ParentActivity(span='Transfer of newly operated patient')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='patient')]"
     }
 }
 {
     "The patient is transported from the operating room to recovery on a bed of 1 - 2 Nurse anesthetist / physician, operating room nurse or surgeon.": {
         "golds": "[Actor(span='patient'), Activity(span='is transported'), Specification(span='from the operating room to recovery on a bed')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='Nurse'), Actor(span='anesthetist'), Actor(span='physician'), Actor(span='nurse'), Actor(span='surgeon')]"
     }
 }
 {
     "These are nurse anesthetist who has anesthetized the patient assesses whether the transport can be handled by staff other than anesthesia": {
         "golds": "[Actor(span='nurse anesthetist'), Activity(span='assesses'), ConditionEntity(span='whether'), ActivityData(span='transport'), Activity(span='can be handled'), Actor(span='staff other than anesthesia')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='nurse anesthetist'), Actor(span='who'), Actor(span='patient'), Actor(span='staff')]"
     }
 }
 {
@@ -1033,7 +1033,7 @@
 {
     "* The operating room staff gives a report to the recovery nurse when handing over the newly operated patient according to the department's guidelines.": {
         "golds": "[Actor(span='operating room staff'), Activity(span='gives'), ActivityData(span='report'), Specification(span='to the recovery nurse'), ResponseEntity(span='when'), Activity(span='handing over'), Specification(span='newly operated'), Actor(span='patient'), Specification(span=\"according to the department's guidelines\")]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='staff'), Actor(span='nurse'), Actor(span='patient')]"
     }
 }
 {
@@ -1093,43 +1093,43 @@
 {
     "* Assess if the patient needs O2 and administer via nasal catheter if needed reathing": {
         "golds": "[Activity(span='Assess'), Activity(span='administer'), Observation(span='needed reathing')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='needs O2'), Activity(span='administer via nasal catheter')]"
     }
 }
 {
     "* Check patient's breathing - note noisy / wheezing breathing - obstruction": {
         "golds": "[Observation(span='Check'), Activity(span='note')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='patient')]"
     }
 }
 {
     "* Observe for signs of cyanosis": {
         "golds": "[Activity(span='Observe')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='cyanosis')]"
     }
 }
 {
     "* Observe respiratory rate and depth irculation": {
         "golds": "[Activity(span='Observe')]",
-        "predictions": "[]"
+        "predictions": "[Input(span='respiratory rate'), Input(span='depth irculation')]"
     }
 }
 {
     "* Check patient's circulation via monitor + Blood pressure + Pulse + Heart rhythm": {
         "golds": "[Activity(span='Check'), Input(span='Blood pressure'), Input(span='Pulse'), Input(span='Heart rhythm')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='patient'), Input(span='Blood pressure'), Input(span='Pulse'), Input(span='Heart rhythm')]"
     }
 }
 {
     "* Observe the patient's circulatory state via skin temperature and color": {
         "golds": "[Activity(span='Observe'), Input(span='circulatory state'), ActivityData(span='skin temperature and color')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='temperature')]"
     }
 }
 {
     "* * Drain and medication": {
         "golds": "[ParentActivity(span='Drain and medication')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='medication')]"
     }
 }
 {
@@ -1171,7 +1171,7 @@
 {
     "* Observe diaper for degree of bleeding and document this": {
         "golds": "[Activity(span='Observe'), ActivityData(span='diaper'), Specification(span='for degree of bleeding'), And(span='and'), Activity(span='document')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='degree of bleeding')]"
     }
 }
 {
@@ -1183,13 +1183,13 @@
 {
     "* For abdominal surgery, observe the appearance of the abdomen": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[ParentActivity(span='abdominal surgery')]"
     }
 }
 {
     "* If the patient has diabetes, measure the patient's blood sugar Anesthesia and diabetes mellitus - fasting and perioperative management in adults ( surgical patients )": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='diabetes'), Observation(span='diabetes mellitus')]"
     }
 }
 {
@@ -1201,7 +1201,7 @@
 {
     "* In case of atypical or unexpected course / condition, contact anesthesiologist or possibly surgeon When transferring a patient to a colleague, a report is submitted corresponding to the report submitted at the transition from the operating room to the recovery room": {
         "golds": "[ConditionEntity(span='In case of'), Observation(span='atypical or unexpected course / condition'), Activity(span='contact')]",
-        "predictions": "[]"
+        "predictions": "[Actor(span='anesthesiologist'), Actor(span='surgeon'), Actor(span='patient'), Actor(span='colleague')]"
     }
 }
 {
@@ -1237,7 +1237,7 @@
 {
     "Cutting the tongue ligaments ( frenulotomy ) ( Link to VIP )": {
         "golds": "[Activity(span='Cutting'), ActivityData(span='the tongue ligaments'), Specification(span='frenulotomy')]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='Cutting the tongue ligaments')]"
     }
 }
 {
@@ -1267,13 +1267,13 @@
 {
     "Delayed wound healing ( > 1 week ) # # Delayed healing of wounds can be caused by an infection of the wound and / or fungus. * Treat locally with antibiotic ointment. Contact your doctor for a preparation. * If a fungal infection is suspected, treat with an antifungal agent locally and possibly in the child's mouth and diaper area. the child's oral cavity and diaper area. Contact a doctor for preparation. * Wash nipples with soap and water x 2 daily. * Air dry breast after breastfeeding. * If nursing pads are needed, change them frequently to keep the breast dry.": {
         "golds": "[ParentActivity(span='Delayed wound healing'), Specification(span='1 week'), Specification(span='Delayed healing of wounds can be caused by an infection of the wound and / or fungus'), Activity(span='Treat'), Specification(span='locally'), ActivityData(span='antibiotic ointment'), Activity(span='Contact'), Specification(span='doctor'), PurposeOutcome(span='a preparation'), ConditionEntity(span='If'), ActivityData(span='fungal infection'), Input(span='suspected'), ActivityData(span='antifungal agent'), Specification(span='locally'), Specification(span=\"child's mouth and diaper area\"), Activity(span='Contact'), ActivityData(span='a doctor'), Specification(span='preparation'), Activity(span='Wash'), ActivityData(span='nipples'), Specification(span='soap and water'), Specification(span='x 2 daily'), Activity(span='Air dry'), ActivityData(span='breast'), Specification(span='breastfeeding'), ActivityData(span='nursing pads'), Input(span='needed'), Specification(span='frequently'), PurposeOutcome(span='keep the breast dry')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='> 1 week'), ActivityData(span='antibiotic ointment'), ActivityData(span='antifungal agent'), ActivityData(span='soap'), ActivityData(span='water')]"
     }
 }
 {
     "If the pain and sores are massive, the woman can take a break from breastfeeding until the warts have healed.": {
         "golds": "[ConditionEntity(span='If'), Observation(span='pain and sores are massive'), Actor(span='the woman'), Activity(span='take'), ActivityData(span='a break from breastfeeding'), ExclusionEntity(span='until'), Observation(span='warts have healed')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='pain'), Observation(span='sores'), Activity(span='breastfeeding'), Observation(span='warts')]"
     }
 }
 {
@@ -1285,7 +1285,7 @@
 {
     "If the cause of the sores is properly addressed, they should heal within days to a week.": {
         "golds": "[ConditionEntity(span='If'), ActivityData(span='the sores'), Specification(span='properly'), Activity(span='addressed'), Observation(span='heal'), Guard(span='days to a week')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='within days to a week')]"
     }
 }
 {
@@ -1309,55 +1309,55 @@
 {
     "PSA should not be taken in the acute phase.": {
         "golds": "[ActivityData(span='PSA'), ExclusionEntity(span='not be'), Activity(span='taken'), Specification(span='acute phase')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='PSA')]"
     }
 }
 {
     "* * Treatment : * * * transurethral catheter If transurethral catheterization is not catheterization is not possible, a * suprapubic catheter * is inserted, preceded by ultrasound to ensure adequate bladder volume.": {
         "golds": "[ExclusionEntity(span='If'), Specification(span='transurethral'), Activity(span='catheterization'), Observation(span='catheterization is not possible'), ActivityData(span='suprapubic catheter'), Activity(span='inserted'), ResponseEntity(span='preceded by'), Activity(span='ultrasound'), PurposeOutcome(span='adequate bladder volume')]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='transurethral catheterization'), Activity(span='catheterization'), Activity(span='inserted'), Activity(span='preceded by ultrasound'), PurposeOutcome(span='ensure adequate bladder volume')]"
     }
 }
 {
     "* If retention is < 1000 ml *, the patient is started on alpha-blocker therapy, instructed in catheter management and given patient counseling.": {
         "golds": "[ConditionEntity(span='If'), Input(span='retention'), Guard(span='< 1000 ml'), Actor(span='the patient'), Activity(span='started'), ActivityData(span='alpha-blocker therapy'), Activity(span='instructed'), ActivityData(span='catheter management'), Activity(span='given'), ActivityData(span='patient counseling')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='retention is < 1000 ml'), Activity(span='therapy')]"
     }
 }
 {
     "Pt. is given an appointment for an outpatient check-up after 1 week. In the outpatient clinic, the bladder is filled with saline the catheter is removed and flow and residual urine are measured.": {
         "golds": "[Actor(span='Pt .'), Activity(span='given'), ActivityData(span='an appointment'), ResponseEntity(span='for an'), Specification(span='outpatient'), ParentActivity(span='check-up'), Guard(span='after 1 week'), Specification(span='outpatient clinic'), ActivityData(span='bladder'), Activity(span='filled'), Specification(span='saline'), Specification(span='catheter'), Activity(span='removed'), ActivityData(span='flow and residual urine'), Activity(span='measured')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='after 1 week')]"
     }
 }
 {
     "If there is no urination or a large amount of residual urine, the catheter is refer the patient to TURP / TUIP at the Gentofte-Herlev urology department or consult with ovl.": {
         "golds": "[ConditionEntity(span='If'), Observation(span='no urination'), Specification(span='large amount'), Observation(span='residual urine'), Activity(span='refer'), ActivityData(span='patient'), Specification(span='TURP / TUIP at the Gentofte-Herlev urology department'), Activity(span='consult'), ActivityData(span='ovl')]",
-        "predictions": "[]"
+        "predictions": "[ResponseEntity(span='If')]"
     }
 }
 {
     "AR for PAE ( prostate artery embolization ).": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Activity(span='AR for PAE ( prostate artery embolization )')]"
     }
 }
 {
     "In case of modest residual urine, treatment with alpha-blockers is continued.": {
         "golds": "[ConditionEntity(span='In case of'), Specification(span='modest'), Observation(span='residual urine'), ActivityData(span='alpha-blockers'), Activity(span='continued')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='alpha-blockers')]"
     }
 }
 {
     "* If retention > 1000 ml * risk of polyuria.": {
         "golds": "[Input(span='retention'), Guard(span='> 1000 ml'), Observation(span='risk of polyuria')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='retention > 1000 ml'), Observation(span='polyuria')]"
     }
 }
 {
     "Patients with congestive congestive problems, elderly and comorbid must be hospitalized.": {
         "golds": "[Actor(span='Patients'), Observation(span='congestive problems'), Observation(span='elderly'), Observation(span='comorbid'), ConditionEntity(span='must be'), Activity(span='hospitalized')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='congestive congestive problems')]"
     }
 }
 {
@@ -1375,7 +1375,7 @@
 {
     "1. conventional treatment 2. primary suturing under antibiotic coverage": {
         "golds": "[ParentActivity(span='conventional treatment'), ParentActivity(span='primary suturing under antibiotic coverage')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='antibiotic')]"
     }
 }
 {
@@ -1399,13 +1399,13 @@
 {
     "Change after approx. 24 hours + / -. anesthesia by individual assessment.": {
         "golds": "[Activity(span='Change'), Guard(span='after approx . 24 hours + / -'), ActivityData(span='anesthesia'), Specification(span='by individual assessment')]",
-        "predictions": "[]"
+        "predictions": "[Guard(span='approx. 24 hours')]"
     }
 }
 {
     "* * Primary suturing under antibiotic coverage Incision over the apex of the abscess, the abscess contents are drained and the septae digitally decompose the septae. Then curettage with a sharp spoon.": {
         "golds": "[ParentActivity(span='Primary suturing under antibiotic coverage'), Activity(span='Incision'), Specification(span='over the apex of the abscess'), ActivityData(span='abscess contents'), Activity(span='drained'), And(span='and'), ActivityData(span='septae'), Specification(span='digitally'), Activity(span='decompose'), ResponseEntity(span='Then'), Activity(span='curettage'), ActivityData(span='sharp spoon')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='antibiotic')]"
     }
 }
 {
@@ -1423,7 +1423,7 @@
 {
     "Give antibiotics according to instructions.": {
         "golds": "[Activity(span='Give'), ActivityData(span='antibiotics'), Specification(span='according to instructions')]",
-        "predictions": "[]"
+        "predictions": "[ActivityData(span='antibiotics')]"
     }
 }
 {
@@ -1435,19 +1435,19 @@
 {
     "Do * not * culture from abscesses, except for suspected air-generating infections ( see instructions for necrotizing soft tissue infections ).": {
         "golds": "[ExclusionEntity(span='Do * not *'), Activity(span='culture'), ActivityData(span='from abscesses'), InclusionEntity(span='except'), Observation(span='suspected air-generating infections'), Specification(span='see instructions for necrotizing soft tissue infections')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='abscesses'), Observation(span='air-generating infections'), Observation(span='necrotizing soft tissue infections')]"
     }
 }
 {
     "* * Guidelines for the treatment of abscesses": {
         "golds": "[]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='abscesses')]"
     }
 }
 {
     "Most abscesses can be treated with primary sutures under antibiotic coverage. 1. Large irregular abscesses with significant substance loss or pocket formation. In these cases, conventional treatment is used.": {
         "golds": "[ActivityData(span='abscesses'), Activity(span='treated'), ActivityData(span='primary sutures'), Specification(span='under antibiotic coverage'), Observation(span='Large irregular abscesses'), Specification(span='significant substance loss'), Specification(span='pocket formation'), ConditionEntity(span='In these cases'), Activity(span='conventional treatment is used')]",
-        "predictions": "[]"
+        "predictions": "[Observation(span='abscesses'), ActivityData(span='sutures'), ActivityData(span='antibiotic'), Observation(span='abscesses'), Observation(span='substance loss'), Observation(span='pocket formation')]"
     }
 }
 {

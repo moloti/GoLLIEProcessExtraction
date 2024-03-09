@@ -43,7 +43,7 @@
 {
     "# # # # Indication # # # # * Suspicion of infection around implanted mechanical parts ( valves, pacemakers, electrodes, aortic stents ) * Investigation for bacterial emboli elsewhere in the body in case of bacteremia * Multiple forms of infection / inflammation + NB : Special preparation when investigating endocarditis * Certain neurodegenerative disorders 18 F-FDG PET is not suitable for diagnosing prostate cancer and pathology in the kidney / urinary tract pathology.": {
         "golds": "[ActivityParentRelation(arg1=['Suspicion', 'of', 'infection'], arg2=['Indication']), ActivitySpecificationRelation(arg1=['Investigation'], arg2=['elsewhere', 'in', 'the', 'body']), ActivitySpecificationRelation(arg1=['Investigation'], arg2=['bacterial', 'emboli']), ActivityParentRelation(arg1=['Investigation'], arg2=['Indication']), ActivityParentRelation(arg1=['Multiple', 'forms', 'of', 'infection', '/', 'inflammation'], arg2=['Indication']), ActivityParentRelation(arg1=['18', 'F-FDG', 'PET'], arg2=['Indication']), ActivityParentRelation(arg1=['neurodegenerative', 'disorders'], arg2=['Indication'])]",
-        "predictions": "[ConditionRelation(arg1='Investigation', arg2='bacterial emboli'), ConditionRelation(arg1='Investigation', arg2='elsewhere in the body'), ResponseRelation(arg1='in case of', arg2='bacteremia')]"
+        "predictions": "[ConditionRelation(arg1='Investigation', arg2='bacterial emboli'), ConditionRelation(arg1='Investigation', arg2='elsewhere in the body'), ConditionRelation(arg1='in case of', arg2='bacteremia'), ConditionRelation(arg1='when', arg2='investigating endocarditis')]"
     }
 }
 {
@@ -199,7 +199,7 @@
 {
     "Before scanning The patient is sent to the toilet to urinate.": {
         "golds": "[ActivityActorRelation(arg1=['scanning'], arg2=['patient']), ActivitySpecificationRelation(arg1=['sent'], arg2=['toilet']), ActivityPurposeOutcomeRelation(arg1=['sent'], arg2=['to', 'urinate'])]",
-        "predictions": "[ConditionResponseRelation(arg1='Before', arg2='scanning'), ActivityActorRelation(arg1='sent', arg2='patient'), ActivitySpecificationRelation(arg1='sent', arg2='toilet'), ActivityPurposeOutcomeRelation(arg1='sent', arg2='to urinate')]"
+        "predictions": "[ConditionResponseRelation(arg1='Before', arg2='scanning'), ActivitySpecificationRelation(arg1='sent', arg2='toilet'), ActivityPurposeOutcomeRelation(arg1='sent', arg2='to urinate')]"
     }
 }
 {
@@ -295,7 +295,7 @@
 {
     "* * Investigation and referral to vascular clinic Pseudoaneurysms are most common in the inguinal arteries. For sizes up to to 2 cm, the natural history is usually benign as most thromboses occur spontaneously. For sizes of 2 - 3 cm, ultrasound-guided compression can be attempted over the accumulation for about 15 minutes, which can be repeated in case of partial thrombosis. This can be done at the local hospital, often with the assistance of radiology staff. In cases with inadequate treatment or complicated pathoanatomy, consider endovascular coiling or open surgery with exposure of the artery and sewing over the defect.": {
         "golds": "[ActivitySpecificationRelation(arg1=['Investigation', 'and', 'referral'], arg2=['vascular', 'clinic']), ActivitySpecificationRelation(arg1=['Pseudoaneurysms'], arg2=['are', 'most', 'common', 'in', 'the', 'inguinal', 'arteries']), ActivityGuardRelation(arg1=['For', 'sizes'], arg2=['up', 'to', 'to', '2', 'cm']), ActivityPurposeOutcomeRelation(arg1=['natural', 'history', 'is', 'usually', 'benign'], arg2=['most', 'thromboses', 'occur', 'spontaneously']), ActivityGuardRelation(arg1=['For', 'sizes'], arg2=['of', '2', '-', '3', 'cm']), ActivitySpecificationRelation(arg1=['attempted'], arg2=['the', 'accumulation']), ActivitySpecificationRelation(arg1=['attempted'], arg2=['about', '15', 'minutes']), ActivityParentRelation(arg1=['partial', 'thrombosis'], arg2=['Investigation', 'and', 'referral']), ActivitySpecificationRelation(arg1=['done'], arg2=['local', 'hospital']), ActivityActorRelation(arg1=['done'], arg2=['radiology', 'staff']), ActivityParentRelation(arg1=['complicated', 'pathoanatomy'], arg2=['Investigation', 'and', 'referral']), ActivityParentRelation(arg1=['inadequate', 'treatment'], arg2=['Investigation', 'and', 'referral'])]",
-        "predictions": "[]"
+        "predictions": "[ActivitySpecificationRelation(arg1='Investigation and referral', arg2='vascular clinic'), ActivitySpecificationRelation(arg1='attempted', arg2='the accumulation'), ActivityActorRelation(arg1='done', arg2='radiology staff')]"
     }
 }
 {
@@ -745,7 +745,7 @@
 {
     "B uses low molecular weight heparin ( Innohep ) for heparinization during hemodialysis treatment.": {
         "golds": "[ActivitySpecificationRelation(arg1=['uses'], arg2=['during', 'hemodialysis', 'treatment']), ActivityPurposeOutcomeRelation(arg1=['uses'], arg2=['for', 'heparinization']), ActivityActivityDataRelation(arg1=['uses'], arg2=['low', 'molecular', 'weight', 'heparin', '(', 'Innohep', ')'])]",
-        "predictions": "[ActivityActivityDataRelation(arg1='uses', arg2='low molecular weight heparin ( Innohep )')]"
+        "predictions": "[ActivityActivityDataRelation(arg1='uses', arg2='low molecular weight heparin ( Innohep )'), ActivityPurposeOutcomeRelation(arg1='uses', arg2='for heparinization'), ActivitySpecificationRelation(arg1='uses', arg2='during hemodialysis treatment')]"
     }
 }
 {
@@ -1249,7 +1249,7 @@
 {
     "* Get the milk flowing before putting the baby to the breast.": {
         "golds": "[ActivitySpecificationRelation(arg1=['putting'], arg2=['the', 'breast']), ActivityActivityDataRelation(arg1=['putting'], arg2=['the', 'baby'])]",
-        "predictions": "[]"
+        "predictions": "[ConditionResponseRelation(arg1='before', arg2='putting')]"
     }
 }
 {
@@ -1267,7 +1267,7 @@
 {
     "Delayed wound healing ( > 1 week ) # # Delayed healing of wounds can be caused by an infection of the wound and / or fungus. * Treat locally with antibiotic ointment. Contact your doctor for a preparation. * If a fungal infection is suspected, treat with an antifungal agent locally and possibly in the child's mouth and diaper area. the child's oral cavity and diaper area. Contact a doctor for preparation. * Wash nipples with soap and water x 2 daily. * Air dry breast after breastfeeding. * If nursing pads are needed, change them frequently to keep the breast dry.": {
         "golds": "[ActivitySpecificationRelation(arg1=['Delayed', 'wound', 'healing'], arg2=['1', 'week']), ActivitySpecificationRelation(arg1=['Delayed', 'wound', 'healing'], arg2=['Delayed', 'healing', 'of', 'wounds', 'can', 'be', 'caused', 'by', 'an', 'infection', 'of', 'the', 'wound', 'and', '/', 'or', 'fungus']), ActivitySpecificationRelation(arg1=['Treat'], arg2=['locally']), ActivityActivityDataRelation(arg1=['Treat'], arg2=['antibiotic', 'ointment']), ActivityParentRelation(arg1=['Treat'], arg2=['healing', '(', '>']), ActivityPurposeOutcomeRelation(arg1=['Contact'], arg2=['a', 'preparation']), ActivityParentRelation(arg1=['Contact'], arg2=['healing', '(', '>']), ActivityActivityDataRelation(arg1=['suspected'], arg2=['fungal', 'infection']), ActivitySpecificationRelation(arg1=['Contact'], arg2=['preparation']), ActivityActivityDataRelation(arg1=['Contact'], arg2=['a', 'doctor']), ActivitySpecificationRelation(arg1=['Wash'], arg2=['x', '2', 'daily']), ActivitySpecificationRelation(arg1=['Wash'], arg2=['soap', 'and', 'water']), ActivityActivityDataRelation(arg1=['Wash'], arg2=['nipples']), ActivityParentRelation(arg1=['Wash'], arg2=['healing', '(', '>']), ActivitySpecificationRelation(arg1=['Air', 'dry'], arg2=['breastfeeding']), ActivityActivityDataRelation(arg1=['Air', 'dry'], arg2=['breast']), ActivityParentRelation(arg1=['Air', 'dry'], arg2=['healing', '(', '>']), ActivityActivityDataRelation(arg1=['needed'], arg2=['nursing', 'pads']), ActivityParentRelation(arg1=['needed'], arg2=['healing', '(', '>'])]",
-        "predictions": "[]"
+        "predictions": "[ActivityActivityDataRelation(arg1='Treat', arg2='antibiotic ointment'), ActivityActivityDataRelation(arg1='Contact', arg2='doctor'), ActivityActivityDataRelation(arg1='Contact', arg2='a doctor'), ActivityActivityDataRelation(arg1='Wash', arg2='nipples'), ActivityActivityDataRelation(arg1='Air dry', arg2='breast')]"
     }
 }
 {

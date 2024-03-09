@@ -1,21 +1,21 @@
 {
     "medicalguideline.ner": {
         "entities": {
-            "precision": 0.0,
-            "recall": 0.0,
-            "f1-score": 0.0
+            "precision": 0.22333333333333333,
+            "recall": 0.08302354399008674,
+            "f1-score": 0.12104787714543812
         },
         "predictions_stats": {
             "impossible_to_parse": {
-                "total": 143,
-                "percentage%": 58.6066
+                "total": 2,
+                "percentage%": 0.8197
             },
             "hallucinated_predictions": {
                 "total": 0,
                 "percentage%": 0.0
             },
             "total": {
-                "predictions": 0,
+                "predictions": 300,
                 "gold": 807
             }
         }
@@ -28,15 +28,15 @@
         },
         "predictions_stats": {
             "impossible_to_parse": {
-                "total": 4,
-                "percentage%": 1.6393
-            },
-            "hallucinated_predictions": {
                 "total": 0,
                 "percentage%": 0.0
             },
+            "hallucinated_predictions": {
+                "total": 1,
+                "percentage%": 0.8772
+            },
             "total": {
-                "predictions": 102,
+                "predictions": 113,
                 "gold": 371
             }
         }

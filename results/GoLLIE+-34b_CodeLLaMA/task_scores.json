@@ -1,17 +1,17 @@
 {
     "medicalguideline.ner": {
         "entities": {
-            "precision": 0.0,
-            "recall": 0.0,
-            "f1-score": 0.0,
+            "precision": 0.22333333333333333,
+            "recall": 0.08302354399008674,
+            "f1-score": 0.12104787714543812,
             "class_scores": {
                 "Observation": {
-                    "tp": 0,
+                    "tp": 24,
                     "total_pos": 106,
-                    "total_pre": 0,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "total_pre": 75,
+                    "precision": 0.32,
+                    "recall": 0.22641509433962265,
+                    "f1-score": 0.26519337016574585
                 },
                 "Specification": {
                     "tp": 0,
@@ -22,33 +22,33 @@
                     "f1-score": 0.0
                 },
                 "ActivityData": {
-                    "tp": 0,
+                    "tp": 23,
                     "total_pos": 141,
-                    "total_pre": 0,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "total_pre": 96,
+                    "precision": 0.23958333333333334,
+                    "recall": 0.16312056737588654,
+                    "f1-score": 0.1940928270042194
                 },
                 "Activity": {
-                    "tp": 0,
+                    "tp": 6,
                     "total_pos": 169,
-                    "total_pre": 0,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "total_pre": 40,
+                    "precision": 0.15,
+                    "recall": 0.03550295857988166,
+                    "f1-score": 0.05741626794258374
                 },
                 "Guard": {
-                    "tp": 0,
+                    "tp": 5,
                     "total_pos": 18,
-                    "total_pre": 0,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "total_pre": 40,
+                    "precision": 0.125,
+                    "recall": 0.2777777777777778,
+                    "f1-score": 0.1724137931034483
                 },
                 "ResponseEntity": {
                     "tp": 0,
                     "total_pos": 16,
-                    "total_pre": 0,
+                    "total_pre": 1,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -56,23 +56,31 @@
                 "ConditionEntity": {
                     "tp": 0,
                     "total_pos": 31,
-                    "total_pre": 0,
+                    "total_pre": 1,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "InclusionEntity": {
+                    "tp": 0,
+                    "total_pos": 2,
+                    "total_pre": 1,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
                 },
                 "Actor": {
-                    "tp": 0,
+                    "tp": 6,
                     "total_pos": 35,
-                    "total_pre": 0,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "total_pre": 32,
+                    "precision": 0.1875,
+                    "recall": 0.17142857142857143,
+                    "f1-score": 0.1791044776119403
                 },
                 "ParentActivity": {
                     "tp": 0,
                     "total_pos": 24,
-                    "total_pre": 0,
+                    "total_pre": 4,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -94,25 +102,17 @@
                     "f1-score": 0.0
                 },
                 "Input": {
-                    "tp": 0,
+                    "tp": 3,
                     "total_pos": 21,
-                    "total_pre": 0,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
-                },
-                "InclusionEntity": {
-                    "tp": 0,
-                    "total_pos": 2,
-                    "total_pre": 0,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "total_pre": 9,
+                    "precision": 0.3333333333333333,
+                    "recall": 0.14285714285714285,
+                    "f1-score": 0.2
                 },
                 "PurposeOutcome": {
                     "tp": 0,
                     "total_pos": 18,
-                    "total_pre": 0,
+                    "total_pre": 1,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -129,15 +129,15 @@
         },
         "predictions_stats": {
             "impossible_to_parse": {
-                "total": 143,
-                "percentage%": 58.6066
+                "total": 2,
+                "percentage%": 0.8197
             },
             "hallucinated_predictions": {
                 "total": 0,
                 "percentage%": 0.0
             },
             "total": {
-                "predictions": 0,
+                "predictions": 300,
                 "gold": 807
             }
         }
@@ -151,7 +151,7 @@
                 "ActivitySpecificationRelation": {
                     "tp": 0,
                     "total_pos": 154,
-                    "total_pre": 21,
+                    "total_pre": 24,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -159,7 +159,7 @@
                 "ActivityActivityDataRelation": {
                     "tp": 0,
                     "total_pos": 121,
-                    "total_pre": 27,
+                    "total_pre": 32,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -175,7 +175,7 @@
                 "ResponseRelation": {
                     "tp": 0,
                     "total_pos": 0,
-                    "total_pre": 12,
+                    "total_pre": 11,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -199,7 +199,7 @@
                 "ConditionRelation": {
                     "tp": 0,
                     "total_pos": 0,
-                    "total_pre": 8,
+                    "total_pre": 10,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -207,7 +207,7 @@
                 "ActivityPurposeOutcomeRelation": {
                     "tp": 0,
                     "total_pos": 13,
-                    "total_pre": 6,
+                    "total_pre": 7,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -215,7 +215,7 @@
                 "ConditionResponseRelation": {
                     "tp": 0,
                     "total_pos": 0,
-                    "total_pre": 6,
+                    "total_pre": 7,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -232,15 +232,15 @@
         },
         "predictions_stats": {
             "impossible_to_parse": {
-                "total": 4,
-                "percentage%": 1.6393
-            },
-            "hallucinated_predictions": {
                 "total": 0,
                 "percentage%": 0.0
             },
+            "hallucinated_predictions": {
+                "total": 1,
+                "percentage%": 0.8772
+            },
             "total": {
-                "predictions": 102,
+                "predictions": 113,
                 "gold": 371
             }
         }
