@@ -1,10 +1,10 @@
 #!/bin/sh
 #BSUB -q gpua100
-#BSUB -gpu "num=2:mode=exclusive_process"
+#BSUB -gpu "num=1:mode=exclusive_process"
 #BSUB -J jobgolliedaniel
-#BSUB -n 8
+#BSUB -n 4
 #BSUB -W 03:00
-#BSUB -R "rusage[mem=10GB] select[gpu80gb]"
+#BSUB -R "rusage[mem=12GB] select[gpu80gb]"
 #BSUB -u s213709@dtu.dk
 ## -- send notification at start --
 #BSUB -B
