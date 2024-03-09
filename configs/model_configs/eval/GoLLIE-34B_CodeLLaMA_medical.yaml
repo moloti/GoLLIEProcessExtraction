@@ -3,8 +3,8 @@ model_name_or_path: HiTZ/GoLLIE-34B
 cache_dir: /work3/s213709
 torch_dtype: bfloat16
 use_lora: false
-quantization: 4
-quantization_inference: 4
+quantization: 8
+quantization_inference: 8
 gradient_checkpointing: true
 force_auto_device_map: true
 # max_memory_MB: 80000
@@ -22,8 +22,8 @@ test_tasks:
 max_examples_per_task_train: 30000
 max_examples_per_task_val: 5000
 max_examples_per_task_test: null
-max_seq_length: 3072
-generation_max_length: 3072
+max_seq_length: 2688
+generation_max_length: 2688
 ignore_pad_token_for_loss: true
 prompt_loss_weight: 0.0
 
