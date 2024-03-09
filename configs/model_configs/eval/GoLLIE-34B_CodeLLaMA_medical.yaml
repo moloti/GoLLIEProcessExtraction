@@ -3,8 +3,8 @@ model_name_or_path: HiTZ/GoLLIE-34B
 cache_dir: /work3/s213709
 torch_dtype: bfloat16
 use_lora: false
-quantization: 8
-quantization_inference: 8
+quantization: 4
+quantization_inference: 4
 gradient_checkpointing: true
 force_auto_device_map: true
 # max_memory_MB: 80000
@@ -46,9 +46,9 @@ predict_with_generate: true
 evaluate_all_checkpoints: false
 
 # batch size
-per_device_train_batch_size: 8
-per_device_eval_batch_size: 4
-gradient_accumulation_steps: 2 # 2 FOR 2 GPUs, 4 FOR 1 GPU (32 efective batch size)
+per_device_train_batch_size: 4
+per_device_eval_batch_size: 2
+gradient_accumulation_steps: 4 # 2 FOR 2 GPUs, 4 FOR 1 GPU (32 efective batch size)
 generation_num_beams: 1
 
 # optimizer settings
