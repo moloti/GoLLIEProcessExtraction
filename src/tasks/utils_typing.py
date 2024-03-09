@@ -916,6 +916,8 @@ class AnnotationList(list):
                 locals().update({name: HallucinatedType})
             except Exception:
                 _elems = []
+                logging.warning(f"A processing error appeard, probably wrong format: {ann}")
+                print(ann)
                 reading = False
                 parse_error = True
 

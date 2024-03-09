@@ -693,7 +693,7 @@ predict_with_generate:
   value: true
 generation_max_length:
   desc: null
-  value: 2048
+  value: 3072
 generation_num_beams:
   desc: null
   value: 1

@@ -42,7 +42,7 @@ def prepare_data(
     example: str,
     tokenizer: PreTrainedTokenizerBase,
     is_encoder_decoder: bool = False,
-    max_length: int = 2048,
+    max_length: int = 3072,
     inference: bool = False,
     prompt_loss_weight: float = 0.05,
 ) -> BatchEncoding:

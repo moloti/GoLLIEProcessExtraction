@@ -274,8 +274,8 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
 
         start_ner_tag = line['ner_tags'][start_index_1]
         end_ner_tag = line['ner_tags'][end_index_1]
-        arg_1 = line['tokens'][start_index_1:end_index_1+1]
-        arg_2 = line['tokens'][start_index_2:end_index_2+1]
+        arg_1 = ' '.join(line['tokens'][start_index_1:end_index_1+1]).strip()
+        arg_2 = ' '.join(line['tokens'][start_index_2:end_index_2+1]).strip()
 
         return (arg_1, arg_2, start_index_2, end_ner_tag) if start_ner_tag <= 16 else (arg_2, arg_1, start_index_1, start_ner_tag)
         
@@ -289,8 +289,8 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
         print('Start Ner Tag', start_ner_tag)
         print('Start index', start_index_1)
         print('End index', end_index_1)
-        arg_1 = line['tokens'][start_index_1:end_index_1+1]
-        arg_2 = line['tokens'][start_index_2:end_index_2+1]
+        arg_1 = ' '.join(line['tokens'][start_index_1:end_index_1+1]).strip()
+        arg_2 = ' '.join(line['tokens'][start_index_2:end_index_2+1]).strip()
 
         return (arg_2, arg_1, start_index_2, end_ner_tag) if start_ner_tag <= 16 else (arg_1, arg_2, start_index_1, start_ner_tag)
     
@@ -299,8 +299,8 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
         start_index_1, end_index_1 = self.get_span_indices(line, start_span_1, end_span_1)
         start_index_2, end_index_2 = self.get_span_indices(line, start_span_2, end_span_2)
         start_ner_tag = line['ner_tags'][start_index_1]
-        arg_1 = line['tokens'][start_index_1:end_index_1+1]
-        arg_2 = line['tokens'][start_index_2:end_index_2+1]
+        arg_1 = ' '.join(line['tokens'][start_index_1:end_index_1+1]).strip()
+        arg_2 = ' '.join(line['tokens'][start_index_2:end_index_2+1]).strip()
 
         return (arg_2, arg_1, start_index_2) if start_ner_tag <= 16 else (arg_1, arg_2, start_index_1)
 
@@ -315,8 +315,8 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
         start_index_2, end_index_2 = self.get_span_indices(line, start_span_2, end_span_2)
 
         start_ner_tag = line['ner_tags'][start_index_1]
-        arg_1 = line['tokens'][start_index_1:end_index_1+1]
-        arg_2 = line['tokens'][start_index_2:end_index_2+1]
+        arg_1 = ' '.join(line['tokens'][start_index_1:end_index_1+1]).strip()
+        arg_2 = ' '.join(line['tokens'][start_index_2:end_index_2+1]).strip()
 
         definition = self.RE_TAG_DEFINITIONS_INVERSE_WITH_TEMPLATE[relation_type]
 
@@ -365,8 +365,8 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
         start_index_1, end_index_1 = self.get_span_indices(line, start_span_1, end_span_1)
         start_index_2, end_index_2 = self.get_span_indices(line, start_span_2, end_span_2)
 
-        arg_1 = line['tokens'][start_index_1:end_index_1+1]
-        arg_2 = line['tokens'][start_index_2:end_index_2+1]
+        arg_1 = ' '.join(line['tokens'][start_index_1:end_index_1+1]).strip()
+        arg_2 = ' '.join(line['tokens'][start_index_2:end_index_2+1]).strip()
 
         definition = self.RE_TAG_DEFINITIONS_INVERSE_WITHOUT_TEMPLATE[relation_type]
 
@@ -397,8 +397,8 @@ class MedicalGuidelineDatasetLoader(DatasetLoader):
         start_index_1, end_index_1 = self.get_span_indices(line, start_span_1, end_span_1)
         start_index_2, end_index_2 = self.get_span_indices(line, start_span_2, end_span_2)
 
-        arg_1 = line['tokens'][start_index_1:end_index_1+1]
-        arg_2 = line['tokens'][start_index_2:end_index_2+1]
+        arg_1 = ' '.join(line['tokens'][start_index_1:end_index_1+1]).strip()
+        arg_2 = ' '.join(line['tokens'][start_index_2:end_index_2+1]).strip()
 
         definition = self.RE_TAG_DEFINITIONS_INVERSE_WITHOUT_TEMPLATE[relation_type]
 
