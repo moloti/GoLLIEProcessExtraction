@@ -1,53 +1,53 @@
 {
     "medicalguideline.ner": {
         "entities": {
-            "precision": 0.22333333333333333,
-            "recall": 0.08302354399008674,
-            "f1-score": 0.12104787714543812,
+            "precision": 0.24092409240924093,
+            "recall": 0.0839080459770115,
+            "f1-score": 0.12446717817561809,
             "class_scores": {
                 "Observation": {
                     "tp": 24,
                     "total_pos": 106,
-                    "total_pre": 75,
-                    "precision": 0.32,
+                    "total_pre": 76,
+                    "precision": 0.3157894736842105,
                     "recall": 0.22641509433962265,
-                    "f1-score": 0.26519337016574585
+                    "f1-score": 0.2637362637362637
                 },
                 "Specification": {
-                    "tp": 0,
-                    "total_pos": 191,
-                    "total_pre": 0,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "tp": 3,
+                    "total_pos": 204,
+                    "total_pre": 17,
+                    "precision": 0.17647058823529413,
+                    "recall": 0.014705882352941176,
+                    "f1-score": 0.027149321266968326
                 },
                 "ActivityData": {
-                    "tp": 23,
-                    "total_pos": 141,
-                    "total_pre": 96,
-                    "precision": 0.23958333333333334,
-                    "recall": 0.16312056737588654,
-                    "f1-score": 0.1940928270042194
+                    "tp": 5,
+                    "total_pos": 159,
+                    "total_pre": 22,
+                    "precision": 0.22727272727272727,
+                    "recall": 0.031446540880503145,
+                    "f1-score": 0.055248618784530384
                 },
                 "Activity": {
-                    "tp": 6,
-                    "total_pos": 169,
-                    "total_pre": 40,
-                    "precision": 0.15,
-                    "recall": 0.03550295857988166,
-                    "f1-score": 0.05741626794258374
+                    "tp": 29,
+                    "total_pos": 184,
+                    "total_pre": 128,
+                    "precision": 0.2265625,
+                    "recall": 0.15760869565217392,
+                    "f1-score": 0.1858974358974359
                 },
                 "Guard": {
-                    "tp": 5,
-                    "total_pos": 18,
-                    "total_pre": 40,
-                    "precision": 0.125,
-                    "recall": 0.2777777777777778,
-                    "f1-score": 0.1724137931034483
+                    "tp": 3,
+                    "total_pos": 21,
+                    "total_pre": 12,
+                    "precision": 0.25,
+                    "recall": 0.14285714285714285,
+                    "f1-score": 0.18181818181818182
                 },
                 "ResponseEntity": {
                     "tp": 0,
-                    "total_pos": 16,
+                    "total_pos": 19,
                     "total_pre": 1,
                     "precision": 0.0,
                     "recall": 0.0,
@@ -55,32 +55,24 @@
                 },
                 "ConditionEntity": {
                     "tp": 0,
-                    "total_pos": 31,
-                    "total_pre": 1,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
-                },
-                "InclusionEntity": {
-                    "tp": 0,
-                    "total_pos": 2,
-                    "total_pre": 1,
+                    "total_pos": 35,
+                    "total_pre": 0,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
                 },
                 "Actor": {
-                    "tp": 6,
+                    "tp": 1,
                     "total_pos": 35,
-                    "total_pre": 32,
-                    "precision": 0.1875,
-                    "recall": 0.17142857142857143,
-                    "f1-score": 0.1791044776119403
+                    "total_pre": 11,
+                    "precision": 0.09090909090909091,
+                    "recall": 0.02857142857142857,
+                    "f1-score": 0.043478260869565216
                 },
                 "ParentActivity": {
                     "tp": 0,
-                    "total_pos": 24,
-                    "total_pre": 4,
+                    "total_pos": 25,
+                    "total_pre": 2,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -94,24 +86,32 @@
                     "f1-score": 0.0
                 },
                 "ExclusionEntity": {
-                    "tp": 0,
+                    "tp": 1,
                     "total_pos": 11,
+                    "total_pre": 2,
+                    "precision": 0.5,
+                    "recall": 0.09090909090909091,
+                    "f1-score": 0.15384615384615385
+                },
+                "Input": {
+                    "tp": 7,
+                    "total_pos": 25,
+                    "total_pre": 30,
+                    "precision": 0.23333333333333334,
+                    "recall": 0.28,
+                    "f1-score": 0.2545454545454545
+                },
+                "InclusionEntity": {
+                    "tp": 0,
+                    "total_pos": 2,
                     "total_pre": 0,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
                 },
-                "Input": {
-                    "tp": 3,
-                    "total_pos": 21,
-                    "total_pre": 9,
-                    "precision": 0.3333333333333333,
-                    "recall": 0.14285714285714285,
-                    "f1-score": 0.2
-                },
                 "PurposeOutcome": {
                     "tp": 0,
-                    "total_pos": 18,
+                    "total_pos": 20,
                     "total_pre": 1,
                     "precision": 0.0,
                     "recall": 0.0,
@@ -124,69 +124,85 @@
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
+                },
+                "Output": {
+                    "tp": 0,
+                    "total_pos": 0,
+                    "total_pre": 1,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
                 }
             }
         },
         "predictions_stats": {
             "impossible_to_parse": {
-                "total": 2,
-                "percentage%": 0.8197
+                "total": 1,
+                "percentage%": 0.3922
             },
             "hallucinated_predictions": {
-                "total": 0,
-                "percentage%": 0.0
+                "total": 1,
+                "percentage%": 0.3289
             },
             "total": {
-                "predictions": 300,
-                "gold": 807
+                "predictions": 303,
+                "gold": 870
             }
         }
     },
     "medicalguideline.re": {
         "relations": {
-            "precision": 0.0,
-            "recall": 0.0,
-            "f1-score": 0.0,
+            "precision": 0.6086956521739131,
+            "recall": 0.208955223880597,
+            "f1-score": 0.31111111111111117,
             "class_scores": {
                 "ActivitySpecificationRelation": {
-                    "tp": 0,
-                    "total_pos": 154,
-                    "total_pre": 24,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "tp": 27,
+                    "total_pos": 164,
+                    "total_pre": 39,
+                    "precision": 0.6923076923076923,
+                    "recall": 0.16463414634146342,
+                    "f1-score": 0.2660098522167488
                 },
                 "ActivityActivityDataRelation": {
-                    "tp": 0,
-                    "total_pos": 121,
-                    "total_pre": 32,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "tp": 41,
+                    "total_pos": 137,
+                    "total_pre": 46,
+                    "precision": 0.8913043478260869,
+                    "recall": 0.29927007299270075,
+                    "f1-score": 0.44808743169398907
                 },
                 "ActivityGuardRelation": {
-                    "tp": 0,
-                    "total_pos": 11,
-                    "total_pre": 5,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "tp": 2,
+                    "total_pos": 14,
+                    "total_pre": 7,
+                    "precision": 0.2857142857142857,
+                    "recall": 0.14285714285714285,
+                    "f1-score": 0.19047619047619047
                 },
                 "ResponseRelation": {
                     "tp": 0,
                     "total_pos": 0,
-                    "total_pre": 11,
+                    "total_pre": 2,
+                    "precision": 0.0,
+                    "recall": 0.0,
+                    "f1-score": 0.0
+                },
+                "InclusionRelation": {
+                    "tp": 0,
+                    "total_pos": 0,
+                    "total_pre": 3,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
                 },
                 "ActivityActorRelation": {
-                    "tp": 0,
+                    "tp": 12,
                     "total_pos": 37,
-                    "total_pre": 11,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "total_pre": 16,
+                    "precision": 0.75,
+                    "recall": 0.32432432432432434,
+                    "f1-score": 0.4528301886792453
                 },
                 "ActivityParentRelation": {
                     "tp": 0,
@@ -196,7 +212,7 @@
                     "recall": 0.0,
                     "f1-score": 0.0
                 },
-                "ConditionRelation": {
+                "ConditionResponseRelation": {
                     "tp": 0,
                     "total_pos": 0,
                     "total_pre": 10,
@@ -205,17 +221,17 @@
                     "f1-score": 0.0
                 },
                 "ActivityPurposeOutcomeRelation": {
-                    "tp": 0,
-                    "total_pos": 13,
-                    "total_pre": 7,
-                    "precision": 0.0,
-                    "recall": 0.0,
-                    "f1-score": 0.0
+                    "tp": 2,
+                    "total_pos": 15,
+                    "total_pre": 4,
+                    "precision": 0.5,
+                    "recall": 0.13333333333333333,
+                    "f1-score": 0.2105263157894737
                 },
-                "ConditionResponseRelation": {
+                "ConditionRelation": {
                     "tp": 0,
                     "total_pos": 0,
-                    "total_pre": 7,
+                    "total_pre": 6,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -223,7 +239,7 @@
                 "ExclusionRelation": {
                     "tp": 0,
                     "total_pos": 0,
-                    "total_pre": 4,
+                    "total_pre": 3,
                     "precision": 0.0,
                     "recall": 0.0,
                     "f1-score": 0.0
@@ -232,16 +248,16 @@
         },
         "predictions_stats": {
             "impossible_to_parse": {
+                "total": 1,
+                "percentage%": 0.3922
+            },
+            "hallucinated_predictions": {
                 "total": 0,
                 "percentage%": 0.0
             },
-            "hallucinated_predictions": {
-                "total": 1,
-                "percentage%": 0.8772
-            },
             "total": {
-                "predictions": 113,
-                "gold": 371
+                "predictions": 138,
+                "gold": 402
             }
         }
     }

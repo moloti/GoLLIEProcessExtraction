@@ -6,20 +6,20 @@
 }
 {
     "Postoperative pain, possibly in combination with ibuprofen or ketorolac ( Toradol ).": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Postoperative', 'pain'], arg2=['ibuprofen', 'or', 'ketorolac', '(', 'Toradol', ')'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='Postoperative pain', arg2='ibuprofen or ketorolac ( Toradol )')]",
         "predictions": "[]"
     }
 }
 {
     "Tablet paracetamol ( Pamol ) can be given preoperatively > ½ hour before anesthesia with a small mouthful of water in elective surgery.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['can', 'be', 'given'], arg2=['a', 'small', 'mouthful', 'of', 'water', 'in', 'elective', 'surgery']), ActivitySpecificationRelation(arg1=['can', 'be', 'given'], arg2=['preoperatively']), ActivityActivityDataRelation(arg1=['can', 'be', 'given'], arg2=['Tablet', 'paracetamol', '(', 'Pamol', ')'])]",
-        "predictions": "[ActivityActivityDataRelation(arg1='can be given', arg2='Tablet paracetamol ( Pamol )'), ActivitySpecificationRelation(arg1='can be given', arg2='preoperatively'), ActivityGuardRelation(arg1='can be given', arg2='> ½ hour'), ResponseRelation(arg1='anesthesia', arg2='can be given')]"
+        "golds": "[ActivitySpecificationRelation(arg1='can be given', arg2='a small mouthful of water in elective surgery'), ActivitySpecificationRelation(arg1='can be given', arg2='preoperatively'), ActivityActivityDataRelation(arg1='can be given', arg2='Tablet paracetamol ( Pamol )')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='can be given', arg2='Tablet paracetamol ( Pamol )'), ActivitySpecificationRelation(arg1='can be given', arg2='preoperatively'), ActivityGuardRelation(arg1='can be given', arg2='> ½ hour'), ResponseRelation(arg1='can be given', arg2='anesthesia'), ActivitySpecificationRelation(arg1='can be given', arg2='a small mouthful of water in elective surgery')]"
     }
 }
 {
     "Infusion fluid should only be used in cases where it is not possible to administer per os or rectally.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['used'], arg2=['Infusion', 'fluid']), ActivitySpecificationRelation(arg1=['not', 'possible', 'to', 'administer'], arg2=['per', 'os', 'or', 'rectally'])]",
-        "predictions": "[]"
+        "golds": "[ActivityActivityDataRelation(arg1='used', arg2='Infusion fluid'), ActivitySpecificationRelation(arg1='not possible to administer', arg2='per os or rectally')]",
+        "predictions": "[InclusionRelation(arg1='used', arg2='in cases where')]"
     }
 }
 {
@@ -30,7 +30,7 @@
 }
 {
     "Pediatric doses are prescribed by an anesthesiologist.": {
-        "golds": "[ActivityActorRelation(arg1=['prescribed'], arg2=['anesthesiologist']), ActivityActivityDataRelation(arg1=['prescribed'], arg2=['Pediatric', 'doses'])]",
+        "golds": "[ActivityActorRelation(arg1='prescribed', arg2='anesthesiologist'), ActivityActivityDataRelation(arg1='prescribed', arg2='Pediatric doses')]",
         "predictions": "[ActivityActorRelation(arg1='prescribed', arg2='anesthesiologist')]"
     }
 }
@@ -42,13 +42,13 @@
 }
 {
     "# # # # Indication # # # # * Suspicion of infection around implanted mechanical parts ( valves, pacemakers, electrodes, aortic stents ) * Investigation for bacterial emboli elsewhere in the body in case of bacteremia * Multiple forms of infection / inflammation + NB : Special preparation when investigating endocarditis * Certain neurodegenerative disorders 18 F-FDG PET is not suitable for diagnosing prostate cancer and pathology in the kidney / urinary tract pathology.": {
-        "golds": "[ActivityParentRelation(arg1=['Suspicion', 'of', 'infection'], arg2=['Indication']), ActivitySpecificationRelation(arg1=['Investigation'], arg2=['elsewhere', 'in', 'the', 'body']), ActivitySpecificationRelation(arg1=['Investigation'], arg2=['bacterial', 'emboli']), ActivityParentRelation(arg1=['Investigation'], arg2=['Indication']), ActivityParentRelation(arg1=['Multiple', 'forms', 'of', 'infection', '/', 'inflammation'], arg2=['Indication']), ActivityParentRelation(arg1=['18', 'F-FDG', 'PET'], arg2=['Indication']), ActivityParentRelation(arg1=['neurodegenerative', 'disorders'], arg2=['Indication'])]",
-        "predictions": "[ConditionRelation(arg1='Investigation', arg2='bacterial emboli'), ConditionRelation(arg1='Investigation', arg2='elsewhere in the body'), ConditionRelation(arg1='in case of', arg2='bacteremia'), ConditionRelation(arg1='when', arg2='investigating endocarditis')]"
+        "golds": "[ActivityParentRelation(arg1='Suspicion of infection', arg2='Indication'), ActivitySpecificationRelation(arg1='Investigation', arg2='elsewhere in the body'), ActivitySpecificationRelation(arg1='Investigation', arg2='bacterial emboli'), ActivityParentRelation(arg1='Investigation', arg2='Indication'), ActivityParentRelation(arg1='Multiple forms of infection / inflammation', arg2='Indication'), ActivityParentRelation(arg1='18 F-FDG PET', arg2='Indication'), ActivityParentRelation(arg1='neurodegenerative disorders', arg2='Indication')]",
+        "predictions": "[ConditionResponseRelation(arg1='in case of', arg2='Investigation')]"
     }
 }
 {
     "# # # # Contraindications # # # # Diagnostic CT examination with i.v. contrast : Absolute : * Renal transplant recipients Relative : * Significantly reduced eGFR ( eGFR < 45 mL / min ) * Diabetes mellitus, especially in case of significantly reduced eGFR and treatment with biguanides ( metformin ) such as Glucophage, Orabet or Avandamet * Multiple myeloma * Elevated P-uric acid * Thyrotoxicosis ( untreated ) * Myocardial infarction, acute or recent * Severe allergy, asthma * High fever * Treatment with nephrotoxica": {
-        "golds": "[ActivitySpecificationRelation(arg1=['examination'], arg2=['i.v', '.', 'contrast']), ActivityActivityDataRelation(arg1=['examination'], arg2=['Diagnostic', 'CT']), ActivityParentRelation(arg1=['examination'], arg2=['Contraindications']), ActivityParentRelation(arg1=['Renal', 'transplant', 'recipients'], arg2=['examination']), ActivitySpecificationRelation(arg1=['Renal', 'transplant', 'recipients'], arg2=['Absolute']), ActivityGuardRelation(arg1=['eGFR'], arg2=['<', '45', 'mL', '/', 'min']), ActivityParentRelation(arg1=['reduced', 'eGFR'], arg2=['examination']), ActivitySpecificationRelation(arg1=['treatment'], arg2=['Glucophage', ',', 'Orabet', 'or', 'Avandamet']), ActivityActivityDataRelation(arg1=['treatment'], arg2=['biguanides', '(', 'metformin', ')']), ActivityParentRelation(arg1=['Diabetes', 'mellitus'], arg2=['examination']), ActivityParentRelation(arg1=['Multiple'], arg2=['examination']), ActivityParentRelation(arg1=['Elevated', 'P-uric'], arg2=['examination']), ActivitySpecificationRelation(arg1=['Thyrotoxicosis'], arg2=['(', 'untreated', ')']), ActivityParentRelation(arg1=['Thyrotoxicosis'], arg2=['examination']), ActivitySpecificationRelation(arg1=['Myocardial', 'infarction'], arg2=['acute', 'or', 'recent']), ActivityParentRelation(arg1=['Myocardial', 'infarction'], arg2=['examination']), ActivityParentRelation(arg1=['Severe', 'allergy'], arg2=['examination']), ActivityParentRelation(arg1=['High'], arg2=['examination']), ActivityActivityDataRelation(arg1=['Treatment'], arg2=['nephrotoxica']), ActivityParentRelation(arg1=['Treatment'], arg2=['examination'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='examination', arg2='i.v . contrast'), ActivityActivityDataRelation(arg1='examination', arg2='Diagnostic CT'), ActivityParentRelation(arg1='examination', arg2='Contraindications'), ActivityParentRelation(arg1='Renal transplant recipients', arg2='examination'), ActivitySpecificationRelation(arg1='Renal transplant recipients', arg2='Absolute'), ActivityGuardRelation(arg1='eGFR', arg2='< 45 mL / min'), ActivityParentRelation(arg1='reduced eGFR', arg2='examination'), ActivitySpecificationRelation(arg1='treatment', arg2='Glucophage , Orabet or Avandamet'), ActivityActivityDataRelation(arg1='treatment', arg2='biguanides ( metformin )'), ActivityParentRelation(arg1='Diabetes mellitus', arg2='examination'), ActivityParentRelation(arg1='Multiple', arg2='examination'), ActivityParentRelation(arg1='Elevated P-uric', arg2='examination'), ActivitySpecificationRelation(arg1='Thyrotoxicosis', arg2='( untreated )'), ActivityParentRelation(arg1='Thyrotoxicosis', arg2='examination'), ActivitySpecificationRelation(arg1='Myocardial infarction', arg2='acute or recent'), ActivityParentRelation(arg1='Myocardial infarction', arg2='examination'), ActivityParentRelation(arg1='Severe allergy', arg2='examination'), ActivityParentRelation(arg1='High', arg2='examination'), ActivityActivityDataRelation(arg1='Treatment', arg2='nephrotoxica'), ActivityParentRelation(arg1='Treatment', arg2='examination')]",
         "predictions": "[]"
     }
 }
@@ -84,7 +84,7 @@
 }
 {
     "* Many contrast agent examinations within a short period of time": {
-        "golds": "[ActivitySpecificationRelation(arg1=['examinations'], arg2=['Many']), ActivitySpecificationRelation(arg1=['examinations'], arg2=['short', 'period', 'of', 'time']), ActivityActivityDataRelation(arg1=['examinations'], arg2=['contrast', 'agent'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='examinations', arg2='Many'), ActivitySpecificationRelation(arg1='examinations', arg2='short period of time'), ActivityActivityDataRelation(arg1='examinations', arg2='contrast agent')]",
         "predictions": "[]"
     }
 }
@@ -96,7 +96,7 @@
 }
 {
     "* Generally cardiac indisposed patients": {
-        "golds": "[ActivitySpecificationRelation(arg1=['cardiac', 'indisposed'], arg2=['Generally'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='cardiac indisposed', arg2='Generally')]",
         "predictions": "[]"
     }
 }
@@ -114,19 +114,19 @@
 }
 {
     "# # # # Patient education : # # # # General :": {
-        "golds": "[ActivityActorRelation(arg1=['education'], arg2=['Patient'])]",
+        "golds": "[ActivityActorRelation(arg1='education', arg2='Patient')]",
         "predictions": "[]"
     }
 }
 {
     "* Patients without diabetes should only drink tap water, medication should be taken as usual": {
-        "golds": "[ActivityActivityDataRelation(arg1=['drink'], arg2=['tap', 'water']), ActivitySpecificationRelation(arg1=['taken'], arg2=['as', 'usual']), ActivityActorRelation(arg1=['taken'], arg2=['Patients']), ActivityActivityDataRelation(arg1=['taken'], arg2=['medication'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='drink', arg2='tap water'), ActivitySpecificationRelation(arg1='taken', arg2='as usual'), ActivityActorRelation(arg1='taken', arg2='Patients'), ActivityActivityDataRelation(arg1='taken', arg2='medication')]",
         "predictions": "[ActivityActivityDataRelation(arg1='drink', arg2='tap water')]"
     }
 }
 {
     "* In most cases, blood test results for P-Creatinine ( and eGFR ) must be available no later than the day before": {
-        "golds": "[ActivitySpecificationRelation(arg1=['blood', 'test', 'results'], arg2=['P-Creatinine', '(', 'and', 'eGFR', ')']), ActivitySpecificationRelation(arg1=['blood', 'test', 'results'], arg2=['must', 'be', 'available', 'no', 'later', 'than']), ActivityGuardRelation(arg1=['blood', 'test', 'results'], arg2=['the', 'day', 'before'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='blood test results', arg2='P-Creatinine ( and eGFR )'), ActivitySpecificationRelation(arg1='blood test results', arg2='must be available no later than'), ActivityGuardRelation(arg1='blood test results', arg2='the day before')]",
         "predictions": "[]"
     }
 }
@@ -138,8 +138,8 @@
 }
 {
     "Insulin-dependent diabetes : * Patient should eat as usual and take regular insulin * The patient should * * not fast * At least 2 hours must pass from insulin administration until the scan can be performed! During this period, the patient should only drink tap water": {
-        "golds": "[ActivitySpecificationRelation(arg1=['eat'], arg2=['as', 'usual']), ActivityActorRelation(arg1=['eat'], arg2=['Patient']), ActivitySpecificationRelation(arg1=['take'], arg2=['regular']), ActivityActorRelation(arg1=['take'], arg2=['Patient']), ActivityActivityDataRelation(arg1=['take'], arg2=['insulin']), ActivityParentRelation(arg1=['take'], arg2=['Insulin-dependent', 'diabetes']), ActivityParentRelation(arg1=['eat'], arg2=['Insulin-dependent', 'diabetes']), ActivityGuardRelation(arg1=['administration'], arg2=['At', 'least', '2', 'hours']), ActivityActivityDataRelation(arg1=['administration'], arg2=['insulin']), ActivityActivityDataRelation(arg1=['performed'], arg2=['scan']), ActivityParentRelation(arg1=['performed'], arg2=['Insulin-dependent', 'diabetes']), ActivityParentRelation(arg1=['administration'], arg2=['Insulin-dependent', 'diabetes']), ActivityActorRelation(arg1=['drink'], arg2=['patient']), ActivityActivityDataRelation(arg1=['drink'], arg2=['tap', 'water'])]",
-        "predictions": "[ActivityActivityDataRelation(arg1='take', arg2='insulin'), ActivityActivityDataRelation(arg1='eat', arg2='as usual'), ActivityGuardRelation(arg1='administration', arg2='At least 2 hours'), ResponseRelation(arg1='administration', arg2='performed'), ResponseRelation(arg1='During this period', arg2='drink'), ActivityActivityDataRelation(arg1='drink', arg2='tap water')]"
+        "golds": "[ActivitySpecificationRelation(arg1='eat', arg2='as usual'), ActivityActorRelation(arg1='eat', arg2='Patient'), ActivitySpecificationRelation(arg1='take', arg2='regular'), ActivityActorRelation(arg1='take', arg2='Patient'), ActivityActivityDataRelation(arg1='take', arg2='insulin'), ActivityParentRelation(arg1='take', arg2='Insulin-dependent diabetes'), ActivityParentRelation(arg1='eat', arg2='Insulin-dependent diabetes'), ActivityGuardRelation(arg1='administration', arg2='At least 2 hours'), ActivityActivityDataRelation(arg1='administration', arg2='insulin'), ActivityActivityDataRelation(arg1='performed', arg2='scan'), ActivityParentRelation(arg1='performed', arg2='Insulin-dependent diabetes'), ActivityParentRelation(arg1='administration', arg2='Insulin-dependent diabetes'), ActivityActorRelation(arg1='drink', arg2='patient'), ActivityActivityDataRelation(arg1='drink', arg2='tap water')]",
+        "predictions": "[ActivityActorRelation(arg1='eat', arg2='Patient'), ActivityActorRelation(arg1='take', arg2='Patient'), ActivityActivityDataRelation(arg1='take', arg2='insulin'), ActivityGuardRelation(arg1='administration', arg2='At least 2 hours'), ActivityActorRelation(arg1='drink', arg2='patient'), ActivityActivityDataRelation(arg1='drink', arg2='tap water')]"
     }
 }
 {
@@ -156,20 +156,20 @@
 }
 {
     "PET : An injection of 18 F-fluorodeoxyglucose ( 18 F-FDG ) is given while the patient is at rest.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['is', 'given'], arg2=['while', 'the', 'patient', 'is', 'at', 'rest']), ActivityParentRelation(arg1=['is', 'given'], arg2=['PET']), ActivityActivityDataRelation(arg1=['is', 'given'], arg2=['injection', 'of', '18', 'F-fluorodeoxyglucose', '(', '18', 'F-FDG', ')'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='is given', arg2='while the patient is at rest'), ActivityParentRelation(arg1='is given', arg2='PET'), ActivityActivityDataRelation(arg1='is given', arg2='injection of 18 F-fluorodeoxyglucose ( 18 F-FDG )')]",
         "predictions": "[ActivityActivityDataRelation(arg1='is given', arg2='injection of 18 F-fluorodeoxyglucose ( 18 F-FDG )')]"
     }
 }
 {
     "CT : Before the PET scan, a CT scan is performed, as this contains necessary information for optimal post-processing of the PET scan ( attenuation correction ).": {
-        "golds": "[ActivityPurposeOutcomeRelation(arg1=['performed'], arg2=['contains', 'necessary', 'information', 'for', 'optimal', 'post-processing', 'of', 'the', 'PET', 'scan', '(', 'attenuation', 'correction', ')']), ActivityParentRelation(arg1=['performed'], arg2=['CT']), ActivityActivityDataRelation(arg1=['performed'], arg2=['CT', 'scan'])]",
-        "predictions": "[ActivityParentRelation(arg1='Before', arg2='PET scan'), ActivityActivityDataRelation(arg1='performed', arg2='CT scan')]"
+        "golds": "[ActivityPurposeOutcomeRelation(arg1='performed', arg2='contains necessary information for optimal post-processing of the PET scan ( attenuation correction )'), ActivityParentRelation(arg1='performed', arg2='CT'), ActivityActivityDataRelation(arg1='performed', arg2='CT scan')]",
+        "predictions": "[ActivityParentRelation(arg1='CT', arg2='performed'), ActivityActivityDataRelation(arg1='PET scan', arg2='CT scan')]"
     }
 }
 {
     "The CT scan can be performed as either low-dose CT or as diagnostic CT - ideally with IV contrast if indicated.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['performed'], arg2=['IV', 'contrast', 'if', 'indicated']), ActivityActivityDataRelation(arg1=['performed'], arg2=['diagnostic', 'CT']), ActivityActivityDataRelation(arg1=['performed'], arg2=['low-dose', 'CT']), ActivityActivityDataRelation(arg1=['performed'], arg2=['CT', 'scan'])]",
-        "predictions": "[]"
+        "golds": "[ActivitySpecificationRelation(arg1='performed', arg2='IV contrast if indicated'), ActivityActivityDataRelation(arg1='performed', arg2='diagnostic CT'), ActivityActivityDataRelation(arg1='performed', arg2='low-dose CT'), ActivityActivityDataRelation(arg1='performed', arg2='CT scan')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='performed', arg2='CT scan')]"
     }
 }
 {
@@ -180,56 +180,56 @@
 }
 {
     "A PVK is inserted into a vein in the elbow bend.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['inserted'], arg2=['a', 'vein', 'in', 'the', 'elbow', 'bend']), ActivityActivityDataRelation(arg1=['inserted'], arg2=['PVK'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='inserted', arg2='a vein in the elbow bend'), ActivityActivityDataRelation(arg1='inserted', arg2='PVK')]",
         "predictions": "[ActivityActivityDataRelation(arg1='inserted', arg2='PVK'), ActivitySpecificationRelation(arg1='inserted', arg2='a vein in the elbow bend')]"
     }
 }
 {
     "The patient is injected with 1 ml corresponding to 1000 IU of unpreserved heparin.": {
-        "golds": "[ActivityActorRelation(arg1=['injected'], arg2=['patient']), ActivityActivityDataRelation(arg1=['injected'], arg2=['unpreserved', 'heparin'])]",
+        "golds": "[ActivityActorRelation(arg1='injected', arg2='patient'), ActivityActivityDataRelation(arg1='injected', arg2='unpreserved heparin')]",
         "predictions": "[ActivityActivityDataRelation(arg1='injected', arg2='unpreserved heparin')]"
     }
 }
 {
     "The patient then waits sitting / lying down for 1 hour, so that the 18 F-FDG is optimally distributed in the body.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['waits'], arg2=['sitting', '/', 'lying', 'down']), ActivitySpecificationRelation(arg1=['waits'], arg2=['1', 'hour']), ActivityPurposeOutcomeRelation(arg1=['waits'], arg2=['18', 'F-FDG', 'is', 'optimally', 'distributed', 'in', 'the', 'body']), ActivityActorRelation(arg1=['waits'], arg2=['patient'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='waits', arg2='sitting / lying down'), ActivitySpecificationRelation(arg1='waits', arg2='1 hour'), ActivityPurposeOutcomeRelation(arg1='waits', arg2='18 F-FDG is optimally distributed in the body'), ActivityActorRelation(arg1='waits', arg2='patient')]",
         "predictions": "[ActivitySpecificationRelation(arg1='waits', arg2='sitting / lying down'), ActivitySpecificationRelation(arg1='waits', arg2='1 hour')]"
     }
 }
 {
     "Before scanning The patient is sent to the toilet to urinate.": {
-        "golds": "[ActivityActorRelation(arg1=['scanning'], arg2=['patient']), ActivitySpecificationRelation(arg1=['sent'], arg2=['toilet']), ActivityPurposeOutcomeRelation(arg1=['sent'], arg2=['to', 'urinate'])]",
-        "predictions": "[ConditionResponseRelation(arg1='Before', arg2='scanning'), ActivitySpecificationRelation(arg1='sent', arg2='toilet'), ActivityPurposeOutcomeRelation(arg1='sent', arg2='to urinate')]"
+        "golds": "[ActivityActorRelation(arg1='scanning', arg2='patient'), ActivitySpecificationRelation(arg1='sent', arg2='toilet'), ActivityPurposeOutcomeRelation(arg1='sent', arg2='to urinate')]",
+        "predictions": "[ActivityActorRelation(arg1='sent', arg2='patient'), ActivitySpecificationRelation(arg1='sent', arg2='toilet'), ActivityPurposeOutcomeRelation(arg1='sent', arg2='to urinate')]"
     }
 }
 {
     "The patient is positioned on on their back in the scanner - typically with their arms above their head.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['positioned'], arg2=['on', 'their', 'back', 'in', 'the', 'scanner']), ActivitySpecificationRelation(arg1=['positioned'], arg2=['with', 'their', 'arms', 'above', 'their', 'head']), ActivityActorRelation(arg1=['positioned'], arg2=['patient'])]",
-        "predictions": "[ActivitySpecificationRelation(arg1='positioned', arg2='on their back in the scanner')]"
+        "golds": "[ActivitySpecificationRelation(arg1='positioned', arg2='on their back in the scanner'), ActivitySpecificationRelation(arg1='positioned', arg2='with their arms above their head'), ActivityActorRelation(arg1='positioned', arg2='patient')]",
+        "predictions": "[ActivitySpecificationRelation(arg1='positioned', arg2='on their back in the scanner'), ActivitySpecificationRelation(arg1='positioned', arg2='with their arms above their head')]"
     }
 }
 {
     "First, a CT scan is performed ( with or without contrast ), which lasts about 5 minutes, followed by the first PET scan, which lasts about 25 minutes, and finally a PET scan over the heart which lasts approximately 8 minutes.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['performed'], arg2=['with', 'or', 'without', 'contrast']), ActivitySpecificationRelation(arg1=['performed'], arg2=['about', '5', 'minutes']), ActivityActivityDataRelation(arg1=['performed'], arg2=['CT', 'scan']), ActivitySpecificationRelation(arg1=['PET', 'scan'], arg2=['about', '25', 'minutes']), ActivitySpecificationRelation(arg1=['PET', 'scan'], arg2=['approximately', '8', 'minutes']), ActivitySpecificationRelation(arg1=['PET', 'scan'], arg2=['over', 'the', 'heart'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='performed', arg2='with or without contrast'), ActivitySpecificationRelation(arg1='performed', arg2='about 5 minutes'), ActivityActivityDataRelation(arg1='performed', arg2='CT scan'), ActivitySpecificationRelation(arg1='PET scan', arg2='about 25 minutes'), ActivitySpecificationRelation(arg1='PET scan', arg2='approximately 8 minutes'), ActivitySpecificationRelation(arg1='PET scan', arg2='over the heart')]",
         "predictions": "[ActivitySpecificationRelation(arg1='CT scan', arg2='with or without contrast'), ActivitySpecificationRelation(arg1='CT scan', arg2='about 5 minutes'), ConditionResponseRelation(arg1='CT scan', arg2='PET scan'), ActivitySpecificationRelation(arg1='PET scan', arg2='about 25 minutes'), ConditionResponseRelation(arg1='PET scan', arg2='PET scan'), ActivitySpecificationRelation(arg1='PET scan', arg2='over the heart'), ActivitySpecificationRelation(arg1='PET scan', arg2='approximately 8 minutes')]"
     }
 }
 {
     "The patient can leave the department when it has been verified that the examination has been completed satisfactorily.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['leave'], arg2=['department']), ActivityActorRelation(arg1=['leave'], arg2=['patient']), ActivityPurposeOutcomeRelation(arg1=['verified'], arg2=['completed', 'satisfactorily']), ActivityActivityDataRelation(arg1=['verified'], arg2=['examination'])]",
-        "predictions": "[ActivityActorRelation(arg1='leave', arg2='patient'), ActivitySpecificationRelation(arg1='leave', arg2='department'), ConditionResponseRelation(arg1='verified', arg2='leave')]"
+        "golds": "[ActivitySpecificationRelation(arg1='leave', arg2='department'), ActivityActorRelation(arg1='leave', arg2='patient'), ActivityPurposeOutcomeRelation(arg1='verified', arg2='completed satisfactorily'), ActivityActivityDataRelation(arg1='verified', arg2='examination')]",
+        "predictions": "[ActivitySpecificationRelation(arg1='leave', arg2='department'), ConditionResponseRelation(arg1='verified', arg2='leave')]"
     }
 }
 {
     "Patients with nephropathy :": {
-        "golds": "[ActivityActorRelation(arg1=['nephropathy'], arg2=['Patients'])]",
+        "golds": "[ActivityActorRelation(arg1='nephropathy', arg2='Patients')]",
         "predictions": "[]"
     }
 }
 {
     "* If eGFR < 45 : The study is performed without IV contrast, in special cases and only after prior contact with the radiology department and specific prescription, the study can be performed with IV contrast. Duration : Approx. 2 hours in total, scan time approx. 35 minutes.": {
-        "golds": "[ActivityGuardRelation(arg1=['eGFR'], arg2=['<', '45']), ActivityActivityDataRelation(arg1=['performed'], arg2=['study']), ActivitySpecificationRelation(arg1=['contact'], arg2=['radiology', 'department']), ActivitySpecificationRelation(arg1=['contact'], arg2=['prior']), ActivitySpecificationRelation(arg1=['prescription'], arg2=['specific']), ActivitySpecificationRelation(arg1=['performed'], arg2=['IV', 'contrast']), ActivityActivityDataRelation(arg1=['performed'], arg2=['study'])]",
-        "predictions": "[ConditionRelation(arg1='performed', arg2='IV contrast'), ConditionRelation(arg1='performed', arg2='IV contrast')]"
+        "golds": "[ActivityGuardRelation(arg1='eGFR', arg2='< 45'), ActivityActivityDataRelation(arg1='performed', arg2='study'), ActivitySpecificationRelation(arg1='contact', arg2='radiology department'), ActivitySpecificationRelation(arg1='contact', arg2='prior'), ActivitySpecificationRelation(arg1='prescription', arg2='specific'), ActivitySpecificationRelation(arg1='performed', arg2='IV contrast'), ActivityActivityDataRelation(arg1='performed', arg2='study')]",
+        "predictions": "[ConditionRelation(arg1='performed', arg2='IV contrast'), ConditionRelation(arg1='performed', arg2='IV contrast'), ConditionResponseRelation(arg1='contact', arg2='performed')]"
     }
 }
 {
@@ -240,43 +240,37 @@
 }
 {
     "The scan is reviewed and it is assessed whether the distribution of 18 F-FDG is physiologic, abnormal or probably pathologic.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['reviewed'], arg2=['scan']), ActivityActivityDataRelation(arg1=['assessed'], arg2=['it'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='reviewed', arg2='scan'), ActivityActivityDataRelation(arg1='assessed', arg2='it')]",
         "predictions": "[ActivityActorRelation(arg1='reviewed', arg2='scan')]"
     }
 }
 {
     "For diagnostic CT, PET findings are conferred with the radiology department's CT findings before a final answer is given": {
-        "golds": "[ActivitySpecificationRelation(arg1=['conferred'], arg2=['radiology', \"department's\", 'CT', 'findings']), ActivityActivityDataRelation(arg1=['conferred'], arg2=['PET', 'findings'])]",
-        "predictions": "[]"
-    }
-}
-{
-    ".": {
-        "golds": "[]",
+        "golds": "[ActivitySpecificationRelation(arg1='conferred', arg2=\"radiology department's CT findings\"), ActivityActivityDataRelation(arg1='conferred', arg2='PET findings')]",
         "predictions": "[]"
     }
 }
 {
     "* For PET with low-dose CT, an answer can usually be expected the following afternoon": {
-        "golds": "[ActivitySpecificationRelation(arg1=['expected'], arg2=['following', 'afternoon']), ActivityActivityDataRelation(arg1=['expected'], arg2=['answer'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='expected', arg2='following afternoon'), ActivityActivityDataRelation(arg1='expected', arg2='answer')]",
         "predictions": "[]"
     }
 }
 {
     "* For PET with diagnostic CT, a response can usually be expected two working days after the examination": {
-        "golds": "[ActivitySpecificationRelation(arg1=['expected'], arg2=['two', 'working', 'days', 'after', 'the', 'examination']), ActivityActivityDataRelation(arg1=['expected'], arg2=['response'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='expected', arg2='two working days after the examination'), ActivityActivityDataRelation(arg1='expected', arg2='response')]",
         "predictions": "[ActivityGuardRelation(arg1='expected', arg2='two working days after the examination')]"
     }
 }
 {
     "Symptoms are most often pain locally over the pseudoaneurysm.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['pain'], arg2=['locally', 'over', 'the', 'pseudoaneurysm'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='pain', arg2='locally over the pseudoaneurysm')]",
         "predictions": "[]"
     }
 }
 {
     "In worse cases threatened skin over the pseudoaneurysm or unstable hemodynamics with progressive size or active bleeding in additional tissue ( e.g.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['threatened', 'skin'], arg2=['over', 'the', 'pseudoaneurysm']), ActivitySpecificationRelation(arg1=['unstable', 'hemodynamics'], arg2=['progressive', 'size']), ActivitySpecificationRelation(arg1=['active', 'bleeding'], arg2=['additional', 'tissue', '(', 'e.g', '.'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='threatened skin', arg2='over the pseudoaneurysm'), ActivitySpecificationRelation(arg1='unstable hemodynamics', arg2='progressive size'), ActivitySpecificationRelation(arg1='active bleeding', arg2='additional tissue ( e.g .')]",
         "predictions": "[]"
     }
 }
@@ -294,8 +288,8 @@
 }
 {
     "* * Investigation and referral to vascular clinic Pseudoaneurysms are most common in the inguinal arteries. For sizes up to to 2 cm, the natural history is usually benign as most thromboses occur spontaneously. For sizes of 2 - 3 cm, ultrasound-guided compression can be attempted over the accumulation for about 15 minutes, which can be repeated in case of partial thrombosis. This can be done at the local hospital, often with the assistance of radiology staff. In cases with inadequate treatment or complicated pathoanatomy, consider endovascular coiling or open surgery with exposure of the artery and sewing over the defect.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Investigation', 'and', 'referral'], arg2=['vascular', 'clinic']), ActivitySpecificationRelation(arg1=['Pseudoaneurysms'], arg2=['are', 'most', 'common', 'in', 'the', 'inguinal', 'arteries']), ActivityGuardRelation(arg1=['For', 'sizes'], arg2=['up', 'to', 'to', '2', 'cm']), ActivityPurposeOutcomeRelation(arg1=['natural', 'history', 'is', 'usually', 'benign'], arg2=['most', 'thromboses', 'occur', 'spontaneously']), ActivityGuardRelation(arg1=['For', 'sizes'], arg2=['of', '2', '-', '3', 'cm']), ActivitySpecificationRelation(arg1=['attempted'], arg2=['the', 'accumulation']), ActivitySpecificationRelation(arg1=['attempted'], arg2=['about', '15', 'minutes']), ActivityParentRelation(arg1=['partial', 'thrombosis'], arg2=['Investigation', 'and', 'referral']), ActivitySpecificationRelation(arg1=['done'], arg2=['local', 'hospital']), ActivityActorRelation(arg1=['done'], arg2=['radiology', 'staff']), ActivityParentRelation(arg1=['complicated', 'pathoanatomy'], arg2=['Investigation', 'and', 'referral']), ActivityParentRelation(arg1=['inadequate', 'treatment'], arg2=['Investigation', 'and', 'referral'])]",
-        "predictions": "[ActivitySpecificationRelation(arg1='Investigation and referral', arg2='vascular clinic'), ActivitySpecificationRelation(arg1='attempted', arg2='the accumulation'), ActivityActorRelation(arg1='done', arg2='radiology staff')]"
+        "golds": "[ActivitySpecificationRelation(arg1='Investigation and referral', arg2='vascular clinic'), ActivitySpecificationRelation(arg1='Pseudoaneurysms', arg2='are most common in the inguinal arteries'), ActivityGuardRelation(arg1='For sizes', arg2='up to to 2 cm'), ActivityPurposeOutcomeRelation(arg1='natural history is usually benign', arg2='most thromboses occur spontaneously'), ActivityGuardRelation(arg1='For sizes', arg2='of 2 - 3 cm'), ActivitySpecificationRelation(arg1='attempted', arg2='the accumulation'), ActivitySpecificationRelation(arg1='attempted', arg2='about 15 minutes'), ActivityParentRelation(arg1='partial thrombosis', arg2='Investigation and referral'), ActivitySpecificationRelation(arg1='done', arg2='local hospital'), ActivityActorRelation(arg1='done', arg2='radiology staff'), ActivityParentRelation(arg1='complicated pathoanatomy', arg2='Investigation and referral'), ActivityParentRelation(arg1='inadequate treatment', arg2='Investigation and referral')]",
+        "predictions": "[ActivitySpecificationRelation(arg1='done', arg2='local hospital'), ActivityActorRelation(arg1='done', arg2='radiology staff'), ConditionResponseRelation(arg1='inadequate treatment', arg2='consider'), ConditionResponseRelation(arg1='complicated pathoanatomy', arg2='consider')]"
     }
 }
 {
@@ -306,32 +300,32 @@
 }
 {
     "When CRRT and ECCO2R are prescribed, the initiated CRRT must be replaced with new CRRT and PrismaLung + setup.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['replaced'], arg2=['PrismaLung', '+', 'setup'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='replaced', arg2='PrismaLung + setup')]",
         "predictions": "[]"
     }
 }
 {
     "The machine is switched on.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['switched', 'on'], arg2=['machine'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='switched on', arg2='machine')]",
         "predictions": "[]"
     }
 }
 {
     "CRRT + ECCO2R is selected as therapy, then select PrismaLung +.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['selected'], arg2=['therapy']), ActivityActivityDataRelation(arg1=['selected'], arg2=['CRRT', '+', 'ECCO2R']), ActivityActivityDataRelation(arg1=['select'], arg2=['PrismaLung', '+'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='selected', arg2='therapy'), ActivityActivityDataRelation(arg1='selected', arg2='CRRT + ECCO2R'), ActivityActivityDataRelation(arg1='select', arg2='PrismaLung +')]",
         "predictions": "[]"
     }
 }
 {
     "Follow the machine's instructions and screens in the recommended order.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Follow'], arg2=['in', 'the', 'recommended', 'order']), ActivityActivityDataRelation(arg1=['Follow'], arg2=[\"machine's\", 'instructions', 'and', 'screens'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='Follow', arg2='in the recommended order'), ActivityActivityDataRelation(arg1='Follow', arg2=\"machine's instructions and screens\")]",
         "predictions": "[]"
     }
 }
 {
     "Instead of the standard ST 150 filter for CRRT, use an Oxiris filter primed according to the Intensive Care Unit's instructions for setting up CRRT using Heparin as an anticoagulant.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['use'], arg2=['Intensive', 'Care', \"Unit's\", 'instructions', 'for', 'setting', 'up', 'CRRT']), ActivityActivityDataRelation(arg1=['use'], arg2=['Oxiris', 'filter', 'primed']), ActivitySpecificationRelation(arg1=['using'], arg2=['as', 'an', 'anticoagulant']), ActivityActivityDataRelation(arg1=['using'], arg2=['Heparin'])]",
-        "predictions": "[ActivityActivityDataRelation(arg1='using', arg2='Heparin')]"
+        "golds": "[ActivitySpecificationRelation(arg1='use', arg2=\"Intensive Care Unit's instructions for setting up CRRT\"), ActivityActivityDataRelation(arg1='use', arg2='Oxiris filter primed'), ActivitySpecificationRelation(arg1='using', arg2='as an anticoagulant'), ActivityActivityDataRelation(arg1='using', arg2='Heparin')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='use', arg2='Oxiris filter primed'), ActivityActivityDataRelation(arg1='using', arg2='Heparin')]"
     }
 }
 {
@@ -420,7 +414,7 @@
 }
 {
     "* * AB is selected according to resistance response * * * * Always check MIBA * *.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['selected'], arg2=['resistance', 'response']), ActivityActivityDataRelation(arg1=['selected'], arg2=['AB']), ActivitySpecificationRelation(arg1=['check'], arg2=['Always']), ActivityActivityDataRelation(arg1=['check'], arg2=['MIBA'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='selected', arg2='resistance response'), ActivityActivityDataRelation(arg1='selected', arg2='AB'), ActivitySpecificationRelation(arg1='check', arg2='Always'), ActivityActivityDataRelation(arg1='check', arg2='MIBA')]",
         "predictions": "[]"
     }
 }
@@ -485,12 +479,6 @@
     }
 }
 {
-    ".": {
-        "golds": "[]",
-        "predictions": "[]"
-    }
-}
-{
     "* If resistance to Piperacillin-tazobactam has also been seen previously, contact the back guard": {
         "golds": "[]",
         "predictions": "[]"
@@ -540,13 +528,13 @@
 }
 {
     "The condition should be suspected in seizures with increased heart rate, respiration rate, BP and temperature, as well as sweating and dystonic movements / postures in a patient with severe acquired brain injury.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['should', 'be', 'suspected'], arg2=['The', 'condition']), ActivitySpecificationRelation(arg1=['seizures', 'with', 'increased'], arg2=['temperature']), ActivitySpecificationRelation(arg1=['seizures', 'with', 'increased'], arg2=['respiration', 'rate']), ActivitySpecificationRelation(arg1=['seizures', 'with', 'increased'], arg2=['BP']), ActivitySpecificationRelation(arg1=['seizures', 'with', 'increased'], arg2=['heart', 'rate']), ActivityActorRelation(arg1=['severe', 'acquired', 'brain', 'injury'], arg2=['patient'])]",
-        "predictions": "[ConditionRelation(arg1='should be suspected', arg2='seizures with increased')]"
+        "golds": "[ActivityActivityDataRelation(arg1='should be suspected', arg2='The condition'), ActivitySpecificationRelation(arg1='seizures with increased', arg2='temperature'), ActivitySpecificationRelation(arg1='seizures with increased', arg2='respiration rate'), ActivitySpecificationRelation(arg1='seizures with increased', arg2='BP'), ActivitySpecificationRelation(arg1='seizures with increased', arg2='heart rate'), ActivityActorRelation(arg1='severe acquired brain injury', arg2='patient')]",
+        "predictions": "[ActivityActorRelation(arg1='should be suspected', arg2='patient')]"
     }
 }
 {
     "The diagnosis is a clinical diagnosis and you can Baguley's scoring system PSH-AM ( see appendix 1 ) can be used as a basis.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['can', 'be', 'used'], arg2=['as', 'a', 'basis']), ActivityActivityDataRelation(arg1=['can', 'be', 'used'], arg2=[\"Baguley's\", 'scoring', 'system', 'PSH-AM'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='can be used', arg2='as a basis'), ActivityActivityDataRelation(arg1='can be used', arg2=\"Baguley's scoring system PSH-AM\")]",
         "predictions": "[]"
     }
 }
@@ -565,12 +553,6 @@
 {
     "* Propanolol 20 - 80 mg every 6 hours per os : Good effect in tachycardia and hypertension as well as diaphoresis": {
         "golds": "[]",
-        "predictions": "[ActivitySpecificationRelation(arg1='Propanolol', arg2='20 - 80 mg'), ActivitySpecificationRelation(arg1='Propanolol', arg2='every 6 hours'), ActivitySpecificationRelation(arg1='Propanolol', arg2='per os'), ActivityPurposeOutcomeRelation(arg1='Propanolol', arg2='tachycardia'), ActivityPurposeOutcomeRelation(arg1='Propanolol', arg2='hypertension as well as diaphoresis')]"
-    }
-}
-{
-    ".": {
-        "golds": "[]",
         "predictions": "[]"
     }
 }
@@ -582,7 +564,7 @@
 }
 {
     "Fentanyl patches are preferable and, if possible, should be placed where sweating is less pronounced.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['preferable'], arg2=['Fentanyl', 'patches']), ActivitySpecificationRelation(arg1=['should', 'be', 'placed'], arg2=['where', 'sweating', 'is', 'less', 'pronounced']), ActivitySpecificationRelation(arg1=['should', 'be', 'placed'], arg2=['if', 'possible'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='preferable', arg2='Fentanyl patches'), ActivitySpecificationRelation(arg1='should be placed', arg2='where sweating is less pronounced'), ActivitySpecificationRelation(arg1='should be placed', arg2='if possible')]",
         "predictions": "[]"
     }
 }
@@ -594,38 +576,32 @@
 }
 {
     "Can be quickly titrated up to a maximum of 4800 mg daily : No specific effect, but can improve most symptoms.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['titrated'], arg2=['quickly']), ActivityPurposeOutcomeRelation(arg1=['titrated'], arg2=['can', 'improve', 'most', 'symptoms'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='titrated', arg2='quickly'), ActivityPurposeOutcomeRelation(arg1='titrated', arg2='can improve most symptoms')]",
         "predictions": "[]"
     }
 }
 {
     "* Baclofen 5 mg every 8 hours per os : Can be tried in dominant dystonic presentation.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['Can', 'be', 'tried'], arg2=['Baclofen'])]",
-        "predictions": "[]"
+        "golds": "[ActivityActivityDataRelation(arg1='Can be tried', arg2='Baclofen')]",
+        "predictions": "[ActivitySpecificationRelation(arg1='Can be tried', arg2='every 8 hours'), ActivitySpecificationRelation(arg1='Can be tried', arg2='per os')]"
     }
 }
 {
     "Intrathecal baclofen : In case of failure to control PSH on prophylactic tablet therapy, intrathecal baclofen may be considered and discussed at a conference.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['failure', 'to', 'control', 'PSH'], arg2=['prophylactic', 'tablet', 'therapy']), ActivityActivityDataRelation(arg1=['may', 'be', 'considered'], arg2=['intrathecal', 'baclofen']), ActivitySpecificationRelation(arg1=['discussed'], arg2=['at', 'a', 'conference'])]",
-        "predictions": "[]"
+        "golds": "[ActivityActivityDataRelation(arg1='failure to control PSH', arg2='prophylactic tablet therapy'), ActivityActivityDataRelation(arg1='may be considered', arg2='intrathecal baclofen'), ActivitySpecificationRelation(arg1='discussed', arg2='at a conference')]",
+        "predictions": "[InclusionRelation(arg1='Intrathecal baclofen', arg2='prophylactic tablet therapy')]"
     }
 }
 {
     "Decision can only be made by a specialist physician.": {
-        "golds": "[ActivityActorRelation(arg1=['made'], arg2=['specialist', 'physician']), ActivityActivityDataRelation(arg1=['made'], arg2=['Decision'])]",
+        "golds": "[ActivityActorRelation(arg1='made', arg2='specialist physician'), ActivityActivityDataRelation(arg1='made', arg2='Decision')]",
         "predictions": "[]"
     }
 }
 {
     "It requires a neurosurgical procedure to apply the pump": {
-        "golds": "[ActivityPurposeOutcomeRelation(arg1=['requires'], arg2=['to', 'apply', 'the', 'pump']), ActivityActivityDataRelation(arg1=['requires'], arg2=['neurosurgical', 'procedure'])]",
-        "predictions": "[ActivityPurposeOutcomeRelation(arg1='requires', arg2='to apply the pump')]"
-    }
-}
-{
-    ".": {
-        "golds": "[]",
-        "predictions": "[]"
+        "golds": "[ActivityPurposeOutcomeRelation(arg1='requires', arg2='to apply the pump'), ActivityActivityDataRelation(arg1='requires', arg2='neurosurgical procedure')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='requires', arg2='neurosurgical procedure')]"
     }
 }
 {
@@ -642,7 +618,7 @@
 }
 {
     "Must be tapered off slowly.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['tapered', 'off'], arg2=['slowly'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='tapered off', arg2='slowly')]",
         "predictions": "[]"
     }
 }
@@ -654,7 +630,7 @@
 }
 {
     "Can be tried if the above medications are not effective.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['medications', 'are', 'not', 'effective'], arg2=['above'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='medications are not effective', arg2='above')]",
         "predictions": "[]"
     }
 }
@@ -690,13 +666,13 @@
 }
 {
     "Start with a dose of IV morphine ( starting dose 5 mg ) to interrupt a seizure of lasting more than a few minutes.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['Start'], arg2=['a', 'dose', 'of', 'IV', 'morphine'])]",
-        "predictions": "[ActivityPurposeOutcomeRelation(arg1='a dose of IV morphine', arg2='interrupt a seizure of lasting more than a few minutes')]"
+        "golds": "[ActivityActivityDataRelation(arg1='Start', arg2='a dose of IV morphine')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='Start', arg2='a dose of IV morphine'), ActivityPurposeOutcomeRelation(arg1='Start', arg2='interrupt a seizure of lasting more than a few minutes')]"
     }
 }
 {
     "Gabapentin can then be added with advantage ( starting dose 100 to 300 mg x 3 daily ) together with a non-selective Beta-blocker ( e.g.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['added'], arg2=['x', '3', 'daily']), ActivitySpecificationRelation(arg1=['added'], arg2=['with', 'advantage']), ActivityActivityDataRelation(arg1=['added'], arg2=['Gabapentin'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='added', arg2='x 3 daily'), ActivitySpecificationRelation(arg1='added', arg2='with advantage'), ActivityActivityDataRelation(arg1='added', arg2='Gabapentin')]",
         "predictions": "[]"
     }
 }
@@ -708,8 +684,8 @@
 }
 {
     "Frequent medication medication adjustment is needed for the first few days before the situation settles down.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['adjustment'], arg2=['for', 'the', 'first', 'few', 'days']), ActivitySpecificationRelation(arg1=['adjustment'], arg2=['Frequent']), ActivityActivityDataRelation(arg1=['adjustment'], arg2=['medication'])]",
-        "predictions": "[ResponseRelation(arg1='situation settles down', arg2='adjustment')]"
+        "golds": "[ActivitySpecificationRelation(arg1='adjustment', arg2='for the first few days'), ActivitySpecificationRelation(arg1='adjustment', arg2='Frequent'), ActivityActivityDataRelation(arg1='adjustment', arg2='medication')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='adjustment', arg2='medication')]"
     }
 }
 {
@@ -744,49 +720,43 @@
 }
 {
     "B uses low molecular weight heparin ( Innohep ) for heparinization during hemodialysis treatment.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['uses'], arg2=['during', 'hemodialysis', 'treatment']), ActivityPurposeOutcomeRelation(arg1=['uses'], arg2=['for', 'heparinization']), ActivityActivityDataRelation(arg1=['uses'], arg2=['low', 'molecular', 'weight', 'heparin', '(', 'Innohep', ')'])]",
-        "predictions": "[ActivityActivityDataRelation(arg1='uses', arg2='low molecular weight heparin ( Innohep )'), ActivityPurposeOutcomeRelation(arg1='uses', arg2='for heparinization'), ActivitySpecificationRelation(arg1='uses', arg2='during hemodialysis treatment')]"
+        "golds": "[ActivitySpecificationRelation(arg1='uses', arg2='during hemodialysis treatment'), ActivityPurposeOutcomeRelation(arg1='uses', arg2='for heparinization'), ActivityActivityDataRelation(arg1='uses', arg2='low molecular weight heparin ( Innohep )')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='uses', arg2='low molecular weight heparin ( Innohep )'), ActivitySpecificationRelation(arg1='uses', arg2='during hemodialysis treatment')]"
     }
 }
 {
     "As a general rule, the single-use syringes are used for all patients receiving more than 2500 IU, as they are cheaper and preservative-free.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['used'], arg2=['single-use', 'syringes']), ActivityGuardRelation(arg1=['receiving'], arg2=['more', 'than', '2500', 'IU']), ActivityActorRelation(arg1=['receiving'], arg2=['all', 'patients'])]",
-        "predictions": "[ActivityActivityDataRelation(arg1='used', arg2='for')]"
+        "golds": "[ActivityActivityDataRelation(arg1='used', arg2='single-use syringes'), ActivityGuardRelation(arg1='receiving', arg2='more than 2500 IU'), ActivityActorRelation(arg1='receiving', arg2='all patients')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='used', arg2='single-use syringes'), ActivityActorRelation(arg1='used', arg2='all patients')]"
     }
 }
 {
     "For patients receiving less than 2500 IU or more than 4500 IU innohep, draw up with 1 ml syringe from vial containing 10,000 IU / ml": {
-        "golds": "[ActivityGuardRelation(arg1=['receiving'], arg2=['more', 'than', '4500', 'IU']), ActivityGuardRelation(arg1=['receiving'], arg2=['less', 'than', '2500', 'IU']), ActivityActorRelation(arg1=['receiving'], arg2=['patients']), ActivityActivityDataRelation(arg1=['receiving'], arg2=['innohep']), ActivitySpecificationRelation(arg1=['draw', 'up'], arg2=['from', 'vial', 'containing', '10,000', 'IU', '/', 'ml']), ActivityActivityDataRelation(arg1=['draw', 'up'], arg2=['1', 'ml', 'syringe'])]",
+        "golds": "[ActivityGuardRelation(arg1='receiving', arg2='more than 4500 IU'), ActivityGuardRelation(arg1='receiving', arg2='less than 2500 IU'), ActivityActorRelation(arg1='receiving', arg2='patients'), ActivityActivityDataRelation(arg1='receiving', arg2='innohep'), ActivitySpecificationRelation(arg1='draw up', arg2='from vial containing 10,000 IU / ml'), ActivityActivityDataRelation(arg1='draw up', arg2='1 ml syringe')]",
         "predictions": "[ActivityActivityDataRelation(arg1='draw up', arg2='1 ml syringe')]"
     }
 }
 {
-    ".": {
-        "golds": "[]",
-        "predictions": "[]"
-    }
-}
-{
     "* REMEMBER the date on the vial when breaking it.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['REMEMBER'], arg2=['when', 'breaking', 'it']), ActivityActivityDataRelation(arg1=['REMEMBER'], arg2=['the', 'date', 'on', 'the', 'vial'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='REMEMBER', arg2='when breaking it'), ActivityActivityDataRelation(arg1='REMEMBER', arg2='the date on the vial')]",
         "predictions": "[]"
     }
 }
 {
     "* The vial must not be stored above 25 ºC and": {
-        "golds": "[]",
+        "golds": "[ActivityGuardRelation(arg1='must not be stored', arg2='above 25 ºC'), ActivityActivityDataRelation(arg1='must not be stored', arg2='The vial')]",
         "predictions": "[]"
     }
 }
 {
     "* Must be used within 14 days.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['used'], arg2=['Must', 'be']), ActivityGuardRelation(arg1=['used'], arg2=['within', '14', 'days'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='used', arg2='Must be'), ActivityGuardRelation(arg1='used', arg2='within 14 days')]",
         "predictions": "[ActivityGuardRelation(arg1='used', arg2='within 14 days')]"
     }
 }
 {
     "The medication is administered in the vein-side nozzle.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['administered'], arg2=['in', 'the', 'vein-side', 'nozzle']), ActivityActivityDataRelation(arg1=['administered'], arg2=['The', 'medication'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='administered', arg2='in the vein-side nozzle'), ActivityActivityDataRelation(arg1='administered', arg2='The medication')]",
         "predictions": "[ActivityActivityDataRelation(arg1='administered', arg2='The medication'), ActivitySpecificationRelation(arg1='administered', arg2='in the vein-side nozzle')]"
     }
 }
@@ -798,25 +768,25 @@
 }
 {
     "Many patients can run an HD without the need for heparinization.": {
-        "golds": "[ActivityActorRelation(arg1=['can', 'run'], arg2=['Many', 'patients']), ActivityActivityDataRelation(arg1=['can', 'run'], arg2=['HD'])]",
+        "golds": "[ActivityActorRelation(arg1='can run', arg2='Many patients'), ActivityActivityDataRelation(arg1='can run', arg2='HD')]",
         "predictions": "[]"
     }
 }
 {
     "The doctor has assessed this when prescribing the dialysis.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['assessed'], arg2=['when', 'prescribing', 'the', 'dialysis']), ActivityActorRelation(arg1=['assessed'], arg2=['The', 'doctor']), ActivityActivityDataRelation(arg1=['assessed'], arg2=['this'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='assessed', arg2='when prescribing the dialysis'), ActivityActorRelation(arg1='assessed', arg2='The doctor'), ActivityActivityDataRelation(arg1='assessed', arg2='this')]",
         "predictions": "[]"
     }
 }
 {
     "Unless there are contraindications, 2500 IU Innohep is given as a bolus at start of hemodialysis.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['is', 'given'], arg2=['as', 'a', 'bolus']), ActivitySpecificationRelation(arg1=['is', 'given'], arg2=['at', 'start', 'of', 'hemodialysis']), ActivityActivityDataRelation(arg1=['is', 'given'], arg2=['2500', 'IU', 'Innohep'])]",
-        "predictions": "[ExclusionRelation(arg1='is given', arg2='contraindications')]"
+        "golds": "[ActivitySpecificationRelation(arg1='is given', arg2='as a bolus'), ActivitySpecificationRelation(arg1='is given', arg2='at start of hemodialysis'), ActivityActivityDataRelation(arg1='is given', arg2='2500 IU Innohep')]",
+        "predictions": "[InclusionRelation(arg1='is given', arg2='as a bolus'), ActivityActivityDataRelation(arg1='is given', arg2='2500 IU Innohep')]"
     }
 }
 {
     "For dialysis treatment for more than 4 hours, an additional an additional 500 - 1000 IU Innohep is given from the start.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['dialysis', 'treatment'], arg2=['for', 'more', 'than', '4', 'hours']), ActivitySpecificationRelation(arg1=['is', 'given'], arg2=['from', 'the', 'start']), ActivitySpecificationRelation(arg1=['is', 'given'], arg2=['additional']), ActivityActivityDataRelation(arg1=['is', 'given'], arg2=['500', '-', '1000', 'IU', 'Innohep'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='dialysis treatment', arg2='for more than 4 hours'), ActivitySpecificationRelation(arg1='is given', arg2='from the start'), ActivitySpecificationRelation(arg1='is given', arg2='additional'), ActivityActivityDataRelation(arg1='is given', arg2='500 - 1000 IU Innohep')]",
         "predictions": "[ActivityActivityDataRelation(arg1='is given', arg2='500 - 1000 IU Innohep')]"
     }
 }
@@ -827,13 +797,7 @@
     }
 }
 {
-    "* In case of clogging of the filter and / or abundant thrombi in the venous chamber, increase the starting bolus of Innohep by 500 - 1000 IU at the next HD": {
-        "golds": "[ActivitySpecificationRelation(arg1=['abundant', 'thrombi'], arg2=['in', 'the', 'venous', 'chamber']), ActivitySpecificationRelation(arg1=['increase'], arg2=['at', 'the', 'next', 'HD']), ActivitySpecificationRelation(arg1=['increase'], arg2=['of', 'Innohep', 'by', '500', '-', '1000', 'IU']), ActivityActivityDataRelation(arg1=['increase'], arg2=['starting', 'bolus'])]",
-        "predictions": "[ConditionRelation(arg1='clogging of the filter', arg2='increase'), ConditionRelation(arg1='abundant thrombi', arg2='increase')]"
-    }
-}
-{
-    ".": {
+    "* by 500 - 1000 IU at the next HD": {
         "golds": "[]",
         "predictions": "[]"
     }
@@ -846,44 +810,38 @@
 }
 {
     "There must have been streaks + clots on more than 2 dialyses that are not due to blood pump stoppage x many during HD ( possibly due to dysfunctional vessel access ).": {
-        "golds": "[ActivitySpecificationRelation(arg1=['streaks'], arg2=['more', 'than', '2', 'dialyses']), ActivitySpecificationRelation(arg1=['clots'], arg2=['more', 'than', '2', 'dialyses'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='streaks', arg2='more than 2 dialyses'), ActivitySpecificationRelation(arg1='clots', arg2='more than 2 dialyses')]",
         "predictions": "[]"
     }
 }
 {
     "* If fistula compression time is repeatedly more than 30 minutes, the dose is reduced by 500 IU per hemodialysis until streaks / clots are observed in the filter, artery and / or vein chamber.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['fistula', 'compression', 'time'], arg2=['is', 'repeatedly']), ActivityGuardRelation(arg1=['fistula', 'compression', 'time'], arg2=['more', 'than', '30', 'minutes']), ActivityActivityDataRelation(arg1=['reduced'], arg2=['the', 'dose']), ActivitySpecificationRelation(arg1=['are', 'observed'], arg2=['in', 'the', 'filter', ',', 'artery', 'and', '/', 'or', 'vein', 'chamber']), ActivityActivityDataRelation(arg1=['are', 'observed'], arg2=['streaks', '/', 'clots'])]",
-        "predictions": "[ConditionRelation(arg1='If', arg2='more than 30 minutes'), ResponseRelation(arg1='reduced', arg2='the dose')]"
+        "golds": "[ActivitySpecificationRelation(arg1='fistula compression time', arg2='is repeatedly'), ActivityGuardRelation(arg1='fistula compression time', arg2='more than 30 minutes'), ActivityActivityDataRelation(arg1='reduced', arg2='the dose'), ActivitySpecificationRelation(arg1='are observed', arg2='in the filter , artery and / or vein chamber'), ActivityActivityDataRelation(arg1='are observed', arg2='streaks / clots')]",
+        "predictions": "[ConditionRelation(arg1='fistula compression time', arg2='more than 30 minutes'), ActivityGuardRelation(arg1='reduced', arg2='more than 30 minutes')]"
     }
 }
 {
     "The dose is then increased with 500 IU Innohep": {
-        "golds": "[ActivityActivityDataRelation(arg1=['increased'], arg2=['dose'])]",
-        "predictions": "[]"
-    }
-}
-{
-    ".": {
-        "golds": "[]",
+        "golds": "[ActivityActivityDataRelation(arg1='increased', arg2='dose')]",
         "predictions": "[]"
     }
 }
 {
     "+ Note : If the compression time is long despite a striated filter and thrombi in the venous chamber, it may be a sign of stenosis in the fistula": {
-        "golds": "[ActivitySpecificationRelation(arg1=['striated', 'filter'], arg2=['in', 'the', 'venous', 'chamber']), ActivitySpecificationRelation(arg1=['thrombi'], arg2=['in', 'the', 'venous', 'chamber'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='striated filter', arg2='in the venous chamber'), ActivitySpecificationRelation(arg1='thrombi', arg2='in the venous chamber')]",
         "predictions": "[]"
     }
 }
 {
     "* The hemodialysis nurse can change the dose according to the above instructions, but Innohep must be prescribed by a doctor the first time it is given.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['can', 'change'], arg2=['according', 'to', 'the', 'above', 'instructions']), ActivityActorRelation(arg1=['can', 'change'], arg2=['hemodialysis', 'nurse']), ActivityActivityDataRelation(arg1=['can', 'change'], arg2=['the', 'dose']), ActivityActorRelation(arg1=['prescribed'], arg2=['doctor']), ActivitySpecificationRelation(arg1=['is', 'given'], arg2=['the', 'first', 'time']), ActivityActivityDataRelation(arg1=['is', 'given'], arg2=['Innohep'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='can change', arg2='according to the above instructions'), ActivityActorRelation(arg1='can change', arg2='hemodialysis nurse'), ActivityActivityDataRelation(arg1='can change', arg2='the dose'), ActivityActorRelation(arg1='prescribed', arg2='doctor'), ActivitySpecificationRelation(arg1='is given', arg2='the first time'), ActivityActivityDataRelation(arg1='is given', arg2='Innohep')]",
         "predictions": "[ActivityActorRelation(arg1='prescribed', arg2='doctor')]"
     }
 }
 {
     "* If there is a white filter and no thrombi in the venous chamber, the dose is reduced by 500 IU at the next HD, and so on.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['white', 'filter'], arg2=['in', 'the', 'venous', 'chamber']), ActivitySpecificationRelation(arg1=['no', 'thrombi'], arg2=['in', 'the', 'venous', 'chamber']), ActivitySpecificationRelation(arg1=['is', 'reduced'], arg2=['at', 'the', 'next', 'HD']), ActivityActivityDataRelation(arg1=['is', 'reduced'], arg2=['the', 'dose'])]",
-        "predictions": "[ConditionResponseRelation(arg1='no thrombi', arg2='is reduced')]"
+        "golds": "[ActivitySpecificationRelation(arg1='white filter', arg2='in the venous chamber'), ActivitySpecificationRelation(arg1='no thrombi', arg2='in the venous chamber'), ActivitySpecificationRelation(arg1='is reduced', arg2='at the next HD'), ActivityActivityDataRelation(arg1='is reduced', arg2='the dose')]",
+        "predictions": "[ConditionRelation(arg1='no thrombi', arg2='white filter')]"
     }
 }
 {
@@ -894,7 +852,7 @@
 }
 {
     "* Long-term ventilator treatment": {
-        "golds": "[ActivitySpecificationRelation(arg1=['ventilator'], arg2=['Long-term'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='ventilator', arg2='Long-term')]",
         "predictions": "[]"
     }
 }
@@ -912,7 +870,7 @@
 }
 {
     "* Stenoses / malasias in the larynx / trachea": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Stenoses', '/', 'malasias'], arg2=['larynx', '/', 'trachea'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='Stenoses / malasias', arg2='larynx / trachea')]",
         "predictions": "[]"
     }
 }
@@ -942,19 +900,19 @@
 }
 {
     "* Reduced coughing power and great difficulty mobilizing secretions": {
-        "golds": "[ActivitySpecificationRelation(arg1=['difficulty', 'mobilizing'], arg2=['great'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='difficulty mobilizing', arg2='great')]",
         "predictions": "[]"
     }
 }
 {
     "* Neuromuscular disorders with reduced muscle strength, including in the respiratory muscles": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Neuromuscular', 'disorders'], arg2=['reduced', 'muscle', 'strength']), ActivitySpecificationRelation(arg1=['Neuromuscular', 'disorders'], arg2=['respiratory', 'muscles'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='Neuromuscular disorders', arg2='reduced muscle strength'), ActivitySpecificationRelation(arg1='Neuromuscular disorders', arg2='respiratory muscles')]",
         "predictions": "[]"
     }
 }
 {
     "The tube is placed between the first and second tracheal ring in the trachea while the child is under general anesthesia.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['placed'], arg2=['between', 'the', 'first', 'and', 'second', 'tracheal', 'ring', 'in', 'the', 'trachea']), ActivityActivityDataRelation(arg1=['placed'], arg2=['tube']), ActivityActorRelation(arg1=['is', 'under', 'general', 'anesthesia'], arg2=['child'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='placed', arg2='between the first and second tracheal ring in the trachea'), ActivityActivityDataRelation(arg1='placed', arg2='tube'), ActivityActorRelation(arg1='is under general anesthesia', arg2='child')]",
         "predictions": "[ActivityActivityDataRelation(arg1='placed', arg2='tube'), ActivitySpecificationRelation(arg1='placed', arg2='between the first and second tracheal ring in the trachea')]"
     }
 }
@@ -966,8 +924,8 @@
 }
 {
     "If the tracheostomy is expected to be needed for a longer period of time ( months, years or permanently ) and as soon as the child's condition is stable, contact RCØ ( Rspiration Center East at Glostrup Hospital ), with a view to going home with a tracheostomy.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['is', 'expected', 'to', 'be', 'needed'], arg2=['tracheostomy']), ActivityActorRelation(arg1=['condition', 'is', 'stable'], arg2=[\"child's\"]), ActivitySpecificationRelation(arg1=['contact'], arg2=['RCØ', '(', 'Rspiration', 'Center', 'East', 'at', 'Glostrup', 'Hospital', ')'])]",
-        "predictions": "[ResponseRelation(arg1='condition is stable', arg2='is expected to be needed')]"
+        "golds": "[ActivityActivityDataRelation(arg1='is expected to be needed', arg2='tracheostomy'), ActivityActorRelation(arg1='condition is stable', arg2=\"child's\"), ActivitySpecificationRelation(arg1='contact', arg2='RCØ ( Rspiration Center East at Glostrup Hospital )')]",
+        "predictions": "[]"
     }
 }
 {
@@ -995,8 +953,122 @@
     }
 }
 {
+    "The test is performed as an extension of the Thirst Test for suspected diabetes insipidus insipidus ( DI ) or possibly in the morning after fasting and thirst from the night before.": {
+        "golds": "[ActivitySpecificationRelation(arg1='performed', arg2='in the morning after fasting and thirst from the night before'), ActivitySpecificationRelation(arg1='performed', arg2='as an extension of the Thirst Test'), ActivityActivityDataRelation(arg1='performed', arg2='test')]",
+        "predictions": "[ActivitySpecificationRelation(arg1='performed', arg2='as an extension'), ActivitySpecificationRelation(arg1='performed', arg2='in the morning after fasting and thirst from the night before')]"
+    }
+}
+{
+    "The same rules regarding the indication for the test apply as for thirst provocation.": {
+        "golds": "[ActivitySpecificationRelation(arg1='apply', arg2='regarding the indication for the test'), ActivitySpecificationRelation(arg1='apply', arg2='as for thirst provocation'), ActivityActivityDataRelation(arg1='apply', arg2='same rules')]",
+        "predictions": "[]"
+    }
+}
+{
+    "Fasting continues during the test, however, \" dry foods \" such as biscuits can be given.": {
+        "golds": "[ActivitySpecificationRelation(arg1='continues', arg2='during the test'), ActivityActivityDataRelation(arg1='continues', arg2='Fasting'), ActivitySpecificationRelation(arg1='can be given', arg2='such as biscuits'), ActivityActivityDataRelation(arg1='can be given', arg2='dry foods')]",
+        "predictions": "[]"
+    }
+}
+{
+    "# # # * * The test": {
+        "golds": "[]",
+        "predictions": "[]"
+    }
+}
+{
+    "Before the test ( at the end of the thirst test ) take s-Na, s-K, plasma osmolality, plasma AVP ( medical laboratory ) and ( spot ) urine osmolality.": {
+        "golds": "[ActivityActivityDataRelation(arg1='take', arg2='( spot ) urine osmolality'), ActivityActivityDataRelation(arg1='take', arg2='s-Na'), ActivityActivityDataRelation(arg1='take', arg2='plasma osmolality'), ActivityActivityDataRelation(arg1='take', arg2='plasma AVP ( medical laboratory )'), ActivityActivityDataRelation(arg1='take', arg2='s-K')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='take', arg2='s-Na'), ActivityActivityDataRelation(arg1='take', arg2='s-K'), ActivityActivityDataRelation(arg1='take', arg2='plasma osmolality'), ActivityActivityDataRelation(arg1='take', arg2='plasma AVP'), ActivityActivityDataRelation(arg1='take', arg2='urine osmolality')]"
+    }
+}
+{
+    "Minirin is given intranasally according to the following schedule ( can be individualized ) :": {
+        "golds": "[ActivitySpecificationRelation(arg1='is given', arg2='intranasally'), ActivitySpecificationRelation(arg1='is given', arg2='according to the following schedule'), ActivityActivityDataRelation(arg1='is given', arg2='Minirin')]",
+        "predictions": "[ActivitySpecificationRelation(arg1='is given', arg2='intranasally')]"
+    }
+}
+{
+    "Can also be given intravenously or subcutaneously after consultation with Pediatric endocrinologist as the dose is different.": {
+        "golds": "[ActivitySpecificationRelation(arg1='be given', arg2='intravenously or subcutaneously'), ActivitySpecificationRelation(arg1='consultation', arg2='with Pediatric endocrinologist'), ActivityPurposeOutcomeRelation(arg1='consultation', arg2='the dose is different')]",
+        "predictions": "[ActivitySpecificationRelation(arg1='be given', arg2='intravenously or subcutaneously'), ConditionResponseRelation(arg1='consultation', arg2='be given')]"
+    }
+}
+{
+    "After Minirin administration, urine is taken every hour ( if possible ) for analysis for osmolality.": {
+        "golds": "[ActivityActivityDataRelation(arg1='administration', arg2='Minirin'), ActivitySpecificationRelation(arg1='is taken', arg2='every hour'), ActivityPurposeOutcomeRelation(arg1='is taken', arg2='for analysis for osmolality'), ActivityActivityDataRelation(arg1='is taken', arg2='urine')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='administration', arg2='Minirin'), ActivitySpecificationRelation(arg1='is taken', arg2='every hour')]"
+    }
+}
+{
+    "A catheter may need to be inserted.": {
+        "golds": "[ActivitySpecificationRelation(arg1='inserted', arg2='may'), ActivityActivityDataRelation(arg1='inserted', arg2='catheter')]",
+        "predictions": "[]"
+    }
+}
+{
+    "The test lasts at least minimum until at least one urine sample has been collected.": {
+        "golds": "[ActivityActivityDataRelation(arg1='collected', arg2='urine sample')]",
+        "predictions": "[]"
+    }
+}
+{
+    "Especially in young children, the test can be supplemented with measurement of s-Na and plasma osmolality 1 - 2 and 4 hours after Minirin administration, as diuresis can be very modest.": {
+        "golds": "[ActivitySpecificationRelation(arg1='supplemented', arg2='with measurement of s-Na and plasma osmolality')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='supplemented', arg2='test'), ActivitySpecificationRelation(arg1='supplemented', arg2='measurement of s-Na and plasma osmolality'), ActivityGuardRelation(arg1='after', arg2='1 - 2 and 4 hours')]"
+    }
+}
+{
+    "# # # * * Interpretation": {
+        "golds": "[]",
+        "predictions": "[]"
+    }
+}
+{
+    "Normal children can concentrate urine to approx. 1000 mosm / kg, infants to approx.": {
+        "golds": "[]",
+        "predictions": "[]"
+    }
+}
+{
+    "500 mosm / kg.": {
+        "golds": "[]",
+        "predictions": "[]"
+    }
+}
+{
+    "There will be an increase in osmolality after Minirin administration.": {
+        "golds": "[ActivityActivityDataRelation(arg1='increase', arg2='osmolality'), ActivityActivityDataRelation(arg1='administration', arg2='Minirin')]",
+        "predictions": "[ConditionResponseRelation(arg1='administration', arg2='increase')]"
+    }
+}
+{
+    "nephrogenic diabetes insipidus.": {
+        "golds": "[]",
+        "predictions": "[]"
+    }
+}
+{
+    "If the urine can be concentrated > 800 mosm / l after Minirin, there is a central DI.": {
+        "golds": "[ActivityGuardRelation(arg1='urine can be concentrated', arg2='> 800 mosm / l')]",
+        "predictions": "[ConditionRelation(arg1='urine can be concentrated', arg2='> 800 mosm / l')]"
+    }
+}
+{
+    "If the concentration < 800 mosm / l after Minirin, it is a nephrogenic DI.": {
+        "golds": "[ActivityGuardRelation(arg1='concentration', arg2='< 800 mosm / l')]",
+        "predictions": "[]"
+    }
+}
+{
+    "# # Procedure # #": {
+        "golds": "[]",
+        "predictions": "[]"
+    }
+}
+{
     "* Use either snapboard or status board to get an overview of when the patient arrives in the recovery room.": {
-        "golds": "[ActivityPurposeOutcomeRelation(arg1=['Use'], arg2=['to', 'get', 'an', 'overview', 'of', 'when', 'the', 'patient', 'arrives', 'in', 'the', 'recovery', 'room']), ActivityActivityDataRelation(arg1=['Use'], arg2=['snapboard', 'or', 'status', 'board'])]",
+        "golds": "[ActivityPurposeOutcomeRelation(arg1='Use', arg2='to get an overview of when the patient arrives in the recovery room'), ActivityActivityDataRelation(arg1='Use', arg2='snapboard or status board')]",
         "predictions": "[ActivityActivityDataRelation(arg1='Use', arg2='snapboard or status board')]"
     }
 }
@@ -1014,25 +1086,19 @@
 }
 {
     "The patient is transported from the operating room to recovery on a bed of 1 - 2 Nurse anesthetist / physician, operating room nurse or surgeon.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['is', 'transported'], arg2=['from', 'the', 'operating', 'room', 'to', 'recovery', 'on', 'a', 'bed']), ActivityActorRelation(arg1=['is', 'transported'], arg2=['patient'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='is transported', arg2='from the operating room to recovery on a bed'), ActivityActorRelation(arg1='is transported', arg2='patient')]",
         "predictions": "[ActivitySpecificationRelation(arg1='is transported', arg2='from the operating room to recovery on a bed')]"
     }
 }
 {
     "These are nurse anesthetist who has anesthetized the patient assesses whether the transport can be handled by staff other than anesthesia": {
-        "golds": "[ActivityActorRelation(arg1=['assesses'], arg2=['nurse', 'anesthetist']), ActivityActorRelation(arg1=['can', 'be', 'handled'], arg2=['staff', 'other', 'than', 'anesthesia']), ActivityActivityDataRelation(arg1=['can', 'be', 'handled'], arg2=['transport'])]",
-        "predictions": "[]"
-    }
-}
-{
-    ".": {
-        "golds": "[]",
+        "golds": "[ActivityActorRelation(arg1='assesses', arg2='nurse anesthetist'), ActivityActorRelation(arg1='can be handled', arg2='staff other than anesthesia'), ActivityActivityDataRelation(arg1='can be handled', arg2='transport')]",
         "predictions": "[]"
     }
 }
 {
     "* The operating room staff gives a report to the recovery nurse when handing over the newly operated patient according to the department's guidelines.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['gives'], arg2=['to', 'the', 'recovery', 'nurse']), ActivityActorRelation(arg1=['gives'], arg2=['operating', 'room', 'staff']), ActivityActivityDataRelation(arg1=['gives'], arg2=['report']), ActivitySpecificationRelation(arg1=['handing', 'over'], arg2=['newly', 'operated']), ActivitySpecificationRelation(arg1=['handing', 'over'], arg2=['according', 'to', 'the', \"department's\", 'guidelines']), ActivityActorRelation(arg1=['handing', 'over'], arg2=['operating', 'room', 'staff']), ActivityActorRelation(arg1=['handing', 'over'], arg2=['patient'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='gives', arg2='to the recovery nurse'), ActivityActorRelation(arg1='gives', arg2='operating room staff'), ActivityActivityDataRelation(arg1='gives', arg2='report'), ActivitySpecificationRelation(arg1='handing over', arg2='newly operated'), ActivitySpecificationRelation(arg1='handing over', arg2=\"according to the department's guidelines\"), ActivityActorRelation(arg1='handing over', arg2='operating room staff'), ActivityActorRelation(arg1='handing over', arg2='patient')]",
         "predictions": "[ActivityActorRelation(arg1='gives', arg2='operating room staff'), ActivityActorRelation(arg1='handing over', arg2='operating room staff')]"
     }
 }
@@ -1044,31 +1110,31 @@
 }
 {
     "* Go to the status board in SP and document via events that the patient is in the recovery room.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['document'], arg2=['via', 'events', 'that', 'the', 'patient', 'is', 'in', 'the', 'recovery', 'room'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='document', arg2='via events that the patient is in the recovery room')]",
         "predictions": "[]"
     }
 }
 {
     "* Identify the patient and scan the wristband Person identification ( VIP guide ) This opens the patient's record in SP": {
-        "golds": "[ActivityActivityDataRelation(arg1=['Identify'], arg2=['patient']), ActivitySpecificationRelation(arg1=['scan'], arg2=['Person', 'identification', '(', 'VIP', 'guide', ')']), ActivityActivityDataRelation(arg1=['scan'], arg2=['wristband'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='Identify', arg2='patient'), ActivitySpecificationRelation(arg1='scan', arg2='Person identification ( VIP guide )'), ActivityActivityDataRelation(arg1='scan', arg2='wristband')]",
         "predictions": "[]"
     }
 }
 {
     "* Read and document in the Recovery Navigator either in the \" Recovery to Home \" or \" Admission \" navigator": {
-        "golds": "[ActivitySpecificationRelation(arg1=['document'], arg2=['in', 'the', 'Recovery', 'Navigator'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='document', arg2='in the Recovery Navigator')]",
         "predictions": "[]"
     }
 }
 {
     "* * Upon admission, the patient is systematically assessed using the ABCDE principle * *.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['assessed'], arg2=['systematically']), ActivityActorRelation(arg1=['assessed'], arg2=['patient']), ActivityActivityDataRelation(arg1=['assessed'], arg2=['using', 'the', 'ABCDE', 'principle'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='assessed', arg2='systematically'), ActivityActorRelation(arg1='assessed', arg2='patient'), ActivityActivityDataRelation(arg1='assessed', arg2='using the ABCDE principle')]",
         "predictions": "[ActivityActorRelation(arg1='assessed', arg2='patient')]"
     }
 }
 {
     "* * Document this on an ongoing basis.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Document'], arg2=['on', 'an', 'ongoing', 'basis'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='Document', arg2='on an ongoing basis')]",
         "predictions": "[]"
     }
 }
@@ -1122,7 +1188,7 @@
 }
 {
     "* Observe the patient's circulatory state via skin temperature and color": {
-        "golds": "[ActivityActivityDataRelation(arg1=['circulatory', 'state'], arg2=['skin', 'temperature', 'and', 'color'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='circulatory state', arg2='skin temperature and color')]",
         "predictions": "[]"
     }
 }
@@ -1134,13 +1200,13 @@
 }
 {
     "* Check the insertion site for the PVK and that it works": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Check'], arg2=['for', 'the', 'PVK', 'and', 'that', 'it', 'works']), ActivityActivityDataRelation(arg1=['Check'], arg2=['insertion', 'site'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='Check', arg2='for the PVK and that it works'), ActivityActivityDataRelation(arg1='Check', arg2='insertion site')]",
         "predictions": "[]"
     }
 }
 {
     "* Check that any IV fluid is flowing freely": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Check'], arg2=['any', 'IV', 'fluid', 'is', 'flowing', 'freely'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='Check', arg2='any IV fluid is flowing freely')]",
         "predictions": "[]"
     }
 }
@@ -1152,8 +1218,8 @@
 }
 {
     "* Observe any bladder catheter and drains and document quantity and appearance xtras": {
-        "golds": "[ActivityActivityDataRelation(arg1=['Observe'], arg2=['drains']), ActivityActivityDataRelation(arg1=['Observe'], arg2=['bladder', 'catheter']), ActivitySpecificationRelation(arg1=['document'], arg2=['quantity', 'and', 'appearance', 'xtras'])]",
-        "predictions": "[]"
+        "golds": "[ActivityActivityDataRelation(arg1='Observe', arg2='drains'), ActivityActivityDataRelation(arg1='Observe', arg2='bladder catheter'), ActivitySpecificationRelation(arg1='document', arg2='quantity and appearance xtras')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='Observe', arg2='bladder catheter'), ActivityActivityDataRelation(arg1='Observe', arg2='drains')]"
     }
 }
 {
@@ -1164,14 +1230,14 @@
 }
 {
     "* Observe the patient's dressing / plaster for leakage and document this - Change if necessary": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Observe'], arg2=['for', 'leakage']), ActivityActorRelation(arg1=['Observe'], arg2=[\"patient's\"]), ActivityActivityDataRelation(arg1=['Observe'], arg2=['dressing', '/', 'plaster'])]",
-        "predictions": "[ActivityActorRelation(arg1='Observe', arg2=\"patient's\")]"
+        "golds": "[ActivitySpecificationRelation(arg1='Observe', arg2='for leakage'), ActivityActorRelation(arg1='Observe', arg2=\"patient's\"), ActivityActivityDataRelation(arg1='Observe', arg2='dressing / plaster')]",
+        "predictions": "[ActivityActorRelation(arg1='Observe', arg2=\"patient's\"), ActivityActivityDataRelation(arg1='Observe', arg2='dressing / plaster')]"
     }
 }
 {
     "* Observe diaper for degree of bleeding and document this": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Observe'], arg2=['for', 'degree', 'of', 'bleeding']), ActivityActivityDataRelation(arg1=['Observe'], arg2=['diaper'])]",
-        "predictions": "[]"
+        "golds": "[ActivitySpecificationRelation(arg1='Observe', arg2='for degree of bleeding'), ActivityActivityDataRelation(arg1='Observe', arg2='diaper')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='Observe', arg2='diaper')]"
     }
 }
 {
@@ -1206,19 +1272,19 @@
 }
 {
     "Let the mother try different breastfeeding positions to find the right one for her.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['try'], arg2=['different']), ActivityPurposeOutcomeRelation(arg1=['try'], arg2=['find', 'the', 'right', 'one']), ActivityActorRelation(arg1=['try'], arg2=['the', 'mother']), ActivityActivityDataRelation(arg1=['try'], arg2=['breastfeeding', 'positions'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='try', arg2='different'), ActivityPurposeOutcomeRelation(arg1='try', arg2='find the right one'), ActivityActorRelation(arg1='try', arg2='the mother'), ActivityActivityDataRelation(arg1='try', arg2='breastfeeding positions')]",
         "predictions": "[ActivityActivityDataRelation(arg1='try', arg2='breastfeeding positions')]"
     }
 }
 {
     "If possible, have the mother sit fully upright so that she can lean over the baby when breastfeeding.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['sit'], arg2=['fully', 'upright']), ActivityPurposeOutcomeRelation(arg1=['sit'], arg2=['she', 'can', 'lean', 'over', 'the', 'baby', 'when', 'breastfeeding'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='sit', arg2='fully upright'), ActivityPurposeOutcomeRelation(arg1='sit', arg2='she can lean over the baby when breastfeeding')]",
         "predictions": "[ActivitySpecificationRelation(arg1='sit', arg2='fully upright'), ActivityPurposeOutcomeRelation(arg1='sit', arg2='she can lean over the baby when breastfeeding')]"
     }
 }
 {
     "Make sure the baby is close to the breast when breastfeeding.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Make', 'sure'], arg2=['breastfeeding']), ActivityActivityDataRelation(arg1=['Make', 'sure'], arg2=['the', 'baby', 'is', 'close', 'to', 'the', 'breast'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='Make sure', arg2='breastfeeding'), ActivityActivityDataRelation(arg1='Make sure', arg2='the baby is close to the breast')]",
         "predictions": "[]"
     }
 }
@@ -1236,7 +1302,7 @@
 }
 {
     "Cutting the tongue ligaments ( frenulotomy ) ( Link to VIP )": {
-        "golds": "[ActivityActivityDataRelation(arg1=['Cutting'], arg2=['the', 'tongue', 'ligaments'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='Cutting', arg2='the tongue ligaments')]",
         "predictions": "[]"
     }
 }
@@ -1248,49 +1314,49 @@
 }
 {
     "* Get the milk flowing before putting the baby to the breast.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['putting'], arg2=['the', 'breast']), ActivityActivityDataRelation(arg1=['putting'], arg2=['the', 'baby'])]",
-        "predictions": "[ConditionResponseRelation(arg1='before', arg2='putting')]"
+        "golds": "[ActivitySpecificationRelation(arg1='putting', arg2='the breast'), ActivityActivityDataRelation(arg1='putting', arg2='the baby')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='putting', arg2='the baby'), ActivitySpecificationRelation(arg1='putting', arg2='the breast')]"
     }
 }
 {
     "* Frequent breastfeeding.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['breastfeeding'], arg2=['Frequent'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='breastfeeding', arg2='Frequent')]",
         "predictions": "[]"
     }
 }
 {
     "* Use of a pacifier.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['Use'], arg2=['a', 'pacifier'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='Use', arg2='a pacifier')]",
         "predictions": "[]"
     }
 }
 {
-    "Delayed wound healing ( > 1 week ) # # Delayed healing of wounds can be caused by an infection of the wound and / or fungus. * Treat locally with antibiotic ointment. Contact your doctor for a preparation. * If a fungal infection is suspected, treat with an antifungal agent locally and possibly in the child's mouth and diaper area. the child's oral cavity and diaper area. Contact a doctor for preparation. * Wash nipples with soap and water x 2 daily. * Air dry breast after breastfeeding. * If nursing pads are needed, change them frequently to keep the breast dry.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Delayed', 'wound', 'healing'], arg2=['1', 'week']), ActivitySpecificationRelation(arg1=['Delayed', 'wound', 'healing'], arg2=['Delayed', 'healing', 'of', 'wounds', 'can', 'be', 'caused', 'by', 'an', 'infection', 'of', 'the', 'wound', 'and', '/', 'or', 'fungus']), ActivitySpecificationRelation(arg1=['Treat'], arg2=['locally']), ActivityActivityDataRelation(arg1=['Treat'], arg2=['antibiotic', 'ointment']), ActivityParentRelation(arg1=['Treat'], arg2=['healing', '(', '>']), ActivityPurposeOutcomeRelation(arg1=['Contact'], arg2=['a', 'preparation']), ActivityParentRelation(arg1=['Contact'], arg2=['healing', '(', '>']), ActivityActivityDataRelation(arg1=['suspected'], arg2=['fungal', 'infection']), ActivitySpecificationRelation(arg1=['Contact'], arg2=['preparation']), ActivityActivityDataRelation(arg1=['Contact'], arg2=['a', 'doctor']), ActivitySpecificationRelation(arg1=['Wash'], arg2=['x', '2', 'daily']), ActivitySpecificationRelation(arg1=['Wash'], arg2=['soap', 'and', 'water']), ActivityActivityDataRelation(arg1=['Wash'], arg2=['nipples']), ActivityParentRelation(arg1=['Wash'], arg2=['healing', '(', '>']), ActivitySpecificationRelation(arg1=['Air', 'dry'], arg2=['breastfeeding']), ActivityActivityDataRelation(arg1=['Air', 'dry'], arg2=['breast']), ActivityParentRelation(arg1=['Air', 'dry'], arg2=['healing', '(', '>']), ActivityActivityDataRelation(arg1=['needed'], arg2=['nursing', 'pads']), ActivityParentRelation(arg1=['needed'], arg2=['healing', '(', '>'])]",
-        "predictions": "[ActivityActivityDataRelation(arg1='Treat', arg2='antibiotic ointment'), ActivityActivityDataRelation(arg1='Contact', arg2='doctor'), ActivityActivityDataRelation(arg1='Contact', arg2='a doctor'), ActivityActivityDataRelation(arg1='Wash', arg2='nipples'), ActivityActivityDataRelation(arg1='Air dry', arg2='breast')]"
+    "Delayed wound healing ( > 1 week ) # # Delayed healing of wounds can be caused by an infection of the wound and / or fungus * Treat locally with antibiotic ointment. Contact your doctor for a preparation. * If a fungal infection is suspected, treat with an antifungal agent locally and possibly in the child's mouth and diaper area. the child's oral cavity and diaper area. Contact a doctor for preparation. * Wash nipples with soap and water x 2 daily. * Air dry breast after breastfeeding. * If nursing pads are needed, change them frequently to keep the breast dry.": {
+        "golds": "[ActivitySpecificationRelation(arg1='Delayed wound healing', arg2='1 week'), ActivitySpecificationRelation(arg1='Delayed wound healing', arg2='Delayed healing of wounds can be caused by an infection of the wound and / or fungus'), ActivitySpecificationRelation(arg1='Treat', arg2='locally'), ActivityActivityDataRelation(arg1='Treat', arg2='antibiotic ointment'), ActivityParentRelation(arg1='Treat', arg2='healing ( >'), ActivityPurposeOutcomeRelation(arg1='Contact', arg2='a preparation'), ActivityParentRelation(arg1='Contact', arg2='healing ( >'), ActivityActivityDataRelation(arg1='suspected', arg2='fungal infection'), ActivitySpecificationRelation(arg1='Contact', arg2='preparation'), ActivityActivityDataRelation(arg1='Contact', arg2='a doctor'), ActivitySpecificationRelation(arg1='Wash', arg2='x 2 daily'), ActivitySpecificationRelation(arg1='Wash', arg2='soap and water'), ActivityActivityDataRelation(arg1='Wash', arg2='nipples'), ActivityParentRelation(arg1='Wash', arg2='healing ( >'), ActivitySpecificationRelation(arg1='Air dry', arg2='breastfeeding'), ActivityActivityDataRelation(arg1='Air dry', arg2='breast'), ActivityParentRelation(arg1='Air dry', arg2='healing ( >'), ActivityActivityDataRelation(arg1='needed', arg2='nursing pads'), ActivityParentRelation(arg1='needed', arg2='healing ( >')]",
+        "predictions": "[ActivitySpecificationRelation(arg1='Delayed wound healing', arg2='1 week'), ActivitySpecificationRelation(arg1='Delayed healing of wounds can be caused by an infection of the wound and / or fungus', arg2='Treat'), ActivitySpecificationRelation(arg1='Treat', arg2='locally'), ActivitySpecificationRelation(arg1='Contact', arg2='doctor'), ActivitySpecificationRelation(arg1='Contact', arg2='a doctor'), ActivitySpecificationRelation(arg1='Wash', arg2='nipples'), ActivitySpecificationRelation(arg1='Air dry', arg2='breast')]"
     }
 }
 {
     "If the pain and sores are massive, the woman can take a break from breastfeeding until the warts have healed.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['take'], arg2=['a', 'break', 'from', 'breastfeeding'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='take', arg2='a break from breastfeeding')]",
         "predictions": "[ExclusionRelation(arg1='take', arg2='a break from breastfeeding')]"
     }
 }
 {
     "In the meantime, milk production is maintained by hand or machine by hand or machine.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['maintained'], arg2=['hand', 'or', 'machine']), ActivityActivityDataRelation(arg1=['maintained'], arg2=['milk', 'production'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='maintained', arg2='hand or machine'), ActivityActivityDataRelation(arg1='maintained', arg2='milk production')]",
         "predictions": "[]"
     }
 }
 {
     "If the cause of the sores is properly addressed, they should heal within days to a week.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['addressed'], arg2=['properly']), ActivityActivityDataRelation(arg1=['addressed'], arg2=['the', 'sores']), ActivitySpecificationRelation(arg1=['heal'], arg2=['days', 'to', 'a', 'week'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='addressed', arg2='properly'), ActivityActivityDataRelation(arg1='addressed', arg2='the sores'), ActivitySpecificationRelation(arg1='heal', arg2='days to a week')]",
         "predictions": "[ConditionResponseRelation(arg1='If', arg2='addressed')]"
     }
 }
 {
     "Stopping breastfeeding may be a necessary choice if breastfeeding continues to be continues to be problematic and painful.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['Stopping'], arg2=['breastfeeding']), ActivitySpecificationRelation(arg1=['continues'], arg2=['problematic', 'and', 'painful']), ActivityActivityDataRelation(arg1=['continues'], arg2=['breastfeeding'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='Stopping', arg2='breastfeeding'), ActivitySpecificationRelation(arg1='continues', arg2='problematic and painful'), ActivityActivityDataRelation(arg1='continues', arg2='breastfeeding')]",
         "predictions": "[]"
     }
 }
@@ -1308,32 +1374,32 @@
 }
 {
     "PSA should not be taken in the acute phase.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['taken'], arg2=['acute', 'phase']), ActivityActivityDataRelation(arg1=['taken'], arg2=['PSA'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='taken', arg2='acute phase'), ActivityActivityDataRelation(arg1='taken', arg2='PSA')]",
         "predictions": "[ExclusionRelation(arg1='taken', arg2='acute phase')]"
     }
 }
 {
     "* * Treatment : * * * transurethral catheter If transurethral catheterization is not catheterization is not possible, a * suprapubic catheter * is inserted, preceded by ultrasound to ensure adequate bladder volume.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['catheterization'], arg2=['transurethral']), ActivityActivityDataRelation(arg1=['inserted'], arg2=['suprapubic', 'catheter']), ActivityPurposeOutcomeRelation(arg1=['ultrasound'], arg2=['adequate', 'bladder', 'volume'])]",
-        "predictions": "[ExclusionRelation(arg1='catheterization', arg2='catheterization is not possible'), ActivityActivityDataRelation(arg1='inserted', arg2='suprapubic catheter'), ResponseRelation(arg1='ultrasound', arg2='inserted')]"
+        "golds": "[ActivitySpecificationRelation(arg1='catheterization', arg2='transurethral'), ActivityActivityDataRelation(arg1='inserted', arg2='suprapubic catheter'), ActivityPurposeOutcomeRelation(arg1='ultrasound', arg2='adequate bladder volume')]",
+        "predictions": "[ExclusionRelation(arg1='catheterization', arg2='catheterization is not possible'), ActivityActivityDataRelation(arg1='inserted', arg2='suprapubic catheter'), ResponseRelation(arg1='ultrasound', arg2='inserted'), ActivityPurposeOutcomeRelation(arg1='inserted', arg2='adequate bladder volume')]"
     }
 }
 {
     "* If retention is < 1000 ml *, the patient is started on alpha-blocker therapy, instructed in catheter management and given patient counseling.": {
-        "golds": "[ActivityActorRelation(arg1=['started'], arg2=['the', 'patient']), ActivityActivityDataRelation(arg1=['started'], arg2=['alpha-blocker', 'therapy']), ActivityActorRelation(arg1=['instructed'], arg2=['the', 'patient']), ActivityActivityDataRelation(arg1=['instructed'], arg2=['catheter', 'management']), ActivityActorRelation(arg1=['given'], arg2=['the', 'patient']), ActivityActivityDataRelation(arg1=['given'], arg2=['patient', 'counseling'])]",
-        "predictions": "[ResponseRelation(arg1='If', arg2='started'), ActivityActivityDataRelation(arg1='started', arg2='alpha-blocker therapy')]"
+        "golds": "[ActivityActorRelation(arg1='started', arg2='the patient'), ActivityActivityDataRelation(arg1='started', arg2='alpha-blocker therapy'), ActivityActorRelation(arg1='instructed', arg2='the patient'), ActivityActivityDataRelation(arg1='instructed', arg2='catheter management'), ActivityActorRelation(arg1='given', arg2='the patient'), ActivityActivityDataRelation(arg1='given', arg2='patient counseling')]",
+        "predictions": "[ConditionRelation(arg1='If', arg2='retention'), ActivityActorRelation(arg1='started', arg2='the patient'), ActivityActivityDataRelation(arg1='started', arg2='alpha-blocker therapy')]"
     }
 }
 {
     "Pt. is given an appointment for an outpatient check-up after 1 week. In the outpatient clinic, the bladder is filled with saline the catheter is removed and flow and residual urine are measured.": {
-        "golds": "[ActivityActorRelation(arg1=['given'], arg2=['Pt', '.']), ActivityActivityDataRelation(arg1=['given'], arg2=['an', 'appointment']), ActivitySpecificationRelation(arg1=['filled'], arg2=['saline']), ActivitySpecificationRelation(arg1=['filled'], arg2=['outpatient', 'clinic']), ActivityActivityDataRelation(arg1=['filled'], arg2=['bladder']), ActivitySpecificationRelation(arg1=['removed'], arg2=['catheter']), ActivitySpecificationRelation(arg1=['removed'], arg2=['outpatient', 'clinic']), ActivitySpecificationRelation(arg1=['measured'], arg2=['outpatient', 'clinic']), ActivityActivityDataRelation(arg1=['measured'], arg2=['flow', 'and', 'residual', 'urine']), ActivityParentRelation(arg1=['measured'], arg2=['check-up']), ActivityParentRelation(arg1=['removed'], arg2=['check-up']), ActivityParentRelation(arg1=['filled'], arg2=['check-up'])]",
+        "golds": "[ActivityActorRelation(arg1='given', arg2='Pt .'), ActivityActivityDataRelation(arg1='given', arg2='an appointment'), ActivitySpecificationRelation(arg1='filled', arg2='saline'), ActivitySpecificationRelation(arg1='filled', arg2='outpatient clinic'), ActivityActivityDataRelation(arg1='filled', arg2='bladder'), ActivitySpecificationRelation(arg1='removed', arg2='catheter'), ActivitySpecificationRelation(arg1='removed', arg2='outpatient clinic'), ActivitySpecificationRelation(arg1='measured', arg2='outpatient clinic'), ActivityActivityDataRelation(arg1='measured', arg2='flow and residual urine'), ActivityParentRelation(arg1='measured', arg2='check-up'), ActivityParentRelation(arg1='removed', arg2='check-up'), ActivityParentRelation(arg1='filled', arg2='check-up')]",
         "predictions": "[ActivityActivityDataRelation(arg1='filled', arg2='bladder')]"
     }
 }
 {
     "If there is no urination or a large amount of residual urine, the catheter is refer the patient to TURP / TUIP at the Gentofte-Herlev urology department or consult with ovl.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['residual', 'urine'], arg2=['large', 'amount']), ActivitySpecificationRelation(arg1=['refer'], arg2=['TURP', '/', 'TUIP', 'at', 'the', 'Gentofte-Herlev', 'urology', 'department']), ActivityActivityDataRelation(arg1=['refer'], arg2=['patient']), ActivityActivityDataRelation(arg1=['consult'], arg2=['ovl'])]",
-        "predictions": "[ResponseRelation(arg1='no urination', arg2='refer'), ResponseRelation(arg1='large amount', arg2='refer')]"
+        "golds": "[ActivitySpecificationRelation(arg1='residual urine', arg2='large amount'), ActivitySpecificationRelation(arg1='refer', arg2='TURP / TUIP at the Gentofte-Herlev urology department'), ActivityActivityDataRelation(arg1='refer', arg2='patient'), ActivityActivityDataRelation(arg1='consult', arg2='ovl')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='refer', arg2='patient')]"
     }
 }
 {
@@ -1344,7 +1410,7 @@
 }
 {
     "In case of modest residual urine, treatment with alpha-blockers is continued.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['residual', 'urine'], arg2=['modest']), ActivityActivityDataRelation(arg1=['continued'], arg2=['alpha-blockers'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='residual urine', arg2='modest'), ActivityActivityDataRelation(arg1='continued', arg2='alpha-blockers')]",
         "predictions": "[]"
     }
 }
@@ -1356,7 +1422,7 @@
 }
 {
     "Patients with congestive congestive problems, elderly and comorbid must be hospitalized.": {
-        "golds": "[ActivityActorRelation(arg1=['hospitalized'], arg2=['Patients'])]",
+        "golds": "[ActivityActorRelation(arg1='hospitalized', arg2='Patients')]",
         "predictions": "[ActivityActorRelation(arg1='hospitalized', arg2='Patients')]"
     }
 }
@@ -1386,43 +1452,43 @@
 }
 {
     "The skin flap is removed from the abscess, the septae are broken down and the abscess contents are drained.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['removed'], arg2=['from', 'the', 'abscess']), ActivityActivityDataRelation(arg1=['removed'], arg2=['skin', 'flap']), ActivityActivityDataRelation(arg1=['are', 'broken', 'down'], arg2=['septae']), ActivityActivityDataRelation(arg1=['drained'], arg2=['abscess', 'contents'])]",
-        "predictions": "[ActivityActorRelation(arg1='removed', arg2='skin flap'), ActivitySpecificationRelation(arg1='removed', arg2='abscess')]"
+        "golds": "[ActivitySpecificationRelation(arg1='removed', arg2='from the abscess'), ActivityActivityDataRelation(arg1='removed', arg2='skin flap'), ActivityActivityDataRelation(arg1='are broken down', arg2='septae'), ActivityActivityDataRelation(arg1='drained', arg2='abscess contents')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='removed', arg2='skin flap'), ActivitySpecificationRelation(arg1='removed', arg2='abscess'), ActivityActivityDataRelation(arg1='drained', arg2='abscess contents')]"
     }
 }
 {
     "A hemostatic mech is placed in the cavity.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['placed'], arg2=['in', 'the', 'cavity']), ActivityActivityDataRelation(arg1=['placed'], arg2=['hemostatic', 'mech'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='placed', arg2='in the cavity'), ActivityActivityDataRelation(arg1='placed', arg2='hemostatic mech')]",
         "predictions": "[ActivityActivityDataRelation(arg1='placed', arg2='hemostatic mech'), ActivitySpecificationRelation(arg1='placed', arg2='in the cavity')]"
     }
 }
 {
     "Change after approx. 24 hours + / -. anesthesia by individual assessment.": {
-        "golds": "[ActivityActivityDataRelation(arg1=['Change'], arg2=['anesthesia']), ActivitySpecificationRelation(arg1=['Change'], arg2=['by', 'individual', 'assessment'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='Change', arg2='anesthesia'), ActivitySpecificationRelation(arg1='Change', arg2='by individual assessment')]",
         "predictions": "[]"
     }
 }
 {
     "* * Primary suturing under antibiotic coverage Incision over the apex of the abscess, the abscess contents are drained and the septae digitally decompose the septae. Then curettage with a sharp spoon.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Incision'], arg2=['over', 'the', 'apex', 'of', 'the', 'abscess']), ActivityActivityDataRelation(arg1=['drained'], arg2=['abscess', 'contents']), ActivitySpecificationRelation(arg1=['decompose'], arg2=['digitally']), ActivityActivityDataRelation(arg1=['decompose'], arg2=['septae']), ActivityParentRelation(arg1=['drained'], arg2=['Primary', 'suturing', 'under', 'antibiotic', 'coverage']), ActivityParentRelation(arg1=['Incision'], arg2=['Primary', 'suturing', 'under', 'antibiotic', 'coverage']), ActivityActivityDataRelation(arg1=['curettage'], arg2=['sharp', 'spoon'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='Incision', arg2='over the apex of the abscess'), ActivityActivityDataRelation(arg1='drained', arg2='abscess contents'), ActivitySpecificationRelation(arg1='decompose', arg2='digitally'), ActivityActivityDataRelation(arg1='decompose', arg2='septae'), ActivityParentRelation(arg1='drained', arg2='Primary suturing under antibiotic coverage'), ActivityParentRelation(arg1='Incision', arg2='Primary suturing under antibiotic coverage'), ActivityActivityDataRelation(arg1='curettage', arg2='sharp spoon')]",
         "predictions": "[ActivityParentRelation(arg1='Primary suturing under antibiotic coverage', arg2='Incision'), ActivityActivityDataRelation(arg1='drained', arg2='abscess contents'), ActivityActivityDataRelation(arg1='decompose', arg2='septae')]"
     }
 }
 {
     "The cavity is irrigated, close with penetrating prolene ( 1 - 0 or 2 - 0 ) on a large needle.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['close'], arg2=['on', 'a', 'large', 'needle']), ActivityActivityDataRelation(arg1=['close'], arg2=['penetrating', 'prolene', '(', '1', '-', '0', 'or', '2', '-', '0', ')'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='close', arg2='on a large needle'), ActivityActivityDataRelation(arg1='close', arg2='penetrating prolene ( 1 - 0 or 2 - 0 )')]",
         "predictions": "[]"
     }
 }
 {
     "The suture is placed as shown in the figure below.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['placed'], arg2=['as', 'shown', 'in', 'the', 'figure', 'below']), ActivityActivityDataRelation(arg1=['placed'], arg2=['The', 'suture'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='placed', arg2='as shown in the figure below'), ActivityActivityDataRelation(arg1='placed', arg2='The suture')]",
         "predictions": "[]"
     }
 }
 {
     "Give antibiotics according to instructions.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['Give'], arg2=['according', 'to', 'instructions']), ActivityActivityDataRelation(arg1=['Give'], arg2=['antibiotics'])]",
+        "golds": "[ActivitySpecificationRelation(arg1='Give', arg2='according to instructions'), ActivityActivityDataRelation(arg1='Give', arg2='antibiotics')]",
         "predictions": "[]"
     }
 }
@@ -1434,7 +1500,7 @@
 }
 {
     "Do * not * culture from abscesses, except for suspected air-generating infections ( see instructions for necrotizing soft tissue infections ).": {
-        "golds": "[ActivityActivityDataRelation(arg1=['culture'], arg2=['from', 'abscesses']), ActivitySpecificationRelation(arg1=['suspected', 'air-generating', 'infections'], arg2=['see', 'instructions', 'for', 'necrotizing', 'soft', 'tissue', 'infections'])]",
+        "golds": "[ActivityActivityDataRelation(arg1='culture', arg2='from abscesses'), ActivitySpecificationRelation(arg1='suspected air-generating infections', arg2='see instructions for necrotizing soft tissue infections')]",
         "predictions": "[]"
     }
 }
@@ -1446,8 +1512,8 @@
 }
 {
     "Most abscesses can be treated with primary sutures under antibiotic coverage. 1. Large irregular abscesses with significant substance loss or pocket formation. In these cases, conventional treatment is used.": {
-        "golds": "[ActivitySpecificationRelation(arg1=['treated'], arg2=['under', 'antibiotic', 'coverage']), ActivityActivityDataRelation(arg1=['treated'], arg2=['primary', 'sutures']), ActivityActivityDataRelation(arg1=['treated'], arg2=['abscesses']), ActivitySpecificationRelation(arg1=['Large', 'irregular', 'abscesses'], arg2=['pocket', 'formation']), ActivitySpecificationRelation(arg1=['Large', 'irregular', 'abscesses'], arg2=['significant', 'substance', 'loss'])]",
-        "predictions": "[ResponseRelation(arg1='abscesses', arg2='treated'), ActivityActivityDataRelation(arg1='treated', arg2='primary sutures'), ActivityActivityDataRelation(arg1='treated', arg2='under antibiotic coverage')]"
+        "golds": "[ActivitySpecificationRelation(arg1='treated', arg2='under antibiotic coverage'), ActivityActivityDataRelation(arg1='treated', arg2='primary sutures'), ActivityActivityDataRelation(arg1='treated', arg2='abscesses'), ActivitySpecificationRelation(arg1='Large irregular abscesses', arg2='pocket formation'), ActivitySpecificationRelation(arg1='Large irregular abscesses', arg2='significant substance loss')]",
+        "predictions": "[ActivityActivityDataRelation(arg1='treated', arg2='primary sutures'), ActivitySpecificationRelation(arg1='treated', arg2='under antibiotic coverage')]"
     }
 }
 {
